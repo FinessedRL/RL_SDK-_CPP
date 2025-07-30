@@ -8299,7 +8299,7 @@ public:
 };
 
 // Class Engine.SceneCaptureCubeMapComponent
-// 0x001C (0x0100 - 0x011C)
+// 0x0028 (0x0100 - 0x0128)
 class USceneCaptureCubeMapComponent : public USceneCaptureComponent
 {
 public:
@@ -8307,6 +8307,7 @@ public:
 	float                                              NearPlane;                                     // 0x0108 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              FarPlane;                                      // 0x010C (0x0004) [0x0000000000000001] (CPF_Edit)    
 	struct FVector                                     WorldLocation;                                 // 0x0110 (0x000C) [0x0000000000003002] (CPF_Const | CPF_Native | CPF_Transient)
+	struct FPointer                                    RenderThreadCubeCustomPPContext;               // 0x0120 (0x0008) [0x0000000000003000] (CPF_Native | CPF_Transient)
 
 public:
 	static UClass* StaticClass()
@@ -12175,11 +12176,11 @@ public:
 };
 
 // Class Engine.Model
-// 0x0D50 (0x0060 - 0x0DB0)
+// 0x0D30 (0x0060 - 0x0D90)
 class UModel : public UObject
 {
 public:
-	uint8_t                                           UnknownData00[0xD50];                          // 0x0060 (0x0D50) MISSED OFFSET
+	uint8_t                                           UnknownData00[0xD30];                          // 0x0060 (0x0D30) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -12691,6 +12692,7 @@ public:
 		return uClassPointer;
 	};
 
+	bool eventCanCrossplayTextChat();
 	TArray<struct FUniqueNetId> eventGetRemoteSessionPlayerIds();
 	void RemovePlayerFromSession(struct FUniqueNetId PlayerID);
 	void AddPlayerToSession(struct FUniqueNetId PlayerID);
@@ -14675,11 +14677,11 @@ public:
 };
 
 // Class Engine.ShadowMap1D
-// 0x0068 (0x0060 - 0x00C8)
+// 0x0058 (0x0060 - 0x00B8)
 class UShadowMap1D : public UObject
 {
 public:
-	uint8_t                                           UnknownData00[0x68];                           // 0x0060 (0x0068) MISSED OFFSET
+	uint8_t                                           UnknownData00[0x58];                           // 0x0060 (0x0058) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()

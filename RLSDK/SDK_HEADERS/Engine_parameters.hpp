@@ -15460,6 +15460,13 @@ struct UOnlineProfileSettings_execGetProfileSettingDefaultId_Params
 	bool                                               ReturnValue : 1;                                  		// 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
+// Function Engine.OnlineSessionManager.CanCrossplayTextChat
+// [0x00020800] 
+struct UOnlineSessionManager_eventCanCrossplayTextChat_Params
+{
+	bool                                               ReturnValue : 1;                                  		// 0x0000 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+};
+
 // Function Engine.OnlineSessionManager.GetRemoteSessionPlayerIds
 // [0x00020800] 
 struct UOnlineSessionManager_eventGetRemoteSessionPlayerIds_Params
