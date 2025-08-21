@@ -1466,6 +1466,7 @@ public:
 	void PrintReproPhysics(class FString Command, class AActor* A);
 	void ReproPhysics(class AActor* A, float LX, float LY, float LZ, float RX, float RY, float RZ, float RW, float VX, float VY, float VZ, float AX, float AY, float AZ);
 	void DisableCCD();
+	void TriggerDDoSPreventionSystem();
 	void SetNetServerMaxTickRate(float Rate);
 	void ScreenShotDir(class FString Directory);
 	void ListVisiblePrimitives();
@@ -6089,7 +6090,7 @@ public:
 };
 
 // Class ProjectX.OnlineGameDedicatedServer_X
-// 0x0260 (0x0188 - 0x03E8)
+// 0x0288 (0x0188 - 0x0410)
 class UOnlineGameDedicatedServer_X : public UOnlineGameServer_X
 {
 public:
@@ -6108,29 +6109,32 @@ public:
 	float                                              AverageMMR;                                    // 0x0208 (0x0004) [0x0000008000002000] (CPF_Transient)
 	float                                              AverageConservativeMMR;                        // 0x020C (0x0004) [0x0000008000002000] (CPF_Transient)
 	int32_t                                            MachineId;                                     // 0x0210 (0x0004) [0x0000004000002000] (CPF_Transient)
-	struct FCustomMatchSettings                        CustomMatch;                                   // 0x0218 (0x0088) [0x0000004000402000] (CPF_Transient | CPF_NeedCtorLink)
-	struct FUniqueNetId                                CustomMatchOwner;                              // 0x02A0 (0x0048) [0x0000004000402000] (CPF_Transient | CPF_NeedCtorLink)
-	uint64_t                                           CustomMatchClubID;                             // 0x02E8 (0x0008) [0x0000004000002000] (CPF_Transient)
-	uint32_t                                           bQueuedShutdown : 1;                           // 0x02F0 (0x0004) [0x0000004000002000] [0x00000001] (CPF_Transient)
-	uint32_t                                           bFindingReplacementServer : 1;                 // 0x02F0 (0x0004) [0x0000004000002000] [0x00000002] (CPF_Transient)
-	uint32_t                                           bHasValidMigrationServer : 1;                  // 0x02F0 (0x0004) [0x0000008000000000] [0x00000004] 
-	uint32_t                                           bDisableMatchmakingBan : 1;                    // 0x02F0 (0x0004) [0x0000004000002000] [0x00000008] (CPF_Transient)
-	uint32_t                                           bBotTest : 1;                                  // 0x02F0 (0x0004) [0x0000004000002000] [0x00000010] (CPF_Transient)
-	class FString                                      ReplacementServerID;                           // 0x02F8 (0x0010) [0x0000004000402000] (CPF_Transient | CPF_NeedCtorLink)
-	class UServerPlayerTracker_X*                      PlayerTracker;                                 // 0x0308 (0x0008) [0x0000004004082008] (CPF_ExportObject | CPF_Transient | CPF_Component | CPF_EditInline)
-	class UServerExploitManager_X*                     ExploitManager;                                // 0x0310 (0x0008) [0x0000000000002000] (CPF_Transient)
-	class UClass*                                      MatchRecorderClass;                            // 0x0318 (0x0008) [0x0000000000000001] (CPF_Edit)    
-	class UMatchRecorder_X*                            MatchRecorder;                                 // 0x0320 (0x0008) [0x0000008000002000] (CPF_Transient)
-	class UMatchLog_X*                                 MatchLog;                                      // 0x0328 (0x0008) [0x0000000000002000] (CPF_Transient)
-	class UServerConfig_X*                             Config;                                        // 0x0330 (0x0008) [0x0000804000002001] (CPF_Edit | CPF_Transient)
-	class UPsyNetConfig_X*                             PsyNetConfig;                                  // 0x0338 (0x0008) [0x0000800000002000] (CPF_Transient)
-	struct FScriptDelegate                             __EventFoundNewDedicatedServerForPlayers__Delegate;// 0x0340 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
-	struct FScriptDelegate                             __EventAverageMMRChanged__Delegate;            // 0x0358 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
-	struct FScriptDelegate                             __EventPlaylistSet__Delegate;                  // 0x0370 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
-	struct FScriptDelegate                             __EventPrivateMatchSettingsChanged__Delegate;  // 0x0388 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
-	struct FScriptDelegate                             __EventInactive__Delegate;                     // 0x03A0 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
-	struct FScriptDelegate                             __EventActive__Delegate;                       // 0x03B8 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
-	struct FScriptDelegate                             __EventMatchGUIDChanged__Delegate;             // 0x03D0 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
+	class FString                                      Port;                                          // 0x0218 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
+	class FString                                      DDosServicePort;                               // 0x0228 (0x0010) [0x0001004000402000] (CPF_Transient | CPF_NeedCtorLink)
+	class UDDoSService_X*                              DDoSService;                                   // 0x0238 (0x0008) [0x0001000000002000] (CPF_Transient)
+	struct FCustomMatchSettings                        CustomMatch;                                   // 0x0240 (0x0088) [0x0000004000402000] (CPF_Transient | CPF_NeedCtorLink)
+	struct FUniqueNetId                                CustomMatchOwner;                              // 0x02C8 (0x0048) [0x0000004000402000] (CPF_Transient | CPF_NeedCtorLink)
+	uint64_t                                           CustomMatchClubID;                             // 0x0310 (0x0008) [0x0000004000002000] (CPF_Transient)
+	uint32_t                                           bQueuedShutdown : 1;                           // 0x0318 (0x0004) [0x0000004000002000] [0x00000001] (CPF_Transient)
+	uint32_t                                           bFindingReplacementServer : 1;                 // 0x0318 (0x0004) [0x0000004000002000] [0x00000002] (CPF_Transient)
+	uint32_t                                           bHasValidMigrationServer : 1;                  // 0x0318 (0x0004) [0x0000008000000000] [0x00000004] 
+	uint32_t                                           bDisableMatchmakingBan : 1;                    // 0x0318 (0x0004) [0x0000004000002000] [0x00000008] (CPF_Transient)
+	uint32_t                                           bBotTest : 1;                                  // 0x0318 (0x0004) [0x0000004000002000] [0x00000010] (CPF_Transient)
+	class FString                                      ReplacementServerID;                           // 0x0320 (0x0010) [0x0000004000402000] (CPF_Transient | CPF_NeedCtorLink)
+	class UServerPlayerTracker_X*                      PlayerTracker;                                 // 0x0330 (0x0008) [0x0000004004082008] (CPF_ExportObject | CPF_Transient | CPF_Component | CPF_EditInline)
+	class UServerExploitManager_X*                     ExploitManager;                                // 0x0338 (0x0008) [0x0000000000002000] (CPF_Transient)
+	class UClass*                                      MatchRecorderClass;                            // 0x0340 (0x0008) [0x0000000000000001] (CPF_Edit)    
+	class UMatchRecorder_X*                            MatchRecorder;                                 // 0x0348 (0x0008) [0x0000008000002000] (CPF_Transient)
+	class UMatchLog_X*                                 MatchLog;                                      // 0x0350 (0x0008) [0x0000000000002000] (CPF_Transient)
+	class UServerConfig_X*                             Config;                                        // 0x0358 (0x0008) [0x0000804000002001] (CPF_Edit | CPF_Transient)
+	class UPsyNetConfig_X*                             PsyNetConfig;                                  // 0x0360 (0x0008) [0x0000800000002000] (CPF_Transient)
+	struct FScriptDelegate                             __EventFoundNewDedicatedServerForPlayers__Delegate;// 0x0368 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
+	struct FScriptDelegate                             __EventAverageMMRChanged__Delegate;            // 0x0380 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
+	struct FScriptDelegate                             __EventPlaylistSet__Delegate;                  // 0x0398 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
+	struct FScriptDelegate                             __EventPrivateMatchSettingsChanged__Delegate;  // 0x03B0 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
+	struct FScriptDelegate                             __EventInactive__Delegate;                     // 0x03C8 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
+	struct FScriptDelegate                             __EventActive__Delegate;                       // 0x03E0 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
+	struct FScriptDelegate                             __EventMatchGUIDChanged__Delegate;             // 0x03F8 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
 
 public:
 	static UClass* StaticClass()
@@ -6146,7 +6150,11 @@ public:
 	};
 
 	void HandlePsyNetDataLoaded(class UPsyNetStaticData_X* D);
+	void SpinDownDDoSService();
 	void PrintDebugInfo(class UDebugDrawer* Drawer);
+	void eventDDoSAttackDetected(TArray<class FString> ConnectionIPs);
+	void ClearDDoSAttackEvent();
+	void SubscribeToDDoSAttackEvent();
 	class URPC_RecordMatch_X* SendRecordMatchRPC();
 	void ReportMatch();
 	void HandleTrackerPlayerRemoved(class UServerPlayerTracker_X* Tracker, struct FUniqueNetId PlayerID);
@@ -11109,7 +11117,8 @@ public:
 	uint32_t                                           bAllowClubs : 1;                               // 0x009C (0x0004) [0x0000004000000001] [0x00080000] (CPF_Edit)
 	uint32_t                                           bDisableSaveReplays : 1;                       // 0x009C (0x0004) [0x0000004000000001] [0x00100000] (CPF_Edit)
 	uint32_t                                           bOpenDetailsOnFirstTimeClicked : 1;            // 0x009C (0x0004) [0x0000004000000001] [0x00200000] (CPF_Edit)
-	uint32_t                                           bAllowStayAsParty : 1;                         // 0x009C (0x0004) [0x0000000000000001] [0x00400000] (CPF_Edit)
+	uint32_t                                           bEnforceDDoSPrevention : 1;                    // 0x009C (0x0004) [0x0001004000000001] [0x00400000] (CPF_Edit)
+	uint32_t                                           bAllowStayAsParty : 1;                         // 0x009C (0x0004) [0x0000000000000001] [0x00800000] (CPF_Edit)
 	class FString                                      PlaylistImageURL;                              // 0x00A0 (0x0010) [0x0000004000400001] (CPF_Edit | CPF_NeedCtorLink)
 	class FString                                      PlaylistImageTexture;                          // 0x00B0 (0x0010) [0x0000004000400001] (CPF_Edit | CPF_NeedCtorLink)
 	class FString                                      PlaylistIconActiveURL;                         // 0x00C0 (0x0010) [0x0000004000400001] (CPF_Edit | CPF_NeedCtorLink)
@@ -15796,6 +15805,82 @@ public:
 	static bool IsConnectionInfoValid(struct FServerConnectionInfo& ServerInfo);
 };
 
+// Class ProjectX.DDoSService_X
+// 0x0038 (0x0060 - 0x0098)
+class UDDoSService_X : public UObject
+{
+public:
+	class FString                                      DDoSServiceURL;                                // 0x0060 (0x0010) [0x0001000000400000] (CPF_NeedCtorLink)
+	class FString                                      DDoSServiceName;                               // 0x0070 (0x0010) [0x0001000000400000] (CPF_NeedCtorLink)
+	int32_t                                            DDoSServiceVersion;                            // 0x0080 (0x0004) [0x0001000000000000]               
+	uint32_t                                           bDDoSPreventionSystemEnabled : 1;              // 0x0084 (0x0004) [0x0001004000000000] [0x00000001] 
+	TArray<class FString>                              CachedClientIPs;                               // 0x0088 (0x0010) [0x0001000000400000] (CPF_NeedCtorLink)
+
+public:
+	static UClass* StaticClass()
+	{
+		static UClass* uClassPointer = nullptr;
+
+		if (!uClassPointer)
+		{
+			uClassPointer = UObject::FindClass("Class ProjectX.DDoSService_X");
+		}
+
+		return uClassPointer;
+	};
+
+	bool IsPayloadValid(struct FDDoSServicePayloadStruct Payload);
+	class FString GetDDoSServiceURL(class FString ServicePort);
+	void HandleDDoSServiceEndComplete(class UWebRequest_X* Request);
+	class UWebRequest_X* CreateDDoSServiceWebRequest(class FString ServicePort, class FString GamePort, TArray<class FString> ClientIPs, class FString DedicatedServerInstanceId, bool bEnabled);
+	void SendDDoSServiceEnd(class FString ServicePort, class FString GamePort, class FString DedicatedServerInstanceId);
+	void HandleDDoSServiceStartComplete(class UWebRequest_X* Request);
+	void SendDDoSServiceStart(class FString ServicePort, class FString GamePort, TArray<class FString> ClientIPs, class FString DedicatedServerInstanceId);
+};
+
+// Class ProjectX.URLValidator_X
+// 0x0000 (0x0060 - 0x0060)
+class UURLValidator_X : public UObject
+{
+public:
+
+public:
+	static UClass* StaticClass()
+	{
+		static UClass* uClassPointer = nullptr;
+
+		if (!uClassPointer)
+		{
+			uClassPointer = UObject::FindClass("Class ProjectX.URLValidator_X");
+		}
+
+		return uClassPointer;
+	};
+
+	static bool AreCharsUrlSafe(class FString Str);
+	static bool IsQueryValid(class FString Query);
+	static bool IsCharUrlSafe(class FString Char);
+	static bool IsPathValid(class FString Path);
+	static bool IsAlpha(class FString Char);
+	static bool IsHexChar(class FString Char);
+	static bool IsHostnameValid(class FString Host);
+	static bool IsHostnameAndPortValid(class FString HostnameAndPort);
+	static bool AreAllHex(class FString Str);
+	static bool IsIPv6GroupValid(class FString GroupStr);
+	static bool AreAllIPv6GroupsValid(TArray<class FString> GroupsArray);
+	static bool IsIPv6AddressValid(class FString Host);
+	static bool IsIPv6AndPortValid(class FString HostAndPort);
+	static bool IsDigit(class FString Char);
+	static bool AreAllDigits(class FString Str);
+	static bool IsPortValid(class FString PortStr);
+	static bool IsIPv4OctetValid(class FString OctetStr);
+	static bool IsIPv4AddressValid(class FString Host);
+	static bool IsIPv4AndPortValid(class FString HostAndPort);
+	static bool HostLooksLikeIPv4(class FString HostAndPort);
+	static bool IsSchemeValid(class FString Scheme);
+	static bool IsURLValid(class FString URL);
+};
+
 // Class ProjectX.DebugDrawer_X
 // 0x0040 (0x00C0 - 0x0100)
 class UDebugDrawer_X : public UDebugDrawer
@@ -16592,6 +16677,7 @@ public:
 	uint32_t                                           bDisableSaveReplays : 1;                       // 0x0098 (0x0004) [0x0000000000000001] [0x00200000] (CPF_Edit)
 	uint32_t                                           bOpenDetailsOnFirstTimeClicked : 1;            // 0x0098 (0x0004) [0x0000000000000001] [0x00400000] (CPF_Edit)
 	uint32_t                                           bAllowStayAsParty : 1;                         // 0x0098 (0x0004) [0x0000000000000001] [0x00800000] (CPF_Edit)
+	uint32_t                                           bEnforceDDoSPrevention : 1;                    // 0x0098 (0x0004) [0x0000000000000001] [0x01000000] (CPF_Edit)
 	class FString                                      PlaylistImageURL;                              // 0x00A0 (0x0010) [0x0000000000400001] (CPF_Edit | CPF_NeedCtorLink)
 	class FString                                      PlaylistImageTexture;                          // 0x00B0 (0x0010) [0x0000000000400001] (CPF_Edit | CPF_NeedCtorLink)
 	class FString                                      PlaylistIconActiveURL;                         // 0x00C0 (0x0010) [0x0000000000400001] (CPF_Edit | CPF_NeedCtorLink)

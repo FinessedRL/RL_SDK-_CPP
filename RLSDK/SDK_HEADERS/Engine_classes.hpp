@@ -12241,7 +12241,7 @@ public:
 };
 
 // Class Engine.NetDriver
-// 0x01F0 (0x0068 - 0x0258)
+// 0x0230 (0x0068 - 0x0298)
 class UNetDriver : public USubsystem
 {
 public:
@@ -12269,7 +12269,7 @@ public:
 	TArray<class FString>                              DownloadManagers;                              // 0x0158 (0x0010) [0x0000000000404000] (CPF_Config | CPF_NeedCtorLink)
 	uint8_t                                           UnknownData03[0xA8];                           // 0x0168 (0x00A8) MISSED OFFSET
 	class FString                                      NetConnectionClassName;                        // 0x0210 (0x0010) [0x0000000000404000] (CPF_Config | CPF_NeedCtorLink)
-	uint8_t                                           UnknownData04[0x38];                           // 0x0220 (0x0038) MISSED OFFSET
+	uint8_t                                           UnknownData04[0x78];                           // 0x0220 (0x0078) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -12287,17 +12287,17 @@ public:
 };
 
 // Class Engine.DemoRecDriver
-// 0x00F8 (0x0258 - 0x0350)
+// 0x00F8 (0x0298 - 0x0390)
 class UDemoRecDriver : public UNetDriver
 {
 public:
-	uint8_t                                           UnknownData00[0x30];                           // 0x0258 (0x0030) MISSED OFFSET
-	class FString                                      DemoSpectatorClass;                            // 0x0288 (0x0010) [0x0000000000404000] (CPF_Config | CPF_NeedCtorLink)
-	uint8_t                                           UnknownData01[0xA0];                           // 0x0298 (0x00A0) MISSED OFFSET
-	int32_t                                            MaxRewindPoints;                               // 0x0338 (0x0004) [0x0000000000004000] (CPF_Config)  
-	float                                              RewindPointInterval;                           // 0x0340 (0x0004) [0x0000000000004000] (CPF_Config)  
-	int32_t                                            NumRecentRewindPoints;                         // 0x0344 (0x0004) [0x0000000000004000] (CPF_Config)  
-	uint8_t                                           UnknownData02[0x8];                            // 0x0348 (0x0008) MISSED OFFSET
+	uint8_t                                           UnknownData00[0x30];                           // 0x0298 (0x0030) MISSED OFFSET
+	class FString                                      DemoSpectatorClass;                            // 0x02C8 (0x0010) [0x0000000000404000] (CPF_Config | CPF_NeedCtorLink)
+	uint8_t                                           UnknownData01[0xA0];                           // 0x02D8 (0x00A0) MISSED OFFSET
+	int32_t                                            MaxRewindPoints;                               // 0x0378 (0x0004) [0x0000000000004000] (CPF_Config)  
+	float                                              RewindPointInterval;                           // 0x0380 (0x0004) [0x0000000000004000] (CPF_Config)  
+	int32_t                                            NumRecentRewindPoints;                         // 0x0384 (0x0004) [0x0000000000004000] (CPF_Config)  
+	uint8_t                                           UnknownData02[0x8];                            // 0x0388 (0x0008) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
