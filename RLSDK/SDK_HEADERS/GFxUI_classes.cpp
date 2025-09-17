@@ -1710,6 +1710,28 @@ class UGameViewportClient* UGFxMoviePlayer::GetGameViewportClient()
 	return GetGameViewportClient_Params.ReturnValue;
 };
 
+// Function GFxUI.GFxMoviePlayer.RequestGarbageCollection
+// [0x00024401] (FUNC_Final | FUNC_Native | FUNC_NetMulticast | FUNC_Public | FUNC_AllFlags)
+// Parameter Info:
+// EGFxCollectionMode             Mode                           (CPF_OptionalParm | CPF_Parm)
+// bool                           bImmediate                     (CPF_OptionalParm | CPF_Parm)
+
+void UGFxMoviePlayer::RequestGarbageCollection(EGFxCollectionMode Mode, bool bImmediate)
+{
+	static UFunction* uFnRequestGarbageCollection = nullptr;
+
+	if (!uFnRequestGarbageCollection)
+	{
+		uFnRequestGarbageCollection = UFunction::FindFunction("Function GFxUI.GFxMoviePlayer.RequestGarbageCollection");
+	}
+
+	UGFxMoviePlayer_execRequestGarbageCollection_Params RequestGarbageCollection_Params;
+	memcpy_s(&RequestGarbageCollection_Params.Mode, sizeof(RequestGarbageCollection_Params.Mode), &Mode, sizeof(Mode));
+	RequestGarbageCollection_Params.bImmediate = bImmediate;
+
+	this->ProcessEvent(uFnRequestGarbageCollection, &RequestGarbageCollection_Params, nullptr);
+};
+
 // Function GFxUI.GFxMoviePlayer.SetPriority
 // [0x00020401] (FUNC_Final | FUNC_Native | FUNC_Public | FUNC_AllFlags)
 // Parameter Info:

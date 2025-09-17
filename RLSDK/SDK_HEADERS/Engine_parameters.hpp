@@ -17657,6 +17657,14 @@ struct UGameViewportClient_execEventScaleformEnabledChanged_Params
 	class UGameViewportClient*                         GVC;                                              		// 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
 };
 
+// Function Engine.GameViewportClient.EventScreenDraggedOnNewScreen
+// [0x00120001] 
+struct UGameViewportClient_execEventScreenDraggedOnNewScreen_Params
+{
+	int32_t                                            NewWidth;                                         		// 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
+	int32_t                                            NewHeight;                                        		// 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
+};
+
 // Function Engine.GameViewportClient.HandleInputChar
 // [0x00120001] 
 struct UGameViewportClient_execHandleInputChar_Params
@@ -18166,6 +18174,13 @@ struct USurface_execGetSurfaceHeight_Params
 struct USurface_execGetSurfaceWidth_Params
 {
 	float                                              ReturnValue;                                      		// 0x0000 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+};
+
+// Function Engine.MaterialInterface.WaitForMipLevelsToStream
+// [0x00020401] 
+struct UMaterialInterface_execWaitForMipLevelsToStream_Params
+{
+	float                                              MaxWaitSeconds;                                   		// 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 };
 
 // Function Engine.MaterialInterface.GetOrCreateInstance

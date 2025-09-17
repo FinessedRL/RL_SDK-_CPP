@@ -620,6 +620,14 @@ struct UGFxMoviePlayer_execGetGameViewportClient_Params
 	class UGameViewportClient*                         ReturnValue;                                      		// 0x0000 (0x0008) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
+// Function GFxUI.GFxMoviePlayer.RequestGarbageCollection
+// [0x00024401] 
+struct UGFxMoviePlayer_execRequestGarbageCollection_Params
+{
+	uint8_t                                            Mode;                                             		// 0x0000 (0x0001) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	uint32_t                                           bImmediate : 1;                                   		// 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+};
+
 // Function GFxUI.GFxMoviePlayer.SetPriority
 // [0x00020401] 
 struct UGFxMoviePlayer_execSetPriority_Params

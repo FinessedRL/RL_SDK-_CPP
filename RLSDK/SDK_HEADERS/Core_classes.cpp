@@ -9376,6 +9376,60 @@ bool UObject::EqualEqual_QWordInt(uint64_t A, int32_t B)
 	return EqualEqual_QWordInt_Params.ReturnValue;
 };
 
+// Function Core.Object.SubtractEqual_QWordQWord
+// [0x00423401] (FUNC_Final | FUNC_Native | FUNC_NetResponse | FUNC_Static | FUNC_Public | FUNC_HasOutParms | FUNC_AllFlags)
+// Parameter Info:
+// uint64_t                       ReturnValue                    (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+// uint64_t                       B                              (CPF_Parm)
+// uint64_t                       A                              (CPF_Parm | CPF_OutParm)
+
+uint64_t UObject::SubtractEqual_QWordQWord(uint64_t B, uint64_t& A)
+{
+	static UFunction* uFnSubtractEqual_QWordQWord = nullptr;
+
+	if (!uFnSubtractEqual_QWordQWord)
+	{
+		uFnSubtractEqual_QWordQWord = UFunction::FindFunction("Function Core.Object.SubtractEqual_QWordQWord");
+	}
+
+	UObject_execSubtractEqual_QWordQWord_Params SubtractEqual_QWordQWord_Params;
+	SubtractEqual_QWordQWord_Params.B = B;
+	SubtractEqual_QWordQWord_Params.A = A;
+
+	UObject::StaticClass()->ProcessEvent(uFnSubtractEqual_QWordQWord, &SubtractEqual_QWordQWord_Params, nullptr);
+
+	A = SubtractEqual_QWordQWord_Params.A;
+
+	return SubtractEqual_QWordQWord_Params.ReturnValue;
+};
+
+// Function Core.Object.AddEqual_QWordQWord
+// [0x00423401] (FUNC_Final | FUNC_Native | FUNC_NetResponse | FUNC_Static | FUNC_Public | FUNC_HasOutParms | FUNC_AllFlags)
+// Parameter Info:
+// uint64_t                       ReturnValue                    (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+// uint64_t                       B                              (CPF_Parm)
+// uint64_t                       A                              (CPF_Parm | CPF_OutParm)
+
+uint64_t UObject::AddEqual_QWordQWord(uint64_t B, uint64_t& A)
+{
+	static UFunction* uFnAddEqual_QWordQWord = nullptr;
+
+	if (!uFnAddEqual_QWordQWord)
+	{
+		uFnAddEqual_QWordQWord = UFunction::FindFunction("Function Core.Object.AddEqual_QWordQWord");
+	}
+
+	UObject_execAddEqual_QWordQWord_Params AddEqual_QWordQWord_Params;
+	AddEqual_QWordQWord_Params.B = B;
+	AddEqual_QWordQWord_Params.A = A;
+
+	UObject::StaticClass()->ProcessEvent(uFnAddEqual_QWordQWord, &AddEqual_QWordQWord_Params, nullptr);
+
+	A = AddEqual_QWordQWord_Params.A;
+
+	return AddEqual_QWordQWord_Params.ReturnValue;
+};
+
 // Function Core.Object.NotEqual_QWordQWord
 // [0x00023401] (FUNC_Final | FUNC_Native | FUNC_NetResponse | FUNC_Static | FUNC_Public | FUNC_AllFlags)
 // Parameter Info:
@@ -9574,6 +9628,56 @@ uint64_t UObject::Add_QWordQWord(uint64_t A, uint64_t B)
 	UObject::StaticClass()->ProcessEvent(uFnAdd_QWordQWord, &Add_QWordQWord_Params, nullptr);
 
 	return Add_QWordQWord_Params.ReturnValue;
+};
+
+// Function Core.Object.Divide_QWordQWord
+// [0x00023401] (FUNC_Final | FUNC_Native | FUNC_NetResponse | FUNC_Static | FUNC_Public | FUNC_AllFlags)
+// Parameter Info:
+// uint64_t                       ReturnValue                    (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+// uint64_t                       A                              (CPF_Parm)
+// uint64_t                       B                              (CPF_Parm)
+
+uint64_t UObject::Divide_QWordQWord(uint64_t A, uint64_t B)
+{
+	static UFunction* uFnDivide_QWordQWord = nullptr;
+
+	if (!uFnDivide_QWordQWord)
+	{
+		uFnDivide_QWordQWord = UFunction::FindFunction("Function Core.Object.Divide_QWordQWord");
+	}
+
+	UObject_execDivide_QWordQWord_Params Divide_QWordQWord_Params;
+	Divide_QWordQWord_Params.A = A;
+	Divide_QWordQWord_Params.B = B;
+
+	UObject::StaticClass()->ProcessEvent(uFnDivide_QWordQWord, &Divide_QWordQWord_Params, nullptr);
+
+	return Divide_QWordQWord_Params.ReturnValue;
+};
+
+// Function Core.Object.Multiply_QWordQWord
+// [0x00023401] (FUNC_Final | FUNC_Native | FUNC_NetResponse | FUNC_Static | FUNC_Public | FUNC_AllFlags)
+// Parameter Info:
+// uint64_t                       ReturnValue                    (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+// uint64_t                       A                              (CPF_Parm)
+// uint64_t                       B                              (CPF_Parm)
+
+uint64_t UObject::Multiply_QWordQWord(uint64_t A, uint64_t B)
+{
+	static UFunction* uFnMultiply_QWordQWord = nullptr;
+
+	if (!uFnMultiply_QWordQWord)
+	{
+		uFnMultiply_QWordQWord = UFunction::FindFunction("Function Core.Object.Multiply_QWordQWord");
+	}
+
+	UObject_execMultiply_QWordQWord_Params Multiply_QWordQWord_Params;
+	Multiply_QWordQWord_Params.A = A;
+	Multiply_QWordQWord_Params.B = B;
+
+	UObject::StaticClass()->ProcessEvent(uFnMultiply_QWordQWord, &Multiply_QWordQWord_Params, nullptr);
+
+	return Multiply_QWordQWord_Params.ReturnValue;
 };
 
 // Function Core.Object.SubtractSubtract_Int
