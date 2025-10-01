@@ -2062,6 +2062,44 @@ public:
 
 };
 
+// Class Engine.ScriptGroup_ORS
+// 0x0008 (0x0060 - 0x0068)
+class UScriptGroup_ORS : public UObject
+{
+public:
+	class UObject*                                     GroupOwner;                                    // 0x0060 (0x0008) [0x0000000000000002] (CPF_Const)   
+
+public:
+	static UClass* StaticClass()
+	{
+		static UClass* uClassPointer = nullptr;
+
+		if (!uClassPointer)
+		{
+			uClassPointer = UObject::FindClass("Class Engine.ScriptGroup_ORS");
+		}
+
+		return uClassPointer;
+	};
+
+	void ClearTimerClass(class UClass* EventClass);
+	void ClearTimer(class UObject* Event);
+	void SetGameTimer(class UObject* Event, float Delay, struct FTimerOptions Options);
+	void SetTimer(class UObject* Event, float Delay, struct FTimerOptions Options);
+	void Broadcast(class UObject* Event);
+	void CreateObjects(class UObject* ObjOuter, TArray<class UClass*>& ObjectClasses);
+	class UObject* CreateObject(class UClass* ObjectClass, class UObject* ObjOuter);
+	class UObject* GetOrCreateObject(class UClass* ObjectClass, class UObject* ObjOuter);
+	class UObject* GetObjectW(class UClass* ObjectClass);
+	class UObject* DestroyClass(class UClass* ObjectClass);
+	void RemoveAllClasses(class UClass* ObjectClass);
+	class UObject* RemoveClass(class UClass* ObjectClass);
+	void DestroyObject(class UObject* Object);
+	void RemoveObject(class UObject* Object);
+	void AddObject(class UObject* Object);
+	void SetGroupParent(class UObject* ParentGroup);
+};
+
 // Class Core.Group_ORS
 // 0x00D0 (0x0068 - 0x0138)
 class UGroup_ORS : public UScriptGroup_ORS
