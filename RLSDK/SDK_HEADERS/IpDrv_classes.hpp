@@ -2106,14 +2106,14 @@ public:
 };
 
 // Class IpDrv.TcpNetDriver
-// 0x0080 (0x0258 - 0x02D8)
+// 0x0080 (0x0298 - 0x0318)
 class UTcpNetDriver : public UNetDriver
 {
 public:
-	uint8_t                                           UnknownData00[0x58];                           // 0x0258 (0x0058) MISSED OFFSET
-	uint32_t                                           AllowPlayerPortUnreach : 1;                    // 0x02B0 (0x0004) [0x0000000000004000] [0x00000001] (CPF_Config)
-	uint32_t                                           LogPortUnreach : 1;                            // 0x02B4 (0x0004) [0x0000000000004000] [0x00000001] (CPF_Config)
-	uint8_t                                           UnknownData01[0x20];                           // 0x02B8 (0x0020) MISSED OFFSET
+	uint8_t                                           UnknownData00[0x58];                           // 0x0298 (0x0058) MISSED OFFSET
+	uint32_t                                           AllowPlayerPortUnreach : 1;                    // 0x02F0 (0x0004) [0x0000000000004000] [0x00000001] (CPF_Config)
+	uint32_t                                           LogPortUnreach : 1;                            // 0x02F4 (0x0004) [0x0000000000004000] [0x00000001] (CPF_Config)
+	uint8_t                                           UnknownData01[0x20];                           // 0x02F8 (0x0020) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()

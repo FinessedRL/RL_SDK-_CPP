@@ -3148,6 +3148,7 @@ public:
 	uint32_t                                           ThankYouMessage : 1;                           // 0x0078 (0x0004) [0x0000000040000000] [0x00020000] (CPF_EditInlineNotify)
 	uint32_t                                           AttackerDemoFX : 1;                            // 0x0078 (0x0004) [0x0000000040000000] [0x00040000] (CPF_EditInlineNotify)
 	uint32_t                                           NewDriverChallengesV2 : 1;                     // 0x0078 (0x0004) [0x0000000040000000] [0x00080000] (CPF_EditInlineNotify)
+	uint32_t                                           DdosPrevention : 1;                            // 0x0078 (0x0004) [0x0000000040000000] [0x01000000] (CPF_EditInlineNotify)
 
 public:
 	static UClass* StaticClass()
