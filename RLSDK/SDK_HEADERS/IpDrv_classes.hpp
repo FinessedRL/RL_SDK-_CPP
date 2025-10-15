@@ -422,7 +422,7 @@ public:
 };
 
 // Class IpDrv.OnlineSubsystemCommonImpl
-// 0x0060 (0x0378 - 0x03D8)
+// 0x0048 (0x0378 - 0x03C0)
 class UOnlineSubsystemCommonImpl : public UOnlineSubsystem
 {
 public:
@@ -434,7 +434,6 @@ public:
 	class UOnlineAuthInterfaceImpl*                    AuthInterfaceImpl;                             // 0x0398 (0x0008) [0x0000000000000000]               
 	class UOnlinePurchaseInterfaceImpl*                PurchaseInterfaceImpl;                         // 0x03A0 (0x0008) [0x0000000000000000]               
 	struct FScriptDelegate                             __OnSanitizeStringComplete__Delegate;          // 0x03A8 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
-	struct FScriptDelegate                             __OnPlayerCountryRetrieved__Delegate;          // 0x03C0 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
 
 public:
 	static UClass* StaticClass()
@@ -452,7 +451,6 @@ public:
 	void GetRegisteredPlayers(struct FName SessionName, TArray<struct FUniqueNetId>& OutRegisteredPlayers);
 	bool IsPlayerInSession(struct FName SessionName, struct FUniqueNetId PlayerID);
 	class FString eventGetPlayerNicknameFromIndex(int32_t UserIndex);
-	void OnPlayerCountryRetrieved(struct FUniqueNetId PlayerID, class FString Country);
 	void OnSanitizeStringComplete(struct FWordFilterResult Result);
 };
 

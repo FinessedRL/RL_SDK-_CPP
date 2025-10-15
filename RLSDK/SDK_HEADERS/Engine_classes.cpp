@@ -48094,28 +48094,6 @@ void UGameViewportClient::EventScaleformEnabledChanged(class UGameViewportClient
 	this->ProcessEvent(uFnEventScaleformEnabledChanged, &EventScaleformEnabledChanged_Params, nullptr);
 };
 
-// Function Engine.GameViewportClient.EventScreenDraggedOnNewScreen
-// [0x00120001] (FUNC_Final | FUNC_Public | FUNC_Delegate | FUNC_AllFlags)
-// Parameter Info:
-// int32_t                        NewWidth                       (CPF_Parm)
-// int32_t                        NewHeight                      (CPF_Parm)
-
-void UGameViewportClient::EventScreenDraggedOnNewScreen(int32_t NewWidth, int32_t NewHeight)
-{
-	static UFunction* uFnEventScreenDraggedOnNewScreen = nullptr;
-
-	if (!uFnEventScreenDraggedOnNewScreen)
-	{
-		uFnEventScreenDraggedOnNewScreen = UFunction::FindFunction("Function Engine.GameViewportClient.EventScreenDraggedOnNewScreen");
-	}
-
-	UGameViewportClient_execEventScreenDraggedOnNewScreen_Params EventScreenDraggedOnNewScreen_Params;
-	memcpy_s(&EventScreenDraggedOnNewScreen_Params.NewWidth, sizeof(EventScreenDraggedOnNewScreen_Params.NewWidth), &NewWidth, sizeof(NewWidth));
-	memcpy_s(&EventScreenDraggedOnNewScreen_Params.NewHeight, sizeof(EventScreenDraggedOnNewScreen_Params.NewHeight), &NewHeight, sizeof(NewHeight));
-
-	this->ProcessEvent(uFnEventScreenDraggedOnNewScreen, &EventScreenDraggedOnNewScreen_Params, nullptr);
-};
-
 // Function Engine.GameViewportClient.HandleInputChar
 // [0x00120001] (FUNC_Final | FUNC_Public | FUNC_Delegate | FUNC_AllFlags)
 // Parameter Info:
@@ -49615,26 +49593,6 @@ float USurface::GetSurfaceWidth()
 	this->ProcessEvent(uFnGetSurfaceWidth, &GetSurfaceWidth_Params, nullptr);
 
 	return GetSurfaceWidth_Params.ReturnValue;
-};
-
-// Function Engine.MaterialInterface.WaitForMipLevelsToStream
-// [0x00020401] (FUNC_Final | FUNC_Native | FUNC_Public | FUNC_AllFlags)
-// Parameter Info:
-// float                          MaxWaitSeconds                 (CPF_Parm)
-
-void UMaterialInterface::WaitForMipLevelsToStream(float MaxWaitSeconds)
-{
-	static UFunction* uFnWaitForMipLevelsToStream = nullptr;
-
-	if (!uFnWaitForMipLevelsToStream)
-	{
-		uFnWaitForMipLevelsToStream = UFunction::FindFunction("Function Engine.MaterialInterface.WaitForMipLevelsToStream");
-	}
-
-	UMaterialInterface_execWaitForMipLevelsToStream_Params WaitForMipLevelsToStream_Params;
-	memcpy_s(&WaitForMipLevelsToStream_Params.MaxWaitSeconds, sizeof(WaitForMipLevelsToStream_Params.MaxWaitSeconds), &MaxWaitSeconds, sizeof(MaxWaitSeconds));
-
-	this->ProcessEvent(uFnWaitForMipLevelsToStream, &WaitForMipLevelsToStream_Params, nullptr);
 };
 
 // Function Engine.MaterialInterface.GetOrCreateInstance
@@ -89739,9 +89697,10 @@ class FString UOnlinePlayerInterface::GetPlayerLanguage(uint8_t LocalUserNum)
 // Function Engine.OnlinePlayerInterface.GetPlayerCountry
 // [0x00020000] (FUNC_Public | FUNC_AllFlags)
 // Parameter Info:
+// class FString                  ReturnValue                    (CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink)
 // uint8_t                        LocalUserNum                   (CPF_Parm)
 
-void UOnlinePlayerInterface::GetPlayerCountry(uint8_t LocalUserNum)
+class FString UOnlinePlayerInterface::GetPlayerCountry(uint8_t LocalUserNum)
 {
 	static UFunction* uFnGetPlayerCountry = nullptr;
 
@@ -89754,50 +89713,8 @@ void UOnlinePlayerInterface::GetPlayerCountry(uint8_t LocalUserNum)
 	memcpy_s(&GetPlayerCountry_Params.LocalUserNum, sizeof(GetPlayerCountry_Params.LocalUserNum), &LocalUserNum, sizeof(LocalUserNum));
 
 	this->ProcessEvent(uFnGetPlayerCountry, &GetPlayerCountry_Params, nullptr);
-};
 
-// Function Engine.OnlinePlayerInterface.ClearReadPlayerCountryDelegate
-// [0x00020000] (FUNC_Public | FUNC_AllFlags)
-// Parameter Info:
-// uint8_t                        LocalUserNum                   (CPF_Parm)
-// struct FScriptDelegate         ReadPlayerCountryDelegate      (CPF_Parm | CPF_NeedCtorLink)
-
-void UOnlinePlayerInterface::ClearReadPlayerCountryDelegate(uint8_t LocalUserNum, struct FScriptDelegate ReadPlayerCountryDelegate)
-{
-	static UFunction* uFnClearReadPlayerCountryDelegate = nullptr;
-
-	if (!uFnClearReadPlayerCountryDelegate)
-	{
-		uFnClearReadPlayerCountryDelegate = UFunction::FindFunction("Function Engine.OnlinePlayerInterface.ClearReadPlayerCountryDelegate");
-	}
-
-	UOnlinePlayerInterface_execClearReadPlayerCountryDelegate_Params ClearReadPlayerCountryDelegate_Params;
-	memcpy_s(&ClearReadPlayerCountryDelegate_Params.LocalUserNum, sizeof(ClearReadPlayerCountryDelegate_Params.LocalUserNum), &LocalUserNum, sizeof(LocalUserNum));
-	memcpy_s(&ClearReadPlayerCountryDelegate_Params.ReadPlayerCountryDelegate, sizeof(ClearReadPlayerCountryDelegate_Params.ReadPlayerCountryDelegate), &ReadPlayerCountryDelegate, sizeof(ReadPlayerCountryDelegate));
-
-	this->ProcessEvent(uFnClearReadPlayerCountryDelegate, &ClearReadPlayerCountryDelegate_Params, nullptr);
-};
-
-// Function Engine.OnlinePlayerInterface.AddReadPlayerCountryDelegate
-// [0x00020000] (FUNC_Public | FUNC_AllFlags)
-// Parameter Info:
-// uint8_t                        LocalUserNum                   (CPF_Parm)
-// struct FScriptDelegate         ReadPlayerCountryDelegate      (CPF_Parm | CPF_NeedCtorLink)
-
-void UOnlinePlayerInterface::AddReadPlayerCountryDelegate(uint8_t LocalUserNum, struct FScriptDelegate ReadPlayerCountryDelegate)
-{
-	static UFunction* uFnAddReadPlayerCountryDelegate = nullptr;
-
-	if (!uFnAddReadPlayerCountryDelegate)
-	{
-		uFnAddReadPlayerCountryDelegate = UFunction::FindFunction("Function Engine.OnlinePlayerInterface.AddReadPlayerCountryDelegate");
-	}
-
-	UOnlinePlayerInterface_execAddReadPlayerCountryDelegate_Params AddReadPlayerCountryDelegate_Params;
-	memcpy_s(&AddReadPlayerCountryDelegate_Params.LocalUserNum, sizeof(AddReadPlayerCountryDelegate_Params.LocalUserNum), &LocalUserNum, sizeof(LocalUserNum));
-	memcpy_s(&AddReadPlayerCountryDelegate_Params.ReadPlayerCountryDelegate, sizeof(AddReadPlayerCountryDelegate_Params.ReadPlayerCountryDelegate), &ReadPlayerCountryDelegate, sizeof(ReadPlayerCountryDelegate));
-
-	this->ProcessEvent(uFnAddReadPlayerCountryDelegate, &AddReadPlayerCountryDelegate_Params, nullptr);
+	return GetPlayerCountry_Params.ReturnValue;
 };
 
 // Function Engine.OnlinePlayerInterface.GetAchievements
@@ -93433,28 +93350,6 @@ void UOnlinePlayerInterface::CanPlayOnlineChanged(uint8_t LocalUserNum)
 	memcpy_s(&CanPlayOnlineChanged_Params.LocalUserNum, sizeof(CanPlayOnlineChanged_Params.LocalUserNum), &LocalUserNum, sizeof(LocalUserNum));
 
 	this->ProcessEvent(uFnCanPlayOnlineChanged, &CanPlayOnlineChanged_Params, nullptr);
-};
-
-// Function Engine.OnlinePlayerInterface.OnPlayerCountryRetrieved
-// [0x00120000] (FUNC_Public | FUNC_Delegate | FUNC_AllFlags)
-// Parameter Info:
-// struct FUniqueNetId            PlayerID                       (CPF_Parm | CPF_NeedCtorLink)
-// class FString                  Country                        (CPF_Parm | CPF_NeedCtorLink)
-
-void UOnlinePlayerInterface::OnPlayerCountryRetrieved(struct FUniqueNetId PlayerID, class FString Country)
-{
-	static UFunction* uFnOnPlayerCountryRetrieved = nullptr;
-
-	if (!uFnOnPlayerCountryRetrieved)
-	{
-		uFnOnPlayerCountryRetrieved = UFunction::FindFunction("Function Engine.OnlinePlayerInterface.OnPlayerCountryRetrieved");
-	}
-
-	UOnlinePlayerInterface_execOnPlayerCountryRetrieved_Params OnPlayerCountryRetrieved_Params;
-	memcpy_s(&OnPlayerCountryRetrieved_Params.PlayerID, sizeof(OnPlayerCountryRetrieved_Params.PlayerID), &PlayerID, sizeof(PlayerID));
-	memcpy_s(&OnPlayerCountryRetrieved_Params.Country, sizeof(OnPlayerCountryRetrieved_Params.Country), &Country, sizeof(Country));
-
-	this->ProcessEvent(uFnOnPlayerCountryRetrieved, &OnPlayerCountryRetrieved_Params, nullptr);
 };
 
 // Function Engine.OnlinePlayerInterface.FriendPresenceChange
