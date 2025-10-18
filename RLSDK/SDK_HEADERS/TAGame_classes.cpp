@@ -223936,6 +223936,30 @@ void U__TextChatActor_TA__SendSignedMessage_0x1::__TextChatActor_TA__SendSignedM
 	this->ProcessEvent(uFn__TextChatActor_TA__SendSignedMessage_0x1, &__TextChatActor_TA__SendSignedMessage_0x1_Params, nullptr);
 };
 
+// Function TAGame.__TextModerationManager_TA__HandleCryptoKeyCreated_0x1.__TextModerationManager_TA__HandleCryptoKeyCreated_0x3
+// [0x20020003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Public | FUNC_EditorOnly | FUNC_AllFlags)
+// Parameter Info:
+// class UKeyRegistrationResponse* Response                       (CPF_Parm)
+// class UError*                  Error                          (CPF_Parm)
+// int32_t                        ResponseCode                   (CPF_Parm)
+
+void U__TextModerationManager_TA__HandleCryptoKeyCreated_0x1::__TextModerationManager_TA__HandleCryptoKeyCreated_0x3(class UKeyRegistrationResponse* Response, class UError* Error, int32_t ResponseCode)
+{
+	static UFunction* uFn__TextModerationManager_TA__HandleCryptoKeyCreated_0x3 = nullptr;
+
+	if (!uFn__TextModerationManager_TA__HandleCryptoKeyCreated_0x3)
+	{
+		uFn__TextModerationManager_TA__HandleCryptoKeyCreated_0x3 = UFunction::FindFunction("Function TAGame.__TextModerationManager_TA__HandleCryptoKeyCreated_0x1.__TextModerationManager_TA__HandleCryptoKeyCreated_0x3");
+	}
+
+	U__TextModerationManager_TA__HandleCryptoKeyCreated_0x1_exec__TextModerationManager_TA__HandleCryptoKeyCreated_0x3_Params __TextModerationManager_TA__HandleCryptoKeyCreated_0x3_Params;
+	memcpy_s(&__TextModerationManager_TA__HandleCryptoKeyCreated_0x3_Params.Response, sizeof(__TextModerationManager_TA__HandleCryptoKeyCreated_0x3_Params.Response), &Response, sizeof(Response));
+	memcpy_s(&__TextModerationManager_TA__HandleCryptoKeyCreated_0x3_Params.Error, sizeof(__TextModerationManager_TA__HandleCryptoKeyCreated_0x3_Params.Error), &Error, sizeof(Error));
+	memcpy_s(&__TextModerationManager_TA__HandleCryptoKeyCreated_0x3_Params.ResponseCode, sizeof(__TextModerationManager_TA__HandleCryptoKeyCreated_0x3_Params.ResponseCode), &ResponseCode, sizeof(ResponseCode));
+
+	this->ProcessEvent(uFn__TextModerationManager_TA__HandleCryptoKeyCreated_0x3, &__TextModerationManager_TA__HandleCryptoKeyCreated_0x3_Params, nullptr);
+};
+
 // Function TAGame.__TextModerationManager_TA__HandleCryptoKeyCreated_0x1.__TextModerationManager_TA__HandleCryptoKeyCreated_0x2
 // [0x20020003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Public | FUNC_EditorOnly | FUNC_AllFlags)
 // Parameter Info:

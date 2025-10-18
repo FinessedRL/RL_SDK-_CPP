@@ -8105,9 +8105,9 @@ public:
 	bool __CrossplayConfig_X__GetDisabledCrossplayGroup_0x1(struct FCrossplayGroup P);
 };
 
-// Class ProjectX.__EOSHelpers_X__RequestEASAuth_0x1
+// Class ProjectX.__EOSHelpers_X__RequestEOSToken_0x1
 // 0x0018 (0x0060 - 0x0078)
-class U__EOSHelpers_X__RequestEASAuth_0x1 : public UObject
+class U__EOSHelpers_X__RequestEOSToken_0x1 : public UObject
 {
 public:
 	struct FScriptDelegate                             Callback;                                      // 0x0060 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
@@ -8119,13 +8119,13 @@ public:
 
 		if (!uClassPointer)
 		{
-			uClassPointer = UObject::FindClass("Class ProjectX.__EOSHelpers_X__RequestEASAuth_0x1");
+			uClassPointer = UObject::FindClass("Class ProjectX.__EOSHelpers_X__RequestEOSToken_0x1");
 		}
 
 		return uClassPointer;
 	};
 
-	void __EOSHelpers_X__RequestEASAuth_0x1(class UWebRequest_X* Response);
+	void __EOSHelpers_X__RequestEOSToken_0x1(class UWebRequest_X* Response);
 };
 
 // Class ProjectX.EASAuthResponse
@@ -8180,8 +8180,8 @@ public:
 	};
 
 	static void SendHTTPRequestSelectAuth(class FString Verb, class FString URL, bool bAddContentTypeHeader, class UClass* ResponseClass, struct FScriptDelegate Callback, struct FScriptDelegate ConvertErrorNew, class UOnlineSubsystem* EOS, int32_t LocalPlayerNum, class FString BodyJson, class FString Continuation, class FString DisplayNameHint, class FString DOB, class FString BearerAuthTicket, class FString ContentType);
-	static void SendHTTPRequestEASAuth(class FString Verb, class FString URL, bool bAddContentTypeHeader, class UClass* ResponseClass, struct FScriptDelegate Callback, struct FScriptDelegate ConvertErrorNew, class UOnlineSubsystem* EOS, int32_t LocalPlayerNum, class FString BodyJson);
-	static void RequestEASAuth(class FString URL, class FString ClientCredentials, class FString ClientID, class FString ClientSecret, struct FScriptDelegate Callback);
+	static void SendHTTPRequestEOSToken(class FString Verb, class FString URL, bool bAddContentTypeHeader, class UClass* ResponseClass, struct FScriptDelegate Callback, struct FScriptDelegate ConvertErrorNew, class UOnlineSubsystem* EOS, int32_t LocalPlayerNum, class FString BodyJson);
+	static void RequestEOSToken(class FString URL, class FString ClientCredentials, class FString EASAuthToken, struct FScriptDelegate Callback);
 	static bool SendHTTPRequest(class FString Verb, class FString URL, bool bAddContentTypeHeader, class UClass* ResponseClass, struct FScriptDelegate Callback, struct FScriptDelegate ConvertErrorNew, class UOnlineSubsystem* EOS, int32_t LocalPlayerNum, class FString BodyJson);
 	class UError* ConvertErrorFunction(class UEOS_ErrorResponse* ErrorResponse);
 	void HTTPRequestCallback(class UObject* Response, class UError* ErrorSending, int32_t ResponseCode);
@@ -8266,9 +8266,9 @@ public:
 
 };
 
-// Class ProjectX.__EOSHelpers_X__SendHTTPRequestEASAuth_0x1
+// Class ProjectX.__EOSHelpers_X__SendHTTPRequestEOSToken_0x2
 // 0x0080 (0x0060 - 0x00E0)
-class U__EOSHelpers_X__SendHTTPRequestEASAuth_0x1 : public UObject
+class U__EOSHelpers_X__SendHTTPRequestEOSToken_0x2 : public UObject
 {
 public:
 	class FString                                      URL;                                           // 0x0060 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
@@ -8288,13 +8288,69 @@ public:
 
 		if (!uClassPointer)
 		{
-			uClassPointer = UObject::FindClass("Class ProjectX.__EOSHelpers_X__SendHTTPRequestEASAuth_0x1");
+			uClassPointer = UObject::FindClass("Class ProjectX.__EOSHelpers_X__SendHTTPRequestEOSToken_0x2");
 		}
 
 		return uClassPointer;
 	};
 
-	void __EOSHelpers_X__SendHTTPRequestEASAuth_0x1(bool bSuccess, class FString EASAuthTicket);
+	void ____EOSHelpers_X__SendHTTPRequestEOSToken_0x2____EOSHelpers_X__SendHTTPRequestEOSToken_0x1_0x1(bool bSuccess, class FString EASAuthTicket);
+	void __EOSHelpers_X__SendHTTPRequestEOSToken_0x1(bool bSuccess, class FString EOSAuthTicket);
+	void __EOSHelpers_X__SendHTTPRequestEOSToken_0x2(bool bSuccess, class FString EASAuthTicket);
+};
+
+// Class ProjectX.EpicConfig_X
+// 0x0150 (0x0078 - 0x01C8)
+class UEpicConfig_X : public UOnlineConfig_X
+{
+public:
+	uint32_t                                           bAllowRemoteAvatars : 1;                       // 0x0078 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
+	uint32_t                                           bPollDuringAccountLinking : 1;                 // 0x0078 (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
+	uint32_t                                           bEnforcePinRequirementForFriends : 1;          // 0x0078 (0x0004) [0x0000000000000000] [0x00000004] 
+	uint32_t                                           bEnforceCabinedMode : 1;                       // 0x0078 (0x0004) [0x0000000000000000] [0x00000008] 
+	uint32_t                                           bPromptForPin : 1;                             // 0x0078 (0x0004) [0x0000000000000000] [0x00000010] 
+	uint32_t                                           bForceEnableTrade : 1;                         // 0x0078 (0x0004) [0x0001000000000000] [0x00000020] 
+	float                                              RemoteAvatarPermissionRequestDelay;            // 0x007C (0x0004) [0x0000000000000001] (CPF_Edit)    
+	int32_t                                            SecondsBetweenPolling;                         // 0x0080 (0x0004) [0x0000000000000001] (CPF_Edit)    
+	int32_t                                            SecondsBeforeRequestsTimeout;                  // 0x0084 (0x0004) [0x0000000000000001] (CPF_Edit)    
+	int32_t                                            SecondsToWaitBeforeRetryingAuth;               // 0x0088 (0x0004) [0x0000000000000001] (CPF_Edit)    
+	int32_t                                            SecondsToWaitBeforeUpdatingFriendsList;        // 0x008C (0x0004) [0x0000000000000001] (CPF_Edit)    
+	TArray<class ULocalizedAccountLinkURL*>            AccountLinkURLOverrides;                       // 0x0090 (0x0010) [0x0000000000400001] (CPF_Edit | CPF_NeedCtorLink)
+	class FString                                      DefaultAccountLinkURL;                         // 0x00A0 (0x0010) [0x0000000000400001] (CPF_Edit | CPF_NeedCtorLink)
+	class FString                                      PermissionServerURL;                           // 0x00B0 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
+	class FString                                      IdentityServerURL;                             // 0x00C0 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
+	class FString                                      CabinedModeURL;                                // 0x00D0 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
+	class FString                                      CreateAccountURL;                              // 0x00E0 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
+	TArray<struct FChatPermissionPair>                 ChatPermissionPairs;                           // 0x00F0 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
+	EChatPermissionLevel                               DefaultChatPermissionLevel;                    // 0x0100 (0x0001) [0x0000000000000000]               
+	struct FPlayerPermissions                          DefaultPermissions;                            // 0x0104 (0x0010) [0x0000000000000000]               
+	class FString                                      ForgotPinURL;                                  // 0x0118 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
+	class FString                                      ParentalControlsURL;                           // 0x0128 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
+	class FString                                      PrivacyPolicyURL;                              // 0x0138 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
+	class FString                                      ActivateURL;                                   // 0x0148 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
+	class FString                                      AccountURL;                                    // 0x0158 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
+	class FString                                      TOSURL;                                        // 0x0168 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
+	class FString                                      EOSAccessTokenURL;                             // 0x0178 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
+	class FString                                      EOSAccessContentString;                        // 0x0188 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
+	class FString                                      PublicKeyURL;                                  // 0x0198 (0x0010) [0x0001000000400000] (CPF_NeedCtorLink)
+	class FString                                      SandboxId;                                     // 0x01A8 (0x0010) [0x0000000000404001] (CPF_Edit | CPF_Config | CPF_NeedCtorLink)
+	class FString                                      DeploymentId;                                  // 0x01B8 (0x0010) [0x0000000000404001] (CPF_Edit | CPF_Config | CPF_NeedCtorLink)
+
+public:
+	static UClass* StaticClass()
+	{
+		static UClass* uClassPointer = nullptr;
+
+		if (!uClassPointer)
+		{
+			uClassPointer = UObject::FindClass("Class ProjectX.EpicConfig_X");
+		}
+
+		return uClassPointer;
+	};
+
+	EChatPermissionLevel GetChatPermissionLevel(class FString PermissionLabel);
+	void Apply();
 };
 
 // Class ProjectX.__EOSHelpers_X__SendHTTPRequestSelectAuth_0x1
@@ -8459,59 +8515,6 @@ public:
 	};
 
 	void __EpicLogin_X__HandleLoginChanged_0x1();
-};
-
-// Class ProjectX.EpicConfig_X
-// 0x0140 (0x0078 - 0x01B8)
-class UEpicConfig_X : public UOnlineConfig_X
-{
-public:
-	uint32_t                                           bAllowRemoteAvatars : 1;                       // 0x0078 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
-	uint32_t                                           bPollDuringAccountLinking : 1;                 // 0x0078 (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
-	uint32_t                                           bEnforcePinRequirementForFriends : 1;          // 0x0078 (0x0004) [0x0000000000000000] [0x00000004] 
-	uint32_t                                           bEnforceCabinedMode : 1;                       // 0x0078 (0x0004) [0x0000000000000000] [0x00000008] 
-	uint32_t                                           bPromptForPin : 1;                             // 0x0078 (0x0004) [0x0000000000000000] [0x00000010] 
-	uint32_t                                           bForceEnableTrade : 1;                         // 0x0078 (0x0004) [0x0001000000000000] [0x00000020] 
-	float                                              RemoteAvatarPermissionRequestDelay;            // 0x007C (0x0004) [0x0000000000000001] (CPF_Edit)    
-	int32_t                                            SecondsBetweenPolling;                         // 0x0080 (0x0004) [0x0000000000000001] (CPF_Edit)    
-	int32_t                                            SecondsBeforeRequestsTimeout;                  // 0x0084 (0x0004) [0x0000000000000001] (CPF_Edit)    
-	int32_t                                            SecondsToWaitBeforeRetryingAuth;               // 0x0088 (0x0004) [0x0000000000000001] (CPF_Edit)    
-	int32_t                                            SecondsToWaitBeforeUpdatingFriendsList;        // 0x008C (0x0004) [0x0000000000000001] (CPF_Edit)    
-	TArray<class ULocalizedAccountLinkURL*>            AccountLinkURLOverrides;                       // 0x0090 (0x0010) [0x0000000000400001] (CPF_Edit | CPF_NeedCtorLink)
-	class FString                                      DefaultAccountLinkURL;                         // 0x00A0 (0x0010) [0x0000000000400001] (CPF_Edit | CPF_NeedCtorLink)
-	class FString                                      PermissionServerURL;                           // 0x00B0 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
-	class FString                                      IdentityServerURL;                             // 0x00C0 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
-	class FString                                      CabinedModeURL;                                // 0x00D0 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
-	class FString                                      CreateAccountURL;                              // 0x00E0 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
-	TArray<struct FChatPermissionPair>                 ChatPermissionPairs;                           // 0x00F0 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
-	EChatPermissionLevel                               DefaultChatPermissionLevel;                    // 0x0100 (0x0001) [0x0000000000000000]               
-	struct FPlayerPermissions                          DefaultPermissions;                            // 0x0104 (0x0010) [0x0000000000000000]               
-	class FString                                      ForgotPinURL;                                  // 0x0118 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
-	class FString                                      ParentalControlsURL;                           // 0x0128 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
-	class FString                                      PrivacyPolicyURL;                              // 0x0138 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
-	class FString                                      ActivateURL;                                   // 0x0148 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
-	class FString                                      AccountURL;                                    // 0x0158 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
-	class FString                                      TOSURL;                                        // 0x0168 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
-	class FString                                      EOSAccessTokenURL;                             // 0x0178 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
-	class FString                                      PublicKeyURL;                                  // 0x0188 (0x0010) [0x0001000000400000] (CPF_NeedCtorLink)
-	class FString                                      SandboxId;                                     // 0x0198 (0x0010) [0x0000000000404001] (CPF_Edit | CPF_Config | CPF_NeedCtorLink)
-	class FString                                      DeploymentId;                                  // 0x01A8 (0x0010) [0x0000000000404001] (CPF_Edit | CPF_Config | CPF_NeedCtorLink)
-
-public:
-	static UClass* StaticClass()
-	{
-		static UClass* uClassPointer = nullptr;
-
-		if (!uClassPointer)
-		{
-			uClassPointer = UObject::FindClass("Class ProjectX.EpicConfig_X");
-		}
-
-		return uClassPointer;
-	};
-
-	EChatPermissionLevel GetChatPermissionLevel(class FString PermissionLabel);
-	void Apply();
 };
 
 // Class ProjectX.__EpicLogin_X__TriggerAuthTicketDelegate_0x1

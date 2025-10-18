@@ -85083,6 +85083,15 @@ struct U__TextChatActor_TA__SendSignedMessage_0x1_exec__TextChatActor_TA__SendSi
 	class USignedMessageObject_X*                      MessageObject;                                    		// 0x0000 (0x0008) [0x0001000000000080] (CPF_Parm)    
 };
 
+// Function TAGame.__TextModerationManager_TA__HandleCryptoKeyCreated_0x1.__TextModerationManager_TA__HandleCryptoKeyCreated_0x3
+// [0x20020003] 
+struct U__TextModerationManager_TA__HandleCryptoKeyCreated_0x1_exec__TextModerationManager_TA__HandleCryptoKeyCreated_0x3_Params
+{
+	class UKeyRegistrationResponse*                    Response;                                         		// 0x0000 (0x0008) [0x0001400000000080] (CPF_Parm)    
+	class UError*                                      Error;                                            		// 0x0008 (0x0008) [0x0001400000000080] (CPF_Parm)    
+	int32_t                                            ResponseCode;                                     		// 0x0010 (0x0004) [0x0001000000000080] (CPF_Parm)    
+};
+
 // Function TAGame.__TextModerationManager_TA__HandleCryptoKeyCreated_0x1.__TextModerationManager_TA__HandleCryptoKeyCreated_0x2
 // [0x20020003] 
 struct U__TextModerationManager_TA__HandleCryptoKeyCreated_0x1_exec__TextModerationManager_TA__HandleCryptoKeyCreated_0x2_Params

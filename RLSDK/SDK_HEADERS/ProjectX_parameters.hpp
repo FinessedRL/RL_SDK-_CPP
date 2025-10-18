@@ -13918,9 +13918,9 @@ struct U__CrossplayConfig_X__GetDisabledCrossplayGroup_0x1_exec__CrossplayConfig
 	bool                                               ReturnValue : 1;                                  		// 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
-// Function ProjectX.__EOSHelpers_X__RequestEASAuth_0x1.__EOSHelpers_X__RequestEASAuth_0x1
+// Function ProjectX.__EOSHelpers_X__RequestEOSToken_0x1.__EOSHelpers_X__RequestEOSToken_0x1
 // [0x00020003] 
-struct U__EOSHelpers_X__RequestEASAuth_0x1_exec__EOSHelpers_X__RequestEASAuth_0x1_Params
+struct U__EOSHelpers_X__RequestEOSToken_0x1_exec__EOSHelpers_X__RequestEOSToken_0x1_Params
 {
 	class UWebRequest_X*                               Response;                                         		// 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	// class FString                                      ResponseAsJSON;                                   		// 0x0008 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
@@ -13950,9 +13950,9 @@ struct UEOSHelpers_X_execSendHTTPRequestSelectAuth_Params
 	// class U__EOSHelpers_X__SendHTTPRequestSelectAuth_0x1* _0x1;                                             		// 0x00E8 (0x0008) [0x0000000000000000]               
 };
 
-// Function ProjectX.EOSHelpers_X.SendHTTPRequestEASAuth
-// [0x00026003] 
-struct UEOSHelpers_X_execSendHTTPRequestEASAuth_Params
+// Function ProjectX.EOSHelpers_X.SendHTTPRequestEOSToken
+// [0x00826003] 
+struct UEOSHelpers_X_execSendHTTPRequestEOSToken_Params
 {
 	class FString                                      Verb;                                             		// 0x0000 (0x0010) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	class FString                                      URL;                                              		// 0x0010 (0x0010) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
@@ -13963,24 +13963,24 @@ struct UEOSHelpers_X_execSendHTTPRequestEASAuth_Params
 	class UOnlineSubsystem*                            EOS;                                              		// 0x0060 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	int32_t                                            LocalPlayerNum;                                   		// 0x0068 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class FString                                      BodyJson;                                         		// 0x0070 (0x0010) [0x0000000000400090] (CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink)
-	// class FString                                      AuthURL;                                          		// 0x0080 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
-	// class FString                                      ClientID;                                         		// 0x0090 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
-	// class FString                                      ClientSecret;                                     		// 0x00A0 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
-	// class FString                                      ClientCredentials;                                		// 0x00B0 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
-	// class U__EOSHelpers_X__SendHTTPRequestEASAuth_0x1* _0x1;                                             		// 0x00C0 (0x0008) [0x0000000000000000]               
+	// uint8_t                                            LoginStatus;                                      		// 0x0080 (0x0001) [0x0000000000000000]               
+	// struct FUniqueNetId                                PlayerNetId;                                      		// 0x0088 (0x0048) [0x0000000000400000] (CPF_NeedCtorLink)
+	// uint32_t                                           bInvalidEpicAccountId : 1;                        		// 0x00D0 (0x0004) [0x0000000000000000] [0x00000001] 
+	// class U__EOSHelpers_X__SendHTTPRequestEOSToken_0x2* _0x1;                                             		// 0x00D8 (0x0008) [0x0000000000000000]               
 };
 
-// Function ProjectX.EOSHelpers_X.RequestEASAuth
+// Function ProjectX.EOSHelpers_X.RequestEOSToken
 // [0x00022003] 
-struct UEOSHelpers_X_execRequestEASAuth_Params
+struct UEOSHelpers_X_execRequestEOSToken_Params
 {
 	class FString                                      URL;                                              		// 0x0000 (0x0010) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	class FString                                      ClientCredentials;                                		// 0x0010 (0x0010) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
-	class FString                                      ClientID;                                         		// 0x0020 (0x0010) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
-	class FString                                      ClientSecret;                                     		// 0x0030 (0x0010) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
-	struct FScriptDelegate                             Callback;                                         		// 0x0040 (0x0018) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
-	// class UWebRequest_X*                               Request;                                          		// 0x0058 (0x0008) [0x0000000000000000]               
-	// class U__EOSHelpers_X__RequestEASAuth_0x1*         _0x1;                                             		// 0x0060 (0x0008) [0x0000000000000000]               
+	class FString                                      EASAuthToken;                                     		// 0x0020 (0x0010) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
+	struct FScriptDelegate                             Callback;                                         		// 0x0030 (0x0018) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
+	// class UWebRequest_X*                               Request;                                          		// 0x0048 (0x0008) [0x0000000000000000]               
+	// class UEpicConfig_X*                               EpicConfig;                                       		// 0x0050 (0x0008) [0x0000000000000000]               
+	// class FString                                      ContentString;                                    		// 0x0058 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
+	// class U__EOSHelpers_X__RequestEOSToken_0x1*        _0x1;                                             		// 0x0068 (0x0008) [0x0000000000000000]               
 };
 
 // Function ProjectX.EOSHelpers_X.SendHTTPRequest
@@ -14029,13 +14029,47 @@ struct U__EOSHelpers_X__SendHTTPRequest_0x1_exec__EOSHelpers_X__SendHTTPRequest_
 	// uint32_t                                           bInvalidAuthToken : 1;                            		// 0x0018 (0x0004) [0x0000000000000000] [0x00000001] 
 };
 
-// Function ProjectX.__EOSHelpers_X__SendHTTPRequestEASAuth_0x1.__EOSHelpers_X__SendHTTPRequestEASAuth_0x1
-// [0x00020003] 
-struct U__EOSHelpers_X__SendHTTPRequestEASAuth_0x1_exec__EOSHelpers_X__SendHTTPRequestEASAuth_0x1_Params
+// Function ProjectX.__EOSHelpers_X__SendHTTPRequestEOSToken_0x2.____EOSHelpers_X__SendHTTPRequestEOSToken_0x2____EOSHelpers_X__SendHTTPRequestEOSToken_0x1_0x1
+// [0x40040003] 
+struct U__EOSHelpers_X__SendHTTPRequestEOSToken_0x2_exec____EOSHelpers_X__SendHTTPRequestEOSToken_0x2____EOSHelpers_X__SendHTTPRequestEOSToken_0x1_0x1_Params
 {
 	uint32_t                                           bSuccess : 1;                                     		// 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	class FString                                      EASAuthTicket;                                    		// 0x0008 (0x0010) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	// uint32_t                                           bInvalidAuthToken : 1;                            		// 0x0018 (0x0004) [0x0000000000000000] [0x00000001] 
+};
+
+// Function ProjectX.__EOSHelpers_X__SendHTTPRequestEOSToken_0x2.__EOSHelpers_X__SendHTTPRequestEOSToken_0x1
+// [0x00020003] 
+struct U__EOSHelpers_X__SendHTTPRequestEOSToken_0x2_exec__EOSHelpers_X__SendHTTPRequestEOSToken_0x1_Params
+{
+	uint32_t                                           bSuccess : 1;                                     		// 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	class FString                                      EOSAuthTicket;                                    		// 0x0008 (0x0010) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
+	// class FString                                      AuthURL;                                          		// 0x0018 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
+	// class FString                                      ClientCredentials;                                		// 0x0028 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
+};
+
+// Function ProjectX.__EOSHelpers_X__SendHTTPRequestEOSToken_0x2.__EOSHelpers_X__SendHTTPRequestEOSToken_0x2
+// [0x00020003] 
+struct U__EOSHelpers_X__SendHTTPRequestEOSToken_0x2_exec__EOSHelpers_X__SendHTTPRequestEOSToken_0x2_Params
+{
+	uint32_t                                           bSuccess : 1;                                     		// 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+	class FString                                      EASAuthTicket;                                    		// 0x0008 (0x0010) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
+	// uint32_t                                           bInvalidAuthToken : 1;                            		// 0x0018 (0x0004) [0x0000000000000000] [0x00000001] 
+};
+
+// Function ProjectX.EpicConfig_X.GetChatPermissionLevel
+// [0x00020003] 
+struct UEpicConfig_X_execGetChatPermissionLevel_Params
+{
+	class FString                                      PermissionLabel;                                  		// 0x0000 (0x0010) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
+	EChatPermissionLevel                               ReturnValue;                                      		// 0x0010 (0x0001) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+	// int32_t                                            PermissionIndex;                                  		// 0x0014 (0x0004) [0x0000000000000000]               
+};
+
+// Function ProjectX.EpicConfig_X.Apply
+// [0x400020002] 
+struct UEpicConfig_X_execApply_Params
+{
 };
 
 // Function ProjectX.__EOSHelpers_X__SendHTTPRequestSelectAuth_0x1.__EOSHelpers_X__SendHTTPRequestSelectAuth_0x1
@@ -14096,21 +14130,6 @@ struct U__EpicFriendsPlugin_X__RemoveFriend_0x1_exec__EpicFriendsPlugin_X__Remov
 // Function ProjectX.__EpicLogin_X__HandleLoginChanged_0x1.__EpicLogin_X__HandleLoginChanged_0x1
 // [0x00020003] 
 struct U__EpicLogin_X__HandleLoginChanged_0x1_exec__EpicLogin_X__HandleLoginChanged_0x1_Params
-{
-};
-
-// Function ProjectX.EpicConfig_X.GetChatPermissionLevel
-// [0x00020003] 
-struct UEpicConfig_X_execGetChatPermissionLevel_Params
-{
-	class FString                                      PermissionLabel;                                  		// 0x0000 (0x0010) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
-	EChatPermissionLevel                               ReturnValue;                                      		// 0x0010 (0x0001) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
-	// int32_t                                            PermissionIndex;                                  		// 0x0014 (0x0004) [0x0000000000000000]               
-};
-
-// Function ProjectX.EpicConfig_X.Apply
-// [0x400020002] 
-struct UEpicConfig_X_execApply_Params
 {
 };
 

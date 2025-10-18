@@ -38230,24 +38230,24 @@ bool U__CrossplayConfig_X__GetDisabledCrossplayGroup_0x1::__CrossplayConfig_X__G
 	return __CrossplayConfig_X__GetDisabledCrossplayGroup_0x1_Params.ReturnValue;
 };
 
-// Function ProjectX.__EOSHelpers_X__RequestEASAuth_0x1.__EOSHelpers_X__RequestEASAuth_0x1
+// Function ProjectX.__EOSHelpers_X__RequestEOSToken_0x1.__EOSHelpers_X__RequestEOSToken_0x1
 // [0x00020003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Public | FUNC_AllFlags)
 // Parameter Info:
 // class UWebRequest_X*           Response                       (CPF_Parm)
 
-void U__EOSHelpers_X__RequestEASAuth_0x1::__EOSHelpers_X__RequestEASAuth_0x1(class UWebRequest_X* Response)
+void U__EOSHelpers_X__RequestEOSToken_0x1::__EOSHelpers_X__RequestEOSToken_0x1(class UWebRequest_X* Response)
 {
-	static UFunction* uFn__EOSHelpers_X__RequestEASAuth_0x1 = nullptr;
+	static UFunction* uFn__EOSHelpers_X__RequestEOSToken_0x1 = nullptr;
 
-	if (!uFn__EOSHelpers_X__RequestEASAuth_0x1)
+	if (!uFn__EOSHelpers_X__RequestEOSToken_0x1)
 	{
-		uFn__EOSHelpers_X__RequestEASAuth_0x1 = UFunction::FindFunction("Function ProjectX.__EOSHelpers_X__RequestEASAuth_0x1.__EOSHelpers_X__RequestEASAuth_0x1");
+		uFn__EOSHelpers_X__RequestEOSToken_0x1 = UFunction::FindFunction("Function ProjectX.__EOSHelpers_X__RequestEOSToken_0x1.__EOSHelpers_X__RequestEOSToken_0x1");
 	}
 
-	U__EOSHelpers_X__RequestEASAuth_0x1_exec__EOSHelpers_X__RequestEASAuth_0x1_Params __EOSHelpers_X__RequestEASAuth_0x1_Params;
-	memcpy_s(&__EOSHelpers_X__RequestEASAuth_0x1_Params.Response, sizeof(__EOSHelpers_X__RequestEASAuth_0x1_Params.Response), &Response, sizeof(Response));
+	U__EOSHelpers_X__RequestEOSToken_0x1_exec__EOSHelpers_X__RequestEOSToken_0x1_Params __EOSHelpers_X__RequestEOSToken_0x1_Params;
+	memcpy_s(&__EOSHelpers_X__RequestEOSToken_0x1_Params.Response, sizeof(__EOSHelpers_X__RequestEOSToken_0x1_Params.Response), &Response, sizeof(Response));
 
-	this->ProcessEvent(uFn__EOSHelpers_X__RequestEASAuth_0x1, &__EOSHelpers_X__RequestEASAuth_0x1_Params, nullptr);
+	this->ProcessEvent(uFn__EOSHelpers_X__RequestEOSToken_0x1, &__EOSHelpers_X__RequestEOSToken_0x1_Params, nullptr);
 };
 
 // Function ProjectX.EOSHelpers_X.SendHTTPRequestSelectAuth
@@ -38296,8 +38296,8 @@ void UEOSHelpers_X::SendHTTPRequestSelectAuth(class FString Verb, class FString 
 	UEOSHelpers_X::StaticClass()->ProcessEvent(uFnSendHTTPRequestSelectAuth, &SendHTTPRequestSelectAuth_Params, nullptr);
 };
 
-// Function ProjectX.EOSHelpers_X.SendHTTPRequestEASAuth
-// [0x00026003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Static | FUNC_NetMulticast | FUNC_Public | FUNC_AllFlags)
+// Function ProjectX.EOSHelpers_X.SendHTTPRequestEOSToken
+// [0x00826003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Static | FUNC_NetMulticast | FUNC_Public | FUNC_HasDefaults | FUNC_AllFlags)
 // Parameter Info:
 // class FString                  Verb                           (CPF_Parm | CPF_NeedCtorLink)
 // class FString                  URL                            (CPF_Parm | CPF_NeedCtorLink)
@@ -38309,55 +38309,53 @@ void UEOSHelpers_X::SendHTTPRequestSelectAuth(class FString Verb, class FString 
 // int32_t                        LocalPlayerNum                 (CPF_Parm)
 // class FString                  BodyJson                       (CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink)
 
-void UEOSHelpers_X::SendHTTPRequestEASAuth(class FString Verb, class FString URL, bool bAddContentTypeHeader, class UClass* ResponseClass, struct FScriptDelegate Callback, struct FScriptDelegate ConvertErrorNew, class UOnlineSubsystem* EOS, int32_t LocalPlayerNum, class FString BodyJson)
+void UEOSHelpers_X::SendHTTPRequestEOSToken(class FString Verb, class FString URL, bool bAddContentTypeHeader, class UClass* ResponseClass, struct FScriptDelegate Callback, struct FScriptDelegate ConvertErrorNew, class UOnlineSubsystem* EOS, int32_t LocalPlayerNum, class FString BodyJson)
 {
-	static UFunction* uFnSendHTTPRequestEASAuth = nullptr;
+	static UFunction* uFnSendHTTPRequestEOSToken = nullptr;
 
-	if (!uFnSendHTTPRequestEASAuth)
+	if (!uFnSendHTTPRequestEOSToken)
 	{
-		uFnSendHTTPRequestEASAuth = UFunction::FindFunction("Function ProjectX.EOSHelpers_X.SendHTTPRequestEASAuth");
+		uFnSendHTTPRequestEOSToken = UFunction::FindFunction("Function ProjectX.EOSHelpers_X.SendHTTPRequestEOSToken");
 	}
 
-	UEOSHelpers_X_execSendHTTPRequestEASAuth_Params SendHTTPRequestEASAuth_Params;
-	memcpy_s(&SendHTTPRequestEASAuth_Params.Verb, sizeof(SendHTTPRequestEASAuth_Params.Verb), &Verb, sizeof(Verb));
-	memcpy_s(&SendHTTPRequestEASAuth_Params.URL, sizeof(SendHTTPRequestEASAuth_Params.URL), &URL, sizeof(URL));
-	SendHTTPRequestEASAuth_Params.bAddContentTypeHeader = bAddContentTypeHeader;
-	memcpy_s(&SendHTTPRequestEASAuth_Params.ResponseClass, sizeof(SendHTTPRequestEASAuth_Params.ResponseClass), &ResponseClass, sizeof(ResponseClass));
-	memcpy_s(&SendHTTPRequestEASAuth_Params.Callback, sizeof(SendHTTPRequestEASAuth_Params.Callback), &Callback, sizeof(Callback));
-	memcpy_s(&SendHTTPRequestEASAuth_Params.ConvertErrorNew, sizeof(SendHTTPRequestEASAuth_Params.ConvertErrorNew), &ConvertErrorNew, sizeof(ConvertErrorNew));
-	memcpy_s(&SendHTTPRequestEASAuth_Params.EOS, sizeof(SendHTTPRequestEASAuth_Params.EOS), &EOS, sizeof(EOS));
-	memcpy_s(&SendHTTPRequestEASAuth_Params.LocalPlayerNum, sizeof(SendHTTPRequestEASAuth_Params.LocalPlayerNum), &LocalPlayerNum, sizeof(LocalPlayerNum));
-	memcpy_s(&SendHTTPRequestEASAuth_Params.BodyJson, sizeof(SendHTTPRequestEASAuth_Params.BodyJson), &BodyJson, sizeof(BodyJson));
+	UEOSHelpers_X_execSendHTTPRequestEOSToken_Params SendHTTPRequestEOSToken_Params;
+	memcpy_s(&SendHTTPRequestEOSToken_Params.Verb, sizeof(SendHTTPRequestEOSToken_Params.Verb), &Verb, sizeof(Verb));
+	memcpy_s(&SendHTTPRequestEOSToken_Params.URL, sizeof(SendHTTPRequestEOSToken_Params.URL), &URL, sizeof(URL));
+	SendHTTPRequestEOSToken_Params.bAddContentTypeHeader = bAddContentTypeHeader;
+	memcpy_s(&SendHTTPRequestEOSToken_Params.ResponseClass, sizeof(SendHTTPRequestEOSToken_Params.ResponseClass), &ResponseClass, sizeof(ResponseClass));
+	memcpy_s(&SendHTTPRequestEOSToken_Params.Callback, sizeof(SendHTTPRequestEOSToken_Params.Callback), &Callback, sizeof(Callback));
+	memcpy_s(&SendHTTPRequestEOSToken_Params.ConvertErrorNew, sizeof(SendHTTPRequestEOSToken_Params.ConvertErrorNew), &ConvertErrorNew, sizeof(ConvertErrorNew));
+	memcpy_s(&SendHTTPRequestEOSToken_Params.EOS, sizeof(SendHTTPRequestEOSToken_Params.EOS), &EOS, sizeof(EOS));
+	memcpy_s(&SendHTTPRequestEOSToken_Params.LocalPlayerNum, sizeof(SendHTTPRequestEOSToken_Params.LocalPlayerNum), &LocalPlayerNum, sizeof(LocalPlayerNum));
+	memcpy_s(&SendHTTPRequestEOSToken_Params.BodyJson, sizeof(SendHTTPRequestEOSToken_Params.BodyJson), &BodyJson, sizeof(BodyJson));
 
-	UEOSHelpers_X::StaticClass()->ProcessEvent(uFnSendHTTPRequestEASAuth, &SendHTTPRequestEASAuth_Params, nullptr);
+	UEOSHelpers_X::StaticClass()->ProcessEvent(uFnSendHTTPRequestEOSToken, &SendHTTPRequestEOSToken_Params, nullptr);
 };
 
-// Function ProjectX.EOSHelpers_X.RequestEASAuth
+// Function ProjectX.EOSHelpers_X.RequestEOSToken
 // [0x00022003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Static | FUNC_Public | FUNC_AllFlags)
 // Parameter Info:
 // class FString                  URL                            (CPF_Parm | CPF_NeedCtorLink)
 // class FString                  ClientCredentials              (CPF_Parm | CPF_NeedCtorLink)
-// class FString                  ClientID                       (CPF_Parm | CPF_NeedCtorLink)
-// class FString                  ClientSecret                   (CPF_Parm | CPF_NeedCtorLink)
+// class FString                  EASAuthToken                   (CPF_Parm | CPF_NeedCtorLink)
 // struct FScriptDelegate         Callback                       (CPF_Parm | CPF_NeedCtorLink)
 
-void UEOSHelpers_X::RequestEASAuth(class FString URL, class FString ClientCredentials, class FString ClientID, class FString ClientSecret, struct FScriptDelegate Callback)
+void UEOSHelpers_X::RequestEOSToken(class FString URL, class FString ClientCredentials, class FString EASAuthToken, struct FScriptDelegate Callback)
 {
-	static UFunction* uFnRequestEASAuth = nullptr;
+	static UFunction* uFnRequestEOSToken = nullptr;
 
-	if (!uFnRequestEASAuth)
+	if (!uFnRequestEOSToken)
 	{
-		uFnRequestEASAuth = UFunction::FindFunction("Function ProjectX.EOSHelpers_X.RequestEASAuth");
+		uFnRequestEOSToken = UFunction::FindFunction("Function ProjectX.EOSHelpers_X.RequestEOSToken");
 	}
 
-	UEOSHelpers_X_execRequestEASAuth_Params RequestEASAuth_Params;
-	memcpy_s(&RequestEASAuth_Params.URL, sizeof(RequestEASAuth_Params.URL), &URL, sizeof(URL));
-	memcpy_s(&RequestEASAuth_Params.ClientCredentials, sizeof(RequestEASAuth_Params.ClientCredentials), &ClientCredentials, sizeof(ClientCredentials));
-	memcpy_s(&RequestEASAuth_Params.ClientID, sizeof(RequestEASAuth_Params.ClientID), &ClientID, sizeof(ClientID));
-	memcpy_s(&RequestEASAuth_Params.ClientSecret, sizeof(RequestEASAuth_Params.ClientSecret), &ClientSecret, sizeof(ClientSecret));
-	memcpy_s(&RequestEASAuth_Params.Callback, sizeof(RequestEASAuth_Params.Callback), &Callback, sizeof(Callback));
+	UEOSHelpers_X_execRequestEOSToken_Params RequestEOSToken_Params;
+	memcpy_s(&RequestEOSToken_Params.URL, sizeof(RequestEOSToken_Params.URL), &URL, sizeof(URL));
+	memcpy_s(&RequestEOSToken_Params.ClientCredentials, sizeof(RequestEOSToken_Params.ClientCredentials), &ClientCredentials, sizeof(ClientCredentials));
+	memcpy_s(&RequestEOSToken_Params.EASAuthToken, sizeof(RequestEOSToken_Params.EASAuthToken), &EASAuthToken, sizeof(EASAuthToken));
+	memcpy_s(&RequestEOSToken_Params.Callback, sizeof(RequestEOSToken_Params.Callback), &Callback, sizeof(Callback));
 
-	UEOSHelpers_X::StaticClass()->ProcessEvent(uFnRequestEASAuth, &RequestEASAuth_Params, nullptr);
+	UEOSHelpers_X::StaticClass()->ProcessEvent(uFnRequestEOSToken, &RequestEOSToken_Params, nullptr);
 };
 
 // Function ProjectX.EOSHelpers_X.SendHTTPRequest
@@ -38468,26 +38466,111 @@ void U__EOSHelpers_X__SendHTTPRequest_0x1::__EOSHelpers_X__SendHTTPRequest_0x1(b
 	this->ProcessEvent(uFn__EOSHelpers_X__SendHTTPRequest_0x1, &__EOSHelpers_X__SendHTTPRequest_0x1_Params, nullptr);
 };
 
-// Function ProjectX.__EOSHelpers_X__SendHTTPRequestEASAuth_0x1.__EOSHelpers_X__SendHTTPRequestEASAuth_0x1
+// Function ProjectX.__EOSHelpers_X__SendHTTPRequestEOSToken_0x2.____EOSHelpers_X__SendHTTPRequestEOSToken_0x2____EOSHelpers_X__SendHTTPRequestEOSToken_0x1_0x1
+// [0x40040003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Private | FUNC_Const | FUNC_AllFlags)
+// Parameter Info:
+// bool                           bSuccess                       (CPF_Parm)
+// class FString                  EASAuthTicket                  (CPF_Parm | CPF_NeedCtorLink)
+
+void U__EOSHelpers_X__SendHTTPRequestEOSToken_0x2::____EOSHelpers_X__SendHTTPRequestEOSToken_0x2____EOSHelpers_X__SendHTTPRequestEOSToken_0x1_0x1(bool bSuccess, class FString EASAuthTicket)
+{
+	static UFunction* uFn____EOSHelpers_X__SendHTTPRequestEOSToken_0x2____EOSHelpers_X__SendHTTPRequestEOSToken_0x1_0x1 = nullptr;
+
+	if (!uFn____EOSHelpers_X__SendHTTPRequestEOSToken_0x2____EOSHelpers_X__SendHTTPRequestEOSToken_0x1_0x1)
+	{
+		uFn____EOSHelpers_X__SendHTTPRequestEOSToken_0x2____EOSHelpers_X__SendHTTPRequestEOSToken_0x1_0x1 = UFunction::FindFunction("Function ProjectX.__EOSHelpers_X__SendHTTPRequestEOSToken_0x2.____EOSHelpers_X__SendHTTPRequestEOSToken_0x2____EOSHelpers_X__SendHTTPRequestEOSToken_0x1_0x1");
+	}
+
+	U__EOSHelpers_X__SendHTTPRequestEOSToken_0x2_exec____EOSHelpers_X__SendHTTPRequestEOSToken_0x2____EOSHelpers_X__SendHTTPRequestEOSToken_0x1_0x1_Params ____EOSHelpers_X__SendHTTPRequestEOSToken_0x2____EOSHelpers_X__SendHTTPRequestEOSToken_0x1_0x1_Params;
+	____EOSHelpers_X__SendHTTPRequestEOSToken_0x2____EOSHelpers_X__SendHTTPRequestEOSToken_0x1_0x1_Params.bSuccess = bSuccess;
+	memcpy_s(&____EOSHelpers_X__SendHTTPRequestEOSToken_0x2____EOSHelpers_X__SendHTTPRequestEOSToken_0x1_0x1_Params.EASAuthTicket, sizeof(____EOSHelpers_X__SendHTTPRequestEOSToken_0x2____EOSHelpers_X__SendHTTPRequestEOSToken_0x1_0x1_Params.EASAuthTicket), &EASAuthTicket, sizeof(EASAuthTicket));
+
+	this->ProcessEvent(uFn____EOSHelpers_X__SendHTTPRequestEOSToken_0x2____EOSHelpers_X__SendHTTPRequestEOSToken_0x1_0x1, &____EOSHelpers_X__SendHTTPRequestEOSToken_0x2____EOSHelpers_X__SendHTTPRequestEOSToken_0x1_0x1_Params, nullptr);
+};
+
+// Function ProjectX.__EOSHelpers_X__SendHTTPRequestEOSToken_0x2.__EOSHelpers_X__SendHTTPRequestEOSToken_0x1
+// [0x00020003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Public | FUNC_AllFlags)
+// Parameter Info:
+// bool                           bSuccess                       (CPF_Parm)
+// class FString                  EOSAuthTicket                  (CPF_Parm | CPF_NeedCtorLink)
+
+void U__EOSHelpers_X__SendHTTPRequestEOSToken_0x2::__EOSHelpers_X__SendHTTPRequestEOSToken_0x1(bool bSuccess, class FString EOSAuthTicket)
+{
+	static UFunction* uFn__EOSHelpers_X__SendHTTPRequestEOSToken_0x1 = nullptr;
+
+	if (!uFn__EOSHelpers_X__SendHTTPRequestEOSToken_0x1)
+	{
+		uFn__EOSHelpers_X__SendHTTPRequestEOSToken_0x1 = UFunction::FindFunction("Function ProjectX.__EOSHelpers_X__SendHTTPRequestEOSToken_0x2.__EOSHelpers_X__SendHTTPRequestEOSToken_0x1");
+	}
+
+	U__EOSHelpers_X__SendHTTPRequestEOSToken_0x2_exec__EOSHelpers_X__SendHTTPRequestEOSToken_0x1_Params __EOSHelpers_X__SendHTTPRequestEOSToken_0x1_Params;
+	__EOSHelpers_X__SendHTTPRequestEOSToken_0x1_Params.bSuccess = bSuccess;
+	memcpy_s(&__EOSHelpers_X__SendHTTPRequestEOSToken_0x1_Params.EOSAuthTicket, sizeof(__EOSHelpers_X__SendHTTPRequestEOSToken_0x1_Params.EOSAuthTicket), &EOSAuthTicket, sizeof(EOSAuthTicket));
+
+	this->ProcessEvent(uFn__EOSHelpers_X__SendHTTPRequestEOSToken_0x1, &__EOSHelpers_X__SendHTTPRequestEOSToken_0x1_Params, nullptr);
+};
+
+// Function ProjectX.__EOSHelpers_X__SendHTTPRequestEOSToken_0x2.__EOSHelpers_X__SendHTTPRequestEOSToken_0x2
 // [0x00020003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Public | FUNC_AllFlags)
 // Parameter Info:
 // bool                           bSuccess                       (CPF_Parm)
 // class FString                  EASAuthTicket                  (CPF_Parm | CPF_NeedCtorLink)
 
-void U__EOSHelpers_X__SendHTTPRequestEASAuth_0x1::__EOSHelpers_X__SendHTTPRequestEASAuth_0x1(bool bSuccess, class FString EASAuthTicket)
+void U__EOSHelpers_X__SendHTTPRequestEOSToken_0x2::__EOSHelpers_X__SendHTTPRequestEOSToken_0x2(bool bSuccess, class FString EASAuthTicket)
 {
-	static UFunction* uFn__EOSHelpers_X__SendHTTPRequestEASAuth_0x1 = nullptr;
+	static UFunction* uFn__EOSHelpers_X__SendHTTPRequestEOSToken_0x2 = nullptr;
 
-	if (!uFn__EOSHelpers_X__SendHTTPRequestEASAuth_0x1)
+	if (!uFn__EOSHelpers_X__SendHTTPRequestEOSToken_0x2)
 	{
-		uFn__EOSHelpers_X__SendHTTPRequestEASAuth_0x1 = UFunction::FindFunction("Function ProjectX.__EOSHelpers_X__SendHTTPRequestEASAuth_0x1.__EOSHelpers_X__SendHTTPRequestEASAuth_0x1");
+		uFn__EOSHelpers_X__SendHTTPRequestEOSToken_0x2 = UFunction::FindFunction("Function ProjectX.__EOSHelpers_X__SendHTTPRequestEOSToken_0x2.__EOSHelpers_X__SendHTTPRequestEOSToken_0x2");
 	}
 
-	U__EOSHelpers_X__SendHTTPRequestEASAuth_0x1_exec__EOSHelpers_X__SendHTTPRequestEASAuth_0x1_Params __EOSHelpers_X__SendHTTPRequestEASAuth_0x1_Params;
-	__EOSHelpers_X__SendHTTPRequestEASAuth_0x1_Params.bSuccess = bSuccess;
-	memcpy_s(&__EOSHelpers_X__SendHTTPRequestEASAuth_0x1_Params.EASAuthTicket, sizeof(__EOSHelpers_X__SendHTTPRequestEASAuth_0x1_Params.EASAuthTicket), &EASAuthTicket, sizeof(EASAuthTicket));
+	U__EOSHelpers_X__SendHTTPRequestEOSToken_0x2_exec__EOSHelpers_X__SendHTTPRequestEOSToken_0x2_Params __EOSHelpers_X__SendHTTPRequestEOSToken_0x2_Params;
+	__EOSHelpers_X__SendHTTPRequestEOSToken_0x2_Params.bSuccess = bSuccess;
+	memcpy_s(&__EOSHelpers_X__SendHTTPRequestEOSToken_0x2_Params.EASAuthTicket, sizeof(__EOSHelpers_X__SendHTTPRequestEOSToken_0x2_Params.EASAuthTicket), &EASAuthTicket, sizeof(EASAuthTicket));
 
-	this->ProcessEvent(uFn__EOSHelpers_X__SendHTTPRequestEASAuth_0x1, &__EOSHelpers_X__SendHTTPRequestEASAuth_0x1_Params, nullptr);
+	this->ProcessEvent(uFn__EOSHelpers_X__SendHTTPRequestEOSToken_0x2, &__EOSHelpers_X__SendHTTPRequestEOSToken_0x2_Params, nullptr);
+};
+
+// Function ProjectX.EpicConfig_X.GetChatPermissionLevel
+// [0x00020003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Public | FUNC_AllFlags)
+// Parameter Info:
+// EChatPermissionLevel           ReturnValue                    (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+// class FString                  PermissionLabel                (CPF_Parm | CPF_NeedCtorLink)
+
+EChatPermissionLevel UEpicConfig_X::GetChatPermissionLevel(class FString PermissionLabel)
+{
+	static UFunction* uFnGetChatPermissionLevel = nullptr;
+
+	if (!uFnGetChatPermissionLevel)
+	{
+		uFnGetChatPermissionLevel = UFunction::FindFunction("Function ProjectX.EpicConfig_X.GetChatPermissionLevel");
+	}
+
+	UEpicConfig_X_execGetChatPermissionLevel_Params GetChatPermissionLevel_Params;
+	memcpy_s(&GetChatPermissionLevel_Params.PermissionLabel, sizeof(GetChatPermissionLevel_Params.PermissionLabel), &PermissionLabel, sizeof(PermissionLabel));
+
+	this->ProcessEvent(uFnGetChatPermissionLevel, &GetChatPermissionLevel_Params, nullptr);
+
+	return GetChatPermissionLevel_Params.ReturnValue;
+};
+
+// Function ProjectX.EpicConfig_X.Apply
+// [0x400020002] (FUNC_RequiredAPI | FUNC_Public | FUNC_NetValidate | FUNC_AllFlags)
+// Parameter Info:
+
+void UEpicConfig_X::Apply()
+{
+	static UFunction* uFnApply = nullptr;
+
+	if (!uFnApply)
+	{
+		uFnApply = UFunction::FindFunction("Function ProjectX.EpicConfig_X.Apply");
+	}
+
+	UEpicConfig_X_execApply_Params Apply_Params;
+
+	this->ProcessEvent(uFnApply, &Apply_Params, nullptr);
 };
 
 // Function ProjectX.__EOSHelpers_X__SendHTTPRequestSelectAuth_0x1.__EOSHelpers_X__SendHTTPRequestSelectAuth_0x1
@@ -38646,47 +38729,6 @@ void U__EpicLogin_X__HandleLoginChanged_0x1::__EpicLogin_X__HandleLoginChanged_0
 	U__EpicLogin_X__HandleLoginChanged_0x1_exec__EpicLogin_X__HandleLoginChanged_0x1_Params __EpicLogin_X__HandleLoginChanged_0x1_Params;
 
 	this->ProcessEvent(uFn__EpicLogin_X__HandleLoginChanged_0x1, &__EpicLogin_X__HandleLoginChanged_0x1_Params, nullptr);
-};
-
-// Function ProjectX.EpicConfig_X.GetChatPermissionLevel
-// [0x00020003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Public | FUNC_AllFlags)
-// Parameter Info:
-// EChatPermissionLevel           ReturnValue                    (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
-// class FString                  PermissionLabel                (CPF_Parm | CPF_NeedCtorLink)
-
-EChatPermissionLevel UEpicConfig_X::GetChatPermissionLevel(class FString PermissionLabel)
-{
-	static UFunction* uFnGetChatPermissionLevel = nullptr;
-
-	if (!uFnGetChatPermissionLevel)
-	{
-		uFnGetChatPermissionLevel = UFunction::FindFunction("Function ProjectX.EpicConfig_X.GetChatPermissionLevel");
-	}
-
-	UEpicConfig_X_execGetChatPermissionLevel_Params GetChatPermissionLevel_Params;
-	memcpy_s(&GetChatPermissionLevel_Params.PermissionLabel, sizeof(GetChatPermissionLevel_Params.PermissionLabel), &PermissionLabel, sizeof(PermissionLabel));
-
-	this->ProcessEvent(uFnGetChatPermissionLevel, &GetChatPermissionLevel_Params, nullptr);
-
-	return GetChatPermissionLevel_Params.ReturnValue;
-};
-
-// Function ProjectX.EpicConfig_X.Apply
-// [0x400020002] (FUNC_RequiredAPI | FUNC_Public | FUNC_NetValidate | FUNC_AllFlags)
-// Parameter Info:
-
-void UEpicConfig_X::Apply()
-{
-	static UFunction* uFnApply = nullptr;
-
-	if (!uFnApply)
-	{
-		uFnApply = UFunction::FindFunction("Function ProjectX.EpicConfig_X.Apply");
-	}
-
-	UEpicConfig_X_execApply_Params Apply_Params;
-
-	this->ProcessEvent(uFnApply, &Apply_Params, nullptr);
 };
 
 // Function ProjectX.__EpicLogin_X__TriggerAuthTicketDelegate_0x1.__EpicLogin_X__TriggerAuthTicketDelegate_0x1
