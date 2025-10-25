@@ -16657,9 +16657,9 @@ public:
 class USonyPricingInfo_TA : public UObject
 {
 public:
-	uint32_t                                           Success : 1;                                   // 0x0060 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
-	TArray<struct FSonyInputs>                         SONY_INPUTS;                                   // 0x0068 (0x0010) [0x0000000000400001] (CPF_Edit | CPF_NeedCtorLink)
-	struct FSonyMetadataStruct                         MetaData;                                      // 0x0078 (0x0058) [0x0000000000400001] (CPF_Edit | CPF_NeedCtorLink)
+	uint32_t                                           Success : 1;                                   // 0x0060 (0x0004) [0x0000000000000000] [0x00000001] 
+	TArray<struct FSonyInputs>                         SONY_INPUTS;                                   // 0x0068 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
+	struct FSonyMetadataStruct                         MetaData;                                      // 0x0078 (0x0058) [0x0000000000402000] (CPF_Transient | CPF_NeedCtorLink)
 
 public:
 	static UClass* StaticClass()
@@ -28444,7 +28444,7 @@ public:
 	uint32_t                                           bFirstTimeDefaultVoice : 1;                    // 0x00C8 (0x0004) [0x0000000000000000] [0x00000200] 
 	uint32_t                                           bFirstTimeDefaultText : 1;                     // 0x00C8 (0x0004) [0x0000000000000000] [0x00000400] 
 	uint32_t                                           bFirstTimeDefaultTrade : 1;                    // 0x00C8 (0x0004) [0x0001000000000000] [0x00000800] 
-	uint32_t                                           bFilterMatureLanguage : 1;                     // 0x00C8 (0x0004) [0x0001000000000000] [0x00001000] 
+	uint32_t                                           bFilterLanguage : 1;                           // 0x00C8 (0x0004) [0x0001000000000000] [0x00001000] 
 	EChatFilter                                        QuickChatFilter;                               // 0x00CC (0x0001) [0x0008000000000000]               
 	EChatFilter                                        MatchChatFilter;                               // 0x00CD (0x0001) [0x0008000000000000]               
 	EChatFilter                                        PartyChatFilter;                               // 0x00CE (0x0001) [0x0008000000000000]               
