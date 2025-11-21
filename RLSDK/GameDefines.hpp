@@ -34,9 +34,9 @@
 */
 
 // GObjects
-#define GObjects_Offset		(uintptr_t)0x023D5DC8
+#define GObjects_Offset		(uintptr_t)0x023D4DC8
 // GNames
-#define GNames_Offset		(uintptr_t)0x023D5D80
+#define GNames_Offset		(uintptr_t)0x023D4D80
 
 /*
 # ========================================================================================= #

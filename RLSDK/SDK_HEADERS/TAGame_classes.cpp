@@ -154079,6 +154079,26 @@ void UGFxData_EpicLogin_TA::HandleLoggedIn()
 	this->ProcessEvent(uFnHandleLoggedIn, &HandleLoggedIn_Params, nullptr);
 };
 
+// Function TAGame.GFxData_EpicLogin_TA.HandleModalClosed
+// [0x00040003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Private | FUNC_AllFlags)
+// Parameter Info:
+// class UGFxModal_X*             Modal                          (CPF_Parm)
+
+void UGFxData_EpicLogin_TA::HandleModalClosed(class UGFxModal_X* Modal)
+{
+	static UFunction* uFnHandleModalClosed = nullptr;
+
+	if (!uFnHandleModalClosed)
+	{
+		uFnHandleModalClosed = UFunction::FindFunction("Function TAGame.GFxData_EpicLogin_TA.HandleModalClosed");
+	}
+
+	UGFxData_EpicLogin_TA_execHandleModalClosed_Params HandleModalClosed_Params;
+	memcpy_s(&HandleModalClosed_Params.Modal, sizeof(HandleModalClosed_Params.Modal), &Modal, sizeof(Modal));
+
+	this->ProcessEvent(uFnHandleModalClosed, &HandleModalClosed_Params, nullptr);
+};
+
 // Function TAGame.GFxData_EpicLogin_TA.HandleLoginError
 // [0x00040003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Private | FUNC_AllFlags)
 // Parameter Info:
@@ -154677,6 +154697,26 @@ void UGFxData_FaceIt_TA::eventOnShellSet()
 	UGFxData_FaceIt_TA_eventOnShellSet_Params OnShellSet_Params;
 
 	this->ProcessEvent(uFnOnShellSet, &OnShellSet_Params, nullptr);
+};
+
+// Function TAGame.GFxShell_TA.__GFxShell_TA__OnStart_0x1
+// [0x40040003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Private | FUNC_Const | FUNC_AllFlags)
+// Parameter Info:
+// class UEulaConfig_TA*          InConfig                       (CPF_Parm)
+
+void UGFxShell_TA::__GFxShell_TA__OnStart_0x1(class UEulaConfig_TA* InConfig)
+{
+	static UFunction* uFn__GFxShell_TA__OnStart_0x1 = nullptr;
+
+	if (!uFn__GFxShell_TA__OnStart_0x1)
+	{
+		uFn__GFxShell_TA__OnStart_0x1 = UFunction::FindFunction("Function TAGame.GFxShell_TA.__GFxShell_TA__OnStart_0x1");
+	}
+
+	UGFxShell_TA_exec__GFxShell_TA__OnStart_0x1_Params __GFxShell_TA__OnStart_0x1_Params;
+	memcpy_s(&__GFxShell_TA__OnStart_0x1_Params.InConfig, sizeof(__GFxShell_TA__OnStart_0x1_Params.InConfig), &InConfig, sizeof(InConfig));
+
+	this->ProcessEvent(uFn__GFxShell_TA__OnStart_0x1, &__GFxShell_TA__OnStart_0x1_Params, nullptr);
 };
 
 // Function TAGame.GFxShell_TA.__GFxShell_TA__HandleOnlinePlayerStorageSyncError_0x2
@@ -302910,6 +302950,26 @@ void UGFxData_ReplayViewer_TA::SetReplay(class UReplay_TA* InReplay)
 	memcpy_s(&SetReplay_Params.InReplay, sizeof(SetReplay_Params.InReplay), &InReplay, sizeof(InReplay));
 
 	this->ProcessEvent(uFnSetReplay, &SetReplay_Params, nullptr);
+};
+
+// Function TAGame.GFxData_ReplayViewer_TA.EventFocusCarUpdated
+// [0x00120001] (FUNC_Final | FUNC_Public | FUNC_Delegate | FUNC_AllFlags)
+// Parameter Info:
+// class FString                  FocusCar                       (CPF_Parm | CPF_NeedCtorLink)
+
+void UGFxData_ReplayViewer_TA::EventFocusCarUpdated(class FString FocusCar)
+{
+	static UFunction* uFnEventFocusCarUpdated = nullptr;
+
+	if (!uFnEventFocusCarUpdated)
+	{
+		uFnEventFocusCarUpdated = UFunction::FindFunction("Function TAGame.GFxData_ReplayViewer_TA.EventFocusCarUpdated");
+	}
+
+	UGFxData_ReplayViewer_TA_execEventFocusCarUpdated_Params EventFocusCarUpdated_Params;
+	memcpy_s(&EventFocusCarUpdated_Params.FocusCar, sizeof(EventFocusCarUpdated_Params.FocusCar), &FocusCar, sizeof(FocusCar));
+
+	this->ProcessEvent(uFnEventFocusCarUpdated, &EventFocusCarUpdated_Params, nullptr);
 };
 
 // Function TAGame.GFxData_ReplayViewer_TA.EventInitDone

@@ -52570,6 +52570,7 @@ struct AGameInfo_Soccar_TA_execInitGameEvent_Params
 {
 	class AGameEvent_TA*                               GameEventArchetype;                               		// 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint32_t                                           bAddAllPlayers : 1;                               		// 0x0008 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
+	// int32_t                                            GameInfoListenPort;                               		// 0x000C (0x0004) [0x0000000000000000]               
 	// class APlayerController_TA*                        PC;                                               		// 0x0010 (0x0008) [0x0000000000000000]               
 	// TArray<class AController*>                         Players;                                          		// 0x0018 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
 };
@@ -58280,6 +58281,13 @@ struct UGFxData_EpicLogin_TA_execHandleLoggedIn_Params
 	// class UOnlinePlayer_X*                             OnlinePlayer;                                     		// 0x0000 (0x0008) [0x0000000000000000]               
 };
 
+// Function TAGame.GFxData_EpicLogin_TA.HandleModalClosed
+// [0x00040003] 
+struct UGFxData_EpicLogin_TA_execHandleModalClosed_Params
+{
+	class UGFxModal_X*                                 Modal;                                            		// 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
+};
+
 // Function TAGame.GFxData_EpicLogin_TA.HandleLoginError
 // [0x00040003] 
 struct UGFxData_EpicLogin_TA_execHandleLoginError_Params
@@ -58501,6 +58509,13 @@ struct UGFxData_FaceIt_TA_execHandleFaceItRefChange_Params
 // [0x400080802] 
 struct UGFxData_FaceIt_TA_eventOnShellSet_Params
 {
+};
+
+// Function TAGame.GFxShell_TA.__GFxShell_TA__OnStart_0x1
+// [0x40040003] 
+struct UGFxShell_TA_exec__GFxShell_TA__OnStart_0x1_Params
+{
+	class UEulaConfig_TA*                              InConfig;                                         		// 0x0000 (0x0008) [0x0000400000000080] (CPF_Parm)    
 };
 
 // Function TAGame.GFxShell_TA.__GFxShell_TA__HandleOnlinePlayerStorageSyncError_0x2
@@ -114746,7 +114761,8 @@ struct UGFxData_ReplayViewer_TA_execHandleCameraTargetChanged_Params
 	class ACamera_TA*                                  InCamera;                                         		// 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	class AActor*                                      InTarget;                                         		// 0x0008 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	// class ACar_TA*                                     FocusCar;                                         		// 0x0010 (0x0008) [0x0000000000000000]               
-	// class ACamera_Replay_TA*                           CamReplay;                                        		// 0x0018 (0x0008) [0x0000000000000000]               
+	// class FString                                      FocusCarString;                                   		// 0x0018 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
+	// class ACamera_Replay_TA*                           CamReplay;                                        		// 0x0028 (0x0008) [0x0000000000000000]               
 };
 
 // Function TAGame.GFxData_ReplayViewer_TA.HandleReplayExported
@@ -114921,6 +114937,13 @@ struct UGFxData_ReplayViewer_TA_execUpdateReplayData_Params
 struct UGFxData_ReplayViewer_TA_execSetReplay_Params
 {
 	class UReplay_TA*                                  InReplay;                                         		// 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
+};
+
+// Function TAGame.GFxData_ReplayViewer_TA.EventFocusCarUpdated
+// [0x00120001] 
+struct UGFxData_ReplayViewer_TA_execEventFocusCarUpdated_Params
+{
+	class FString                                      FocusCar;                                         		// 0x0000 (0x0010) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
 // Function TAGame.GFxData_ReplayViewer_TA.EventInitDone
