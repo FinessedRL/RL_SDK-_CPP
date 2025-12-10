@@ -1078,7 +1078,8 @@ enum class ETextureGroup : uint8_t
 	TEXTUREGROUP_Terrain_Weightmap                     = 25,
 	TEXTUREGROUP_ImageBasedReflection                  = 26,
 	TEXTUREGROUP_Bokeh                                 = 27,
-	TEXTUREGROUP_END                                   = 28
+	TEXTUREGROUP_Pitch                                 = 28,
+	TEXTUREGROUP_END                                   = 29
 };
 
 // Enum Engine.Texture.TextureMipGenSettings
@@ -8157,20 +8158,21 @@ class USceneCaptureComponent : public UActorComponent
 public:
 	float                                              MaxCaptureTime;                                // 0x00A0 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              CaptureTimeRemaining;                          // 0x00A4 (0x0004) [0x0000000000002002] (CPF_Const | CPF_Transient)
-	uint32_t                                           bEnabled : 1;                                  // 0x00A8 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
-	uint32_t                                           bEnablePostProcess : 1;                        // 0x00A8 (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
-	uint32_t                                           bEnableFog : 1;                                // 0x00A8 (0x0004) [0x0000000000000001] [0x00000004] (CPF_Edit)
-	uint32_t                                           bUseMainScenePostProcessSettings : 1;          // 0x00A8 (0x0004) [0x0000000000000001] [0x00000008] (CPF_Edit)
-	uint32_t                                           bSkipUpdateIfTextureUsersOccluded : 1;         // 0x00A8 (0x0004) [0x0000000000000001] [0x00000010] (CPF_Edit)
-	uint32_t                                           bSkipUpdateIfOwnerOccluded : 1;                // 0x00A8 (0x0004) [0x0000000000000001] [0x00000020] (CPF_Edit)
-	uint32_t                                           bSkipRenderingDepthPrepass : 1;                // 0x00A8 (0x0004) [0x0000000000000001] [0x00000040] (CPF_Edit)
-	struct FColor                                      ClearColor;                                    // 0x00AC (0x0004) [0x0000000000000001] (CPF_Edit)    
-	ESceneCaptureViewMode                              ViewMode;                                      // 0x00B0 (0x0001) [0x0000000000000001] (CPF_Edit)    
-	ESceneCapturePostMethod                            PostMethod;                                    // 0x00B1 (0x0001) [0x0000000000000001] (CPF_Edit)    
-	int32_t                                            SceneLOD;                                      // 0x00B4 (0x0004) [0x0000000000000001] (CPF_Edit)    
-	int32_t                                            CubemapDesaturationAmount;                     // 0x00B8 (0x0004) [0x0000000000000001] (CPF_Edit)    
-	float                                              CubemapSeamlessRoughness;                      // 0x00BC (0x0004) [0x0000000000000001] (CPF_Edit)    
-	float                                              FrameRate;                                     // 0x00C0 (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const)
+	int32_t                                            TotalRenderFrames;                             // 0x00A8 (0x0004) [0x0000000000002000] (CPF_Transient)
+	uint32_t                                           bEnabled : 1;                                  // 0x00AC (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
+	uint32_t                                           bEnablePostProcess : 1;                        // 0x00AC (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
+	uint32_t                                           bEnableFog : 1;                                // 0x00AC (0x0004) [0x0000000000000001] [0x00000004] (CPF_Edit)
+	uint32_t                                           bUseMainScenePostProcessSettings : 1;          // 0x00AC (0x0004) [0x0000000000000001] [0x00000008] (CPF_Edit)
+	uint32_t                                           bSkipUpdateIfTextureUsersOccluded : 1;         // 0x00AC (0x0004) [0x0000000000000001] [0x00000010] (CPF_Edit)
+	uint32_t                                           bSkipUpdateIfOwnerOccluded : 1;                // 0x00AC (0x0004) [0x0000000000000001] [0x00000020] (CPF_Edit)
+	uint32_t                                           bSkipRenderingDepthPrepass : 1;                // 0x00AC (0x0004) [0x0000000000000001] [0x00000040] (CPF_Edit)
+	struct FColor                                      ClearColor;                                    // 0x00B0 (0x0004) [0x0000000000000001] (CPF_Edit)    
+	ESceneCaptureViewMode                              ViewMode;                                      // 0x00B4 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	ESceneCapturePostMethod                            PostMethod;                                    // 0x00B5 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	int32_t                                            SceneLOD;                                      // 0x00B8 (0x0004) [0x0000000000000001] (CPF_Edit)    
+	int32_t                                            CubemapDesaturationAmount;                     // 0x00BC (0x0004) [0x0000000000000001] (CPF_Edit)    
+	float                                              CubemapSeamlessRoughness;                      // 0x00C0 (0x0004) [0x0000000000000001] (CPF_Edit)    
+	float                                              FrameRate;                                     // 0x00C4 (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	class UPostProcessChain*                           PostProcess;                                   // 0x00C8 (0x0008) [0x0000000000000001] (CPF_Edit)    
 	float                                              MaxUpdateDist;                                 // 0x00D0 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              MaxViewDistanceOverride;                       // 0x00D4 (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -12139,11 +12141,11 @@ public:
 };
 
 // Class Engine.Model
-// 0x0D30 (0x0060 - 0x0D90)
+// 0x0D50 (0x0060 - 0x0DB0)
 class UModel : public UObject
 {
 public:
-	uint8_t                                           UnknownData00[0xD30];                          // 0x0060 (0x0D30) MISSED OFFSET
+	uint8_t                                           UnknownData00[0xD50];                          // 0x0060 (0x0D50) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -14284,7 +14286,7 @@ public:
 };
 
 // Class Engine.GameViewportClient
-// 0x01E0 (0x0068 - 0x0248)
+// 0x01F8 (0x0068 - 0x0260)
 class UGameViewportClient : public UScriptViewportClient
 {
 public:
@@ -14325,11 +14327,12 @@ public:
 	struct FScriptDelegate                             __HandleInputKey__Delegate;                    // 0x0188 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
 	struct FScriptDelegate                             __HandleInputAxis__Delegate;                   // 0x01A0 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
 	struct FScriptDelegate                             __HandleInputChar__Delegate;                   // 0x01B8 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
-	struct FScriptDelegate                             __EventScaleformEnabledChanged__Delegate;      // 0x01D0 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
-	struct FScriptDelegate                             __EventGamepadInputAPIChanged__Delegate;       // 0x01E8 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
-	struct FScriptDelegate                             __EventGamepadConnectionStatusChanged__Delegate;// 0x0200 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
-	struct FScriptDelegate                             __EventGampadConnected__Delegate;              // 0x0218 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
-	struct FScriptDelegate                             __EventGampadDisconnected__Delegate;           // 0x0230 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
+	struct FScriptDelegate                             __EventScreenDraggedOnNewScreen__Delegate;     // 0x01D0 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
+	struct FScriptDelegate                             __EventScaleformEnabledChanged__Delegate;      // 0x01E8 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
+	struct FScriptDelegate                             __EventGamepadInputAPIChanged__Delegate;       // 0x0200 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
+	struct FScriptDelegate                             __EventGamepadConnectionStatusChanged__Delegate;// 0x0218 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
+	struct FScriptDelegate                             __EventGampadConnected__Delegate;              // 0x0230 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
+	struct FScriptDelegate                             __EventGampadDisconnected__Delegate;           // 0x0248 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
 
 public:
 	static UClass* StaticClass()
@@ -14405,6 +14408,7 @@ public:
 	void EventGamepadConnectionStatusChanged(class UGameViewportClient* GVC, int32_t ControllerId, bool bConnected);
 	void EventGamepadInputAPIChanged(class UGameViewportClient* GVC, int32_t ControllerId, EInputAPI InputAPI);
 	void EventScaleformEnabledChanged(class UGameViewportClient* GVC);
+	void EventScreenDraggedOnNewScreen(int32_t NewWidth, int32_t NewHeight);
 	bool HandleInputChar(int32_t ControllerId, class FString Unicode);
 	bool HandleInputAxis(int32_t ControllerId, struct FName Key, float delta, float DeltaTime, bool bGamepad);
 	bool HandleInputKey(int32_t ControllerId, struct FName Key, EInputEvent EventType, float AmountDepressed, bool bGamepad);
@@ -14640,11 +14644,11 @@ public:
 };
 
 // Class Engine.ShadowMap1D
-// 0x0058 (0x0060 - 0x00B8)
+// 0x0068 (0x0060 - 0x00C8)
 class UShadowMap1D : public UObject
 {
 public:
-	uint8_t                                           UnknownData00[0x58];                           // 0x0060 (0x0058) MISSED OFFSET
+	uint8_t                                           UnknownData00[0x68];                           // 0x0060 (0x0068) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -14953,6 +14957,7 @@ public:
 		return uClassPointer;
 	};
 
+	void WaitForMipLevelsToStream(float MaxWaitSeconds);
 	class UMaterialInstance* GetOrCreateInstance();
 	void SetForceMipLevelsToBeResident(bool OverrideForceMiplevelsToBeResident, bool bForceMiplevelsToBeResidentValue, float ForceDuration, int32_t CinematicTextureGroups);
 	bool GetMobileVectorParameterValue(struct FName ParameterName, struct FLinearColor& OutValue);
@@ -44215,6 +44220,9 @@ public:
 		return uClassPointer;
 	};
 
+	void ClearCaptureAvailabilityChangeDelegate(struct FScriptDelegate CaptureAvailabilityDelegate);
+	void AddCaptureAvailabilityChangeDelegate(struct FScriptDelegate CaptureAvailabilityDelegate);
+	void OnCaptureAvailabilityChange(bool bCaptureAllowed);
 	void ClearPlayerSigningOutDelegate(struct FScriptDelegate InDelegate);
 	void AddPlayerSigningOutDelegate(struct FScriptDelegate InDelegate);
 	void OnPlayerSigningOut(uint8_t LocalUserNum);
