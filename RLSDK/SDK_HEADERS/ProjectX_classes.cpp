@@ -4077,26 +4077,6 @@ void APlayerController_X::ClientSetSeasonReward(struct FPlayerSeasonRewardProgre
 	this->ProcessEvent(uFnClientSetSeasonReward, &ClientSetSeasonReward_Params, nullptr);
 };
 
-// Function ProjectX.PlayerController_X.ServerUpdateCustomMatchSettings
-// [0x002200C2] (FUNC_RequiredAPI | FUNC_Net | FUNC_NetReliable | FUNC_Public | FUNC_NetServer | FUNC_AllFlags)
-// Parameter Info:
-// struct FCustomMatchSettings    Settings                       (CPF_Parm | CPF_NeedCtorLink)
-
-void APlayerController_X::ServerUpdateCustomMatchSettings(struct FCustomMatchSettings Settings)
-{
-	static UFunction* uFnServerUpdateCustomMatchSettings = nullptr;
-
-	if (!uFnServerUpdateCustomMatchSettings)
-	{
-		uFnServerUpdateCustomMatchSettings = UFunction::FindFunction("Function ProjectX.PlayerController_X.ServerUpdateCustomMatchSettings");
-	}
-
-	APlayerController_X_execServerUpdateCustomMatchSettings_Params ServerUpdateCustomMatchSettings_Params;
-	memcpy_s(&ServerUpdateCustomMatchSettings_Params.Settings, sizeof(ServerUpdateCustomMatchSettings_Params.Settings), &Settings, sizeof(Settings));
-
-	this->ProcessEvent(uFnServerUpdateCustomMatchSettings, &ServerUpdateCustomMatchSettings_Params, nullptr);
-};
-
 // Function ProjectX.PlayerController_X.ServerSetParty
 // [0x002200C3] (FUNC_Final | FUNC_RequiredAPI | FUNC_Net | FUNC_NetReliable | FUNC_Public | FUNC_NetServer | FUNC_AllFlags)
 // Parameter Info:
@@ -31335,6 +31315,26 @@ void UOnlineGameReservations_X::InitialReservationTimeout()
 	this->ProcessEvent(uFnInitialReservationTimeout, &InitialReservationTimeout_Params, nullptr);
 };
 
+// Function ProjectX.OnlineGameReservations_X.HandleMapNotFound
+// [0x00080003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Protected | FUNC_AllFlags)
+// Parameter Info:
+// class FString                  MapName                        (CPF_Parm | CPF_NeedCtorLink)
+
+void UOnlineGameReservations_X::HandleMapNotFound(class FString MapName)
+{
+	static UFunction* uFnHandleMapNotFound = nullptr;
+
+	if (!uFnHandleMapNotFound)
+	{
+		uFnHandleMapNotFound = UFunction::FindFunction("Function ProjectX.OnlineGameReservations_X.HandleMapNotFound");
+	}
+
+	UOnlineGameReservations_X_execHandleMapNotFound_Params HandleMapNotFound_Params;
+	memcpy_s(&HandleMapNotFound_Params.MapName, sizeof(HandleMapNotFound_Params.MapName), &MapName, sizeof(MapName));
+
+	this->ProcessEvent(uFnHandleMapNotFound, &HandleMapNotFound_Params, nullptr);
+};
+
 // Function ProjectX.OnlineGameReservations_X.NotAllPlayersJoined
 // [0x00080003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Protected | FUNC_AllFlags)
 // Parameter Info:
@@ -45743,6 +45743,29 @@ bool UOnlineGameParty_X::IsMemberLocal(struct FUniqueNetId MemberId)
 	return IsMemberLocal_Params.ReturnValue;
 };
 
+// Function ProjectX.OnlineGameParty_X.HasMember
+// [0x00020003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Public | FUNC_AllFlags)
+// Parameter Info:
+// bool                           ReturnValue                    (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+// struct FUniqueNetId            Member                         (CPF_Parm | CPF_NeedCtorLink)
+
+bool UOnlineGameParty_X::HasMember(struct FUniqueNetId Member)
+{
+	static UFunction* uFnHasMember = nullptr;
+
+	if (!uFnHasMember)
+	{
+		uFnHasMember = UFunction::FindFunction("Function ProjectX.OnlineGameParty_X.HasMember");
+	}
+
+	UOnlineGameParty_X_execHasMember_Params HasMember_Params;
+	memcpy_s(&HasMember_Params.Member, sizeof(HasMember_Params.Member), &Member, sizeof(Member));
+
+	this->ProcessEvent(uFnHasMember, &HasMember_Params, nullptr);
+
+	return HasMember_Params.ReturnValue;
+};
+
 // Function ProjectX.OnlineGameParty_X.HasRemoteMember
 // [0x00020003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Public | FUNC_AllFlags)
 // Parameter Info:
@@ -57773,7 +57796,7 @@ void UOnlinePlayerFriends_X::SetPlatformRichPresence(uint8_t LocalUserNum, class
 };
 
 // Function ProjectX.OnlinePlayerFriends_X.HandleEpicFriendInviteAccepted
-// [0x00020003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Public | FUNC_AllFlags)
+// [0x00820003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Public | FUNC_HasDefaults | FUNC_AllFlags)
 // Parameter Info:
 // struct FUniqueNetId            AcceptingPlayerId              (CPF_Parm | CPF_NeedCtorLink)
 
@@ -59336,8 +59359,9 @@ void UOnlinePlayerFriends_X::EventEpicPlayerUnfriended(struct FUniqueNetId Remov
 // [0x00120001] (FUNC_Final | FUNC_Public | FUNC_Delegate | FUNC_AllFlags)
 // Parameter Info:
 // struct FUniqueNetId            AcceptingPlayerId              (CPF_Parm | CPF_NeedCtorLink)
+// class FString                  AcceptingPlayerName            (CPF_Parm | CPF_NeedCtorLink)
 
-void UOnlinePlayerFriends_X::EventEpicFriendInviteAccepted(struct FUniqueNetId AcceptingPlayerId)
+void UOnlinePlayerFriends_X::EventEpicFriendInviteAccepted(struct FUniqueNetId AcceptingPlayerId, class FString AcceptingPlayerName)
 {
 	static UFunction* uFnEventEpicFriendInviteAccepted = nullptr;
 
@@ -59348,6 +59372,7 @@ void UOnlinePlayerFriends_X::EventEpicFriendInviteAccepted(struct FUniqueNetId A
 
 	UOnlinePlayerFriends_X_execEventEpicFriendInviteAccepted_Params EventEpicFriendInviteAccepted_Params;
 	memcpy_s(&EventEpicFriendInviteAccepted_Params.AcceptingPlayerId, sizeof(EventEpicFriendInviteAccepted_Params.AcceptingPlayerId), &AcceptingPlayerId, sizeof(AcceptingPlayerId));
+	memcpy_s(&EventEpicFriendInviteAccepted_Params.AcceptingPlayerName, sizeof(EventEpicFriendInviteAccepted_Params.AcceptingPlayerName), &AcceptingPlayerName, sizeof(AcceptingPlayerName));
 
 	this->ProcessEvent(uFnEventEpicFriendInviteAccepted, &EventEpicFriendInviteAccepted_Params, nullptr);
 };
@@ -73147,6 +73172,29 @@ void UMatchLog_X::Start()
 	this->ProcessEvent(uFnStart, &Start_Params, nullptr);
 };
 
+// Function ProjectX.MatchSetupFailedMessage_X.SetMessageInfo
+// [0x00020003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Public | FUNC_AllFlags)
+// Parameter Info:
+// class UMatchSetupFailedMessage_X* ReturnValue                    (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+// class FString                  InInfo                         (CPF_Parm | CPF_NeedCtorLink)
+
+class UMatchSetupFailedMessage_X* UMatchSetupFailedMessage_X::SetMessageInfo(class FString InInfo)
+{
+	static UFunction* uFnSetMessageInfo = nullptr;
+
+	if (!uFnSetMessageInfo)
+	{
+		uFnSetMessageInfo = UFunction::FindFunction("Function ProjectX.MatchSetupFailedMessage_X.SetMessageInfo");
+	}
+
+	UMatchSetupFailedMessage_X_execSetMessageInfo_Params SetMessageInfo_Params;
+	memcpy_s(&SetMessageInfo_Params.InInfo, sizeof(SetMessageInfo_Params.InInfo), &InInfo, sizeof(InInfo));
+
+	this->ProcessEvent(uFnSetMessageInfo, &SetMessageInfo_Params, nullptr);
+
+	return SetMessageInfo_Params.ReturnValue;
+};
+
 // Function ProjectX.MaterialEffect_X.GetActiveEffects
 // [0x00020003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Public | FUNC_AllFlags)
 // Parameter Info:
@@ -77779,6 +77827,28 @@ void UReservationsMetrics_X::PlayerCanceled()
 	UReservationsMetrics_X_execPlayerCanceled_Params PlayerCanceled_Params;
 
 	this->ProcessEvent(uFnPlayerCanceled, &PlayerCanceled_Params, nullptr);
+};
+
+// Function ProjectX.ReservationsMetrics_X.MapFailedToLoad
+// [0x00020003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Public | FUNC_AllFlags)
+// Parameter Info:
+// int32_t                        PlaylistId                     (CPF_Parm)
+// class FString                  MapName                        (CPF_Parm | CPF_NeedCtorLink)
+
+void UReservationsMetrics_X::MapFailedToLoad(int32_t PlaylistId, class FString MapName)
+{
+	static UFunction* uFnMapFailedToLoad = nullptr;
+
+	if (!uFnMapFailedToLoad)
+	{
+		uFnMapFailedToLoad = UFunction::FindFunction("Function ProjectX.ReservationsMetrics_X.MapFailedToLoad");
+	}
+
+	UReservationsMetrics_X_execMapFailedToLoad_Params MapFailedToLoad_Params;
+	memcpy_s(&MapFailedToLoad_Params.PlaylistId, sizeof(MapFailedToLoad_Params.PlaylistId), &PlaylistId, sizeof(PlaylistId));
+	memcpy_s(&MapFailedToLoad_Params.MapName, sizeof(MapFailedToLoad_Params.MapName), &MapName, sizeof(MapName));
+
+	this->ProcessEvent(uFnMapFailedToLoad, &MapFailedToLoad_Params, nullptr);
 };
 
 // Function ProjectX.ReservationsMetrics_X.NotAllPlayersJoinedError

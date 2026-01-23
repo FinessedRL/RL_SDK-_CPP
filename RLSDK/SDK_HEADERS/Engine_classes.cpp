@@ -9627,6 +9627,26 @@ bool UEngine::UseSecurePackets()
 	return UseSecurePackets_Params.ReturnValue;
 };
 
+// Function Engine.GameEngine.EventTravelMapNotFound
+// [0x00120001] (FUNC_Final | FUNC_Public | FUNC_Delegate | FUNC_AllFlags)
+// Parameter Info:
+// class FString                  MapName                        (CPF_Parm | CPF_NeedCtorLink)
+
+void UGameEngine::EventTravelMapNotFound(class FString MapName)
+{
+	static UFunction* uFnEventTravelMapNotFound = nullptr;
+
+	if (!uFnEventTravelMapNotFound)
+	{
+		uFnEventTravelMapNotFound = UFunction::FindFunction("Function Engine.GameEngine.EventTravelMapNotFound");
+	}
+
+	UGameEngine_execEventTravelMapNotFound_Params EventTravelMapNotFound_Params;
+	memcpy_s(&EventTravelMapNotFound_Params.MapName, sizeof(EventTravelMapNotFound_Params.MapName), &MapName, sizeof(MapName));
+
+	this->ProcessEvent(uFnEventTravelMapNotFound, &EventTravelMapNotFound_Params, nullptr);
+};
+
 // Function Engine.GameEngine.HasSecondaryScreenActive
 // [0x00022401] (FUNC_Final | FUNC_Native | FUNC_Static | FUNC_Public | FUNC_AllFlags)
 // Parameter Info:
@@ -26709,46 +26729,6 @@ void APlayerController::eventNotifyDirectorControl(bool bNowControlling, class U
 	memcpy_s(&NotifyDirectorControl_Params.CurrentMatinee, sizeof(NotifyDirectorControl_Params.CurrentMatinee), &CurrentMatinee, sizeof(CurrentMatinee));
 
 	this->ProcessEvent(uFnNotifyDirectorControl, &NotifyDirectorControl_Params, nullptr);
-};
-
-// Function Engine.PlayerController.ServerUnmutePlayer
-// [0x002208C2] (FUNC_RequiredAPI | FUNC_Net | FUNC_NetReliable | FUNC_Event | FUNC_Public | FUNC_NetServer | FUNC_AllFlags)
-// Parameter Info:
-// struct FUniqueNetId            PlayerNetId                    (CPF_Parm | CPF_NeedCtorLink)
-
-void APlayerController::eventServerUnmutePlayer(struct FUniqueNetId PlayerNetId)
-{
-	static UFunction* uFnServerUnmutePlayer = nullptr;
-
-	if (!uFnServerUnmutePlayer)
-	{
-		uFnServerUnmutePlayer = UFunction::FindFunction("Function Engine.PlayerController.ServerUnmutePlayer");
-	}
-
-	APlayerController_eventServerUnmutePlayer_Params ServerUnmutePlayer_Params;
-	memcpy_s(&ServerUnmutePlayer_Params.PlayerNetId, sizeof(ServerUnmutePlayer_Params.PlayerNetId), &PlayerNetId, sizeof(PlayerNetId));
-
-	this->ProcessEvent(uFnServerUnmutePlayer, &ServerUnmutePlayer_Params, nullptr);
-};
-
-// Function Engine.PlayerController.ServerMutePlayer
-// [0x002208C2] (FUNC_RequiredAPI | FUNC_Net | FUNC_NetReliable | FUNC_Event | FUNC_Public | FUNC_NetServer | FUNC_AllFlags)
-// Parameter Info:
-// struct FUniqueNetId            PlayerNetId                    (CPF_Parm | CPF_NeedCtorLink)
-
-void APlayerController::eventServerMutePlayer(struct FUniqueNetId PlayerNetId)
-{
-	static UFunction* uFnServerMutePlayer = nullptr;
-
-	if (!uFnServerMutePlayer)
-	{
-		uFnServerMutePlayer = UFunction::FindFunction("Function Engine.PlayerController.ServerMutePlayer");
-	}
-
-	APlayerController_eventServerMutePlayer_Params ServerMutePlayer_Params;
-	memcpy_s(&ServerMutePlayer_Params.PlayerNetId, sizeof(ServerMutePlayer_Params.PlayerNetId), &PlayerNetId, sizeof(PlayerNetId));
-
-	this->ProcessEvent(uFnServerMutePlayer, &ServerMutePlayer_Params, nullptr);
 };
 
 // Function Engine.PlayerController.GameplayUnmutePlayer
@@ -102178,11 +102158,12 @@ void UOnlineSystemInterface::AddUserOrphanedDelegate(struct FScriptDelegate User
 };
 
 // Function Engine.OnlineSystemInterface.OnUserOrphaned
-// [0x00120000] (FUNC_Public | FUNC_Delegate | FUNC_AllFlags)
+// [0x00124000] (FUNC_NetMulticast | FUNC_Public | FUNC_Delegate | FUNC_AllFlags)
 // Parameter Info:
 // uint8_t                        ControllerId                   (CPF_Parm)
+// bool                           bOrphanedByControllerDisconnection (CPF_OptionalParm | CPF_Parm)
 
-void UOnlineSystemInterface::OnUserOrphaned(uint8_t ControllerId)
+void UOnlineSystemInterface::OnUserOrphaned(uint8_t ControllerId, bool bOrphanedByControllerDisconnection)
 {
 	static UFunction* uFnOnUserOrphaned = nullptr;
 
@@ -102193,6 +102174,7 @@ void UOnlineSystemInterface::OnUserOrphaned(uint8_t ControllerId)
 
 	UOnlineSystemInterface_execOnUserOrphaned_Params OnUserOrphaned_Params;
 	memcpy_s(&OnUserOrphaned_Params.ControllerId, sizeof(OnUserOrphaned_Params.ControllerId), &ControllerId, sizeof(ControllerId));
+	OnUserOrphaned_Params.bOrphanedByControllerDisconnection = bOrphanedByControllerDisconnection;
 
 	this->ProcessEvent(uFnOnUserOrphaned, &OnUserOrphaned_Params, nullptr);
 };

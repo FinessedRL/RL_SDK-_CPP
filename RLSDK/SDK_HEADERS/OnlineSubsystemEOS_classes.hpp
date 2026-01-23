@@ -1025,6 +1025,8 @@ public:
 	bool SetAudioOutputDevice(float OutputVolume, class FString& EpicAccountId, class FString& DeviceID);
 	bool SetAudioInputDevice(float InputVolume, class FString& EpicAccountId, class FString& DeviceID);
 	void SetLocalPlayerRegisteredStatus(bool bRegister, class FString& PlatformId);
+	void OnQueryOutputDevicesFinished();
+	void OnQueryInputDevicesFinished();
 	void CacheOutputAudioDevices();
 	void CacheInputAudioDevices();
 	void Init();

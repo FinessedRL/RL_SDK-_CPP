@@ -4747,7 +4747,7 @@ public:
 };
 
 // Class Engine.GameEngine
-// 0x01F0 (0x0958 - 0x0B48)
+// 0x0208 (0x0958 - 0x0B60)
 class UGameEngine : public UEngine
 {
 public:
@@ -4784,6 +4784,7 @@ public:
 	TArray<struct FFullyLoadedPackagesInfo>            PackagesToFullyLoad;                           // 0x0B18 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
 	TArray<struct FNamedNetDriver>                     NamedNetDrivers;                               // 0x0B28 (0x0010) [0x0000000000402002] (CPF_Const | CPF_Transient | CPF_NeedCtorLink)
 	TArray<struct FAnimTag>                            AnimTags;                                      // 0x0B38 (0x0010) [0x0000000000404000] (CPF_Config | CPF_NeedCtorLink)
+	struct FScriptDelegate                             __EventTravelMapNotFound__Delegate;            // 0x0B48 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
 
 public:
 	static UClass* StaticClass()
@@ -4798,6 +4799,7 @@ public:
 		return uClassPointer;
 	};
 
+	void EventTravelMapNotFound(class FString MapName);
 	static bool HasSecondaryScreenActive();
 	static class UDownloadableContentManager* GetDLCManager();
 	static class UDownloadableContentEnumerator* GetDLCEnumerator();
@@ -9827,8 +9829,6 @@ public:
 	bool IsShowingSubtitles();
 	void SetShowSubtitles(bool bValue);
 	void eventNotifyDirectorControl(bool bNowControlling, class USeqAct_Interp* CurrentMatinee);
-	void eventServerUnmutePlayer(struct FUniqueNetId PlayerNetId);
-	void eventServerMutePlayer(struct FUniqueNetId PlayerNetId);
 	void GameplayUnmutePlayer(struct FUniqueNetId PlayerNetId);
 	void GameplayMutePlayer(struct FUniqueNetId PlayerNetId);
 	void eventClientUnmutePlayer(struct FUniqueNetId PlayerNetId);
@@ -44268,7 +44268,7 @@ public:
 	void OnUserRestored(uint8_t ControllerId);
 	void ClearUserOrphanedDelegate(struct FScriptDelegate UserOrphanedDelegate);
 	void AddUserOrphanedDelegate(struct FScriptDelegate UserOrphanedDelegate);
-	void OnUserOrphaned(uint8_t ControllerId);
+	void OnUserOrphaned(uint8_t ControllerId, bool bOrphanedByControllerDisconnection);
 	void ClearControllerChangeDelegate(struct FScriptDelegate ControllerChangeDelegate);
 	void AddControllerChangeDelegate(struct FScriptDelegate ControllerChangeDelegate);
 	void OnControllerChange(int32_t ControllerId, bool bIsConnected);

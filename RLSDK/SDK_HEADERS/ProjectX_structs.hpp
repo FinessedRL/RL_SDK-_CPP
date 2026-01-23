@@ -138,6 +138,30 @@ struct FHTTPRequestCapturedParam
 	class FString                                      Value;                                         // 0x0010 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
 };
 
+// ScriptStruct ProjectX._Types_X.NewsTileData
+// 0x00D4
+struct FNewsTileData
+{
+	class FString                                      Title;                                         // 0x0000 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
+	class FString                                      DescriptionHeader;                             // 0x0010 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
+	class FString                                      Description;                                   // 0x0020 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
+	class FString                                      WebURL;                                        // 0x0030 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
+	class FString                                      CarName;                                       // 0x0040 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
+	class FString                                      ImageURL;                                      // 0x0050 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
+	class FString                                      ThumbnailURL;                                  // 0x0060 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
+	class FString                                      StartTime;                                     // 0x0070 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
+	class FString                                      LinkType;                                      // 0x0080 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
+	class FString                                      InfoURL;                                       // 0x0090 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
+	class FString                                      EndTime;                                       // 0x00A0 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
+	uint64_t                                           StartTimeEpoch;                                // 0x00B0 (0x0008) [0x0000000000000000]               
+	uint64_t                                           EndTimeEpoch;                                  // 0x00B8 (0x0008) [0x0000000000000000]               
+	int32_t                                            ShopID;                                        // 0x00C0 (0x0004) [0x0000000000000000]               
+	int32_t                                            ShopItemID;                                    // 0x00C4 (0x0004) [0x0000000000000000]               
+	int32_t                                            ProductID;                                     // 0x00C8 (0x0004) [0x0000000000000000]               
+	int32_t                                            CategoryID;                                    // 0x00CC (0x0004) [0x0000000000000000]               
+	int32_t                                            PlaylistId;                                    // 0x00D0 (0x0004) [0x0000000000000000]               
+};
+
 // ScriptStruct ProjectX._Types_X.ServerReservationData
 // 0x0070
 struct FServerReservationData

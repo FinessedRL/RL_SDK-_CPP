@@ -4177,6 +4177,18 @@ struct UOnlineVoiceInterfaceEOS_execSetLocalPlayerRegisteredStatus_Params
 	uint32_t                                           bRegister : 1;                                    		// 0x0010 (0x0004) [0x0000000000000082] [0x00000001] (CPF_Const | CPF_Parm)
 };
 
+// Function OnlineSubsystemEOS.OnlineVoiceInterfaceEOS.OnQueryOutputDevicesFinished
+// [0x00040401] 
+struct UOnlineVoiceInterfaceEOS_execOnQueryOutputDevicesFinished_Params
+{
+};
+
+// Function OnlineSubsystemEOS.OnlineVoiceInterfaceEOS.OnQueryInputDevicesFinished
+// [0x00040401] 
+struct UOnlineVoiceInterfaceEOS_execOnQueryInputDevicesFinished_Params
+{
+};
+
 // Function OnlineSubsystemEOS.OnlineVoiceInterfaceEOS.CacheOutputAudioDevices
 // [0x00040401] 
 struct UOnlineVoiceInterfaceEOS_execCacheOutputAudioDevices_Params
