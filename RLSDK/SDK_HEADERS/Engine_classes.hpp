@@ -238,16 +238,14 @@ enum class EPhysics : uint8_t
 	PHYS_END                                           = 14
 };
 
-// Enum Engine.Actor.EForceMode
-enum class EForceMode : uint8_t
+// Enum Engine.Actor.EHighContrastRenderingID
+enum class EHighContrastRenderingID : uint8_t
 {
-	ForceMode_Force                                    = 0,
-	ForceMode_Impulse                                  = 1,
-	ForceMode_Velocity                                 = 2,
-	ForceMode_SmoothImpulse                            = 3,
-	ForceMode_SmoothVelocity                           = 4,
-	ForceMode_Acceleration                             = 5,
-	ForceMode_END                                      = 6
+	HighContrastRenderingID_Team0                      = 0,
+	HighContrastRenderingID_Team1                      = 1,
+	HighContrastRenderingID_Neutral                    = 2,
+	HighContrastRenderingID_Ball                       = 3,
+	HighContrastRenderingID_END                        = 4
 };
 
 // Enum Engine.Actor.ECollisionType
@@ -295,6 +293,28 @@ enum class ENetRole : uint8_t
 	ROLE_AutonomousProxy                               = 2,
 	ROLE_Authority                                     = 3,
 	ROLE_END                                           = 4
+};
+
+// Enum Engine.Actor.EHighContrastRenderingMode
+enum class EHighContrastRenderingMode : uint8_t
+{
+	HighContrastRenderingMode_Disabled                 = 0,
+	HighContrastRenderingMode_WorldAndHighContrastPass = 1,
+	HighContrastRenderingMode_OnlyHighContrastPass     = 2,
+	HighContrastRenderingMode_AcceptsHighContrastDecals = 3,
+	HighContrastRenderingMode_END                      = 4
+};
+
+// Enum Engine.Actor.EForceMode
+enum class EForceMode : uint8_t
+{
+	ForceMode_Force                                    = 0,
+	ForceMode_Impulse                                  = 1,
+	ForceMode_Velocity                                 = 2,
+	ForceMode_SmoothImpulse                            = 3,
+	ForceMode_SmoothVelocity                           = 4,
+	ForceMode_Acceleration                             = 5,
+	ForceMode_END                                      = 6
 };
 
 // Enum Engine.PrimitiveComponent.GJKResult
@@ -3595,14 +3615,15 @@ public:
 	struct FVector                                     DrawScale3D;                                   // 0x00AC (0x000C) [0x0000000200000003] (CPF_Edit | CPF_Const)
 	struct FVector                                     PrePivot;                                      // 0x00B8 (0x000C) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	struct FColor                                      EditorIconColor;                               // 0x00C4 (0x0004) [0x0000000800000001] (CPF_Edit)    
-	struct FRenderCommandFence                         DetachFence;                                   // 0x00C8 (0x0004) [0x0000000000001002] (CPF_Const | CPF_Native)
-	float                                              CustomTimeDilation;                            // 0x00CC (0x0004) [0x0000000000000000]               
-	EPhysics                                           Physics;                                       // 0x00D0 (0x0001) [0x0000000000000023] (CPF_Edit | CPF_Const | CPF_Net)
-	ENetRole                                           RemoteRole;                                    // 0x00D1 (0x0001) [0x0000000000000020] (CPF_Net)     
-	ENetRole                                           Role;                                          // 0x00D2 (0x0001) [0x0000000000000020] (CPF_Net)     
-	ECollisionType                                     CollisionType;                                 // 0x00D3 (0x0001) [0x0000000000002003] (CPF_Edit | CPF_Const | CPF_Transient)
-	ECollisionType                                     ReplicatedCollisionType;                       // 0x00D4 (0x0001) [0x0000000000002020] (CPF_Net | CPF_Transient)
-	ETickingGroup                                      TickGroup;                                     // 0x00D5 (0x0001) [0x0000000000000002] (CPF_Const)   
+	EHighContrastRenderingMode                         HighContrastRenderingMode;                     // 0x00C8 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	EPhysics                                           Physics;                                       // 0x00C9 (0x0001) [0x0000000000000023] (CPF_Edit | CPF_Const | CPF_Net)
+	ENetRole                                           RemoteRole;                                    // 0x00CA (0x0001) [0x0000000000000020] (CPF_Net)     
+	ENetRole                                           Role;                                          // 0x00CB (0x0001) [0x0000000000000020] (CPF_Net)     
+	ECollisionType                                     CollisionType;                                 // 0x00CC (0x0001) [0x0000000000002003] (CPF_Edit | CPF_Const | CPF_Transient)
+	ECollisionType                                     ReplicatedCollisionType;                       // 0x00CD (0x0001) [0x0000000000002020] (CPF_Net | CPF_Transient)
+	ETickingGroup                                      TickGroup;                                     // 0x00CE (0x0001) [0x0000000000000002] (CPF_Const)   
+	struct FRenderCommandFence                         DetachFence;                                   // 0x00D0 (0x0004) [0x0000000000001002] (CPF_Const | CPF_Native)
+	float                                              CustomTimeDilation;                            // 0x00D4 (0x0004) [0x0000000000000000]               
 	class AActor*                                      Owner;                                         // 0x00D8 (0x0008) [0x0000000000000022] (CPF_Const | CPF_Net)
 	class AActor*                                      Base;                                          // 0x00E0 (0x0008) [0x0000000000000023] (CPF_Edit | CPF_Const | CPF_Net)
 	TArray<struct FTimerData>                          Timers;                                        // 0x00E8 (0x0010) [0x0000000000400002] (CPF_Const | CPF_NeedCtorLink)
@@ -7529,9 +7550,11 @@ public:
 	ESceneDepthPriorityGroup                           DepthPriorityGroup;                            // 0x0184 (0x0001) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	ESceneDepthPriorityGroup                           ViewOwnerDepthPriorityGroup;                   // 0x0185 (0x0001) [0x0000000000000002] (CPF_Const)   
 	EDetailMode                                        DetailMode;                                    // 0x0186 (0x0001) [0x0000000000000003] (CPF_Edit | CPF_Const)
-	ERBCollisionChannel                                RBChannel;                                     // 0x0187 (0x0001) [0x0000000000000003] (CPF_Edit | CPF_Const)
-	uint8_t                                            RBDominanceGroup;                              // 0x0188 (0x0001) [0x0000000000000001] (CPF_Edit)    
-	uint8_t                                            PreviewEnvironmentShadowing;                   // 0x0189 (0x0001) [0x0000000000000000]               
+	EHighContrastRenderingMode                         HighContrastRenderingMode;                     // 0x0187 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	EHighContrastRenderingID                           HighContrastRenderingID;                       // 0x0188 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	ERBCollisionChannel                                RBChannel;                                     // 0x0189 (0x0001) [0x0000000000000003] (CPF_Edit | CPF_Const)
+	uint8_t                                            RBDominanceGroup;                              // 0x018A (0x0001) [0x0000000000000001] (CPF_Edit)    
+	uint8_t                                            PreviewEnvironmentShadowing;                   // 0x018B (0x0001) [0x0000000000000000]               
 	uint32_t                                           bUseViewOwnerDepthPriorityGroup : 1;           // 0x018C (0x0004) [0x0000000000000002] [0x00000001] (CPF_Const)
 	uint32_t                                           bOnlyBlockActorMovement : 1;                   // 0x018C (0x0004) [0x0000000000000002] [0x00000002] (CPF_Const)
 	uint32_t                                           bAllowCullDistanceVolume : 1;                  // 0x018C (0x0004) [0x0000000000000003] [0x00000004] (CPF_Edit | CPF_Const)
@@ -7624,6 +7647,7 @@ public:
 		return uClassPointer;
 	};
 
+	void SetHighContrastRenderingID(EHighContrastRenderingID InRenderingID);
 	void SetCastShadow(bool bNewCastShadow, bool bNewCastDynamicShadow);
 	EGJKResult ClosestPointOnComponentToComponent(class UPrimitiveComponent*& OtherComponent, struct FVector& PointOnComponentA, struct FVector& PointOnComponentB);
 	EGJKResult ClosestPointOnComponentToPoint(struct FVector& POI, struct FVector& Extent, struct FVector& OutPointA, struct FVector& OutPointB);
@@ -14349,6 +14373,7 @@ public:
 
 	void eventSetHardwareMouseCursorVisibility(bool bIsVisible);
 	void DebugSetUISystemEnabled(bool bOldUISystemActive, bool bGFxUISystemActive);
+	void SetEnableHighContrastMode(bool bInEnable);
 	bool IsScaleformEnabled();
 	void DisableScaleform();
 	void EnableScaleform();
@@ -44255,8 +44280,8 @@ public:
 	bool AnyPlayerChatRestricted();
 	void InitializeTrophyAPI();
 	void OpenStoreForItemsAsync(uint8_t LocalUserNum, TArray<class FString> Targets, struct FScriptDelegate Callback);
+	void OpenStoreForItems(uint8_t LocalUserNum, TArray<class FString> Targets, struct FScriptDelegate Callback);
 	void OnStorePurchaseCompleteDelegate();
-	void OpenStoreForItems(uint8_t LocalUserNum, TArray<class FString> Targets);
 	void OpenStoreForDLC(uint8_t LocalUserNum, struct FName DLC);
 	void OpenErrorDialog(uint8_t LocalUserNum, EPS4ErrorDialog ErrorCode);
 	void OpenPS4DisplayMode(uint8_t LocalUserNum, EPS4DisplayMode DisplayMode, TArray<class FString> Targets, int32_t ServiceLabel);
@@ -46106,6 +46131,29 @@ public:
 		return uClassPointer;
 	};
 
+};
+
+// Class Engine.ContentAuthorizationTokenInterface
+// 0x0000 (0x0060 - 0x0060)
+class UContentAuthorizationTokenInterface : public UInterface
+{
+public:
+
+public:
+	static UClass* StaticClass()
+	{
+		static UClass* uClassPointer = nullptr;
+
+		if (!uClassPointer)
+		{
+			uClassPointer = UObject::FindClass("Class Engine.ContentAuthorizationTokenInterface");
+		}
+
+		return uClassPointer;
+	};
+
+	static bool GetContentAuthorizationToken(struct FScriptDelegate Callback, class FString& Nonce);
+	void EventGetCATComplete(class FString Token);
 };
 
 /*

@@ -19901,6 +19901,26 @@ void UHeightFogComponent::SetEnabled(bool bSetEnabled)
 	this->ProcessEvent(uFnSetEnabled, &SetEnabled_Params, nullptr);
 };
 
+// Function Engine.PrimitiveComponent.SetHighContrastRenderingID
+// [0x00020401] (FUNC_Final | FUNC_Native | FUNC_Public | FUNC_AllFlags)
+// Parameter Info:
+// EHighContrastRenderingID       InRenderingID                  (CPF_Parm)
+
+void UPrimitiveComponent::SetHighContrastRenderingID(EHighContrastRenderingID InRenderingID)
+{
+	static UFunction* uFnSetHighContrastRenderingID = nullptr;
+
+	if (!uFnSetHighContrastRenderingID)
+	{
+		uFnSetHighContrastRenderingID = UFunction::FindFunction("Function Engine.PrimitiveComponent.SetHighContrastRenderingID");
+	}
+
+	UPrimitiveComponent_execSetHighContrastRenderingID_Params SetHighContrastRenderingID_Params;
+	memcpy_s(&SetHighContrastRenderingID_Params.InRenderingID, sizeof(SetHighContrastRenderingID_Params.InRenderingID), &InRenderingID, sizeof(InRenderingID));
+
+	this->ProcessEvent(uFnSetHighContrastRenderingID, &SetHighContrastRenderingID_Params, nullptr);
+};
+
 // Function Engine.PrimitiveComponent.SetCastShadow
 // [0x00020003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Public | FUNC_AllFlags)
 // Parameter Info:
@@ -46762,6 +46782,26 @@ void UGameViewportClient::DebugSetUISystemEnabled(bool bOldUISystemActive, bool 
 	DebugSetUISystemEnabled_Params.bGFxUISystemActive = bGFxUISystemActive;
 
 	this->ProcessEvent(uFnDebugSetUISystemEnabled, &DebugSetUISystemEnabled_Params, nullptr);
+};
+
+// Function Engine.GameViewportClient.SetEnableHighContrastMode
+// [0x00020401] (FUNC_Final | FUNC_Native | FUNC_Public | FUNC_AllFlags)
+// Parameter Info:
+// bool                           bInEnable                      (CPF_Parm)
+
+void UGameViewportClient::SetEnableHighContrastMode(bool bInEnable)
+{
+	static UFunction* uFnSetEnableHighContrastMode = nullptr;
+
+	if (!uFnSetEnableHighContrastMode)
+	{
+		uFnSetEnableHighContrastMode = UFunction::FindFunction("Function Engine.GameViewportClient.SetEnableHighContrastMode");
+	}
+
+	UGameViewportClient_execSetEnableHighContrastMode_Params SetEnableHighContrastMode_Params;
+	SetEnableHighContrastMode_Params.bInEnable = bInEnable;
+
+	this->ProcessEvent(uFnSetEnableHighContrastMode, &SetEnableHighContrastMode_Params, nullptr);
 };
 
 // Function Engine.GameViewportClient.IsScaleformEnabled
@@ -101882,6 +101922,30 @@ void UOnlineSystemInterface::OpenStoreForItemsAsync(uint8_t LocalUserNum, TArray
 	this->ProcessEvent(uFnOpenStoreForItemsAsync, &OpenStoreForItemsAsync_Params, nullptr);
 };
 
+// Function Engine.OnlineSystemInterface.OpenStoreForItems
+// [0x00020000] (FUNC_Public | FUNC_AllFlags)
+// Parameter Info:
+// uint8_t                        LocalUserNum                   (CPF_Parm)
+// TArray<class FString>          Targets                        (CPF_Parm | CPF_NeedCtorLink)
+// struct FScriptDelegate         Callback                       (CPF_Parm | CPF_NeedCtorLink)
+
+void UOnlineSystemInterface::OpenStoreForItems(uint8_t LocalUserNum, TArray<class FString> Targets, struct FScriptDelegate Callback)
+{
+	static UFunction* uFnOpenStoreForItems = nullptr;
+
+	if (!uFnOpenStoreForItems)
+	{
+		uFnOpenStoreForItems = UFunction::FindFunction("Function Engine.OnlineSystemInterface.OpenStoreForItems");
+	}
+
+	UOnlineSystemInterface_execOpenStoreForItems_Params OpenStoreForItems_Params;
+	memcpy_s(&OpenStoreForItems_Params.LocalUserNum, sizeof(OpenStoreForItems_Params.LocalUserNum), &LocalUserNum, sizeof(LocalUserNum));
+	memcpy_s(&OpenStoreForItems_Params.Targets, sizeof(OpenStoreForItems_Params.Targets), &Targets, sizeof(Targets));
+	memcpy_s(&OpenStoreForItems_Params.Callback, sizeof(OpenStoreForItems_Params.Callback), &Callback, sizeof(Callback));
+
+	this->ProcessEvent(uFnOpenStoreForItems, &OpenStoreForItems_Params, nullptr);
+};
+
 // Function Engine.OnlineSystemInterface.OnStorePurchaseCompleteDelegate
 // [0x00120000] (FUNC_Public | FUNC_Delegate | FUNC_AllFlags)
 // Parameter Info:
@@ -101898,28 +101962,6 @@ void UOnlineSystemInterface::OnStorePurchaseCompleteDelegate()
 	UOnlineSystemInterface_execOnStorePurchaseCompleteDelegate_Params OnStorePurchaseCompleteDelegate_Params;
 
 	this->ProcessEvent(uFnOnStorePurchaseCompleteDelegate, &OnStorePurchaseCompleteDelegate_Params, nullptr);
-};
-
-// Function Engine.OnlineSystemInterface.OpenStoreForItems
-// [0x00020000] (FUNC_Public | FUNC_AllFlags)
-// Parameter Info:
-// uint8_t                        LocalUserNum                   (CPF_Parm)
-// TArray<class FString>          Targets                        (CPF_Parm | CPF_NeedCtorLink)
-
-void UOnlineSystemInterface::OpenStoreForItems(uint8_t LocalUserNum, TArray<class FString> Targets)
-{
-	static UFunction* uFnOpenStoreForItems = nullptr;
-
-	if (!uFnOpenStoreForItems)
-	{
-		uFnOpenStoreForItems = UFunction::FindFunction("Function Engine.OnlineSystemInterface.OpenStoreForItems");
-	}
-
-	UOnlineSystemInterface_execOpenStoreForItems_Params OpenStoreForItems_Params;
-	memcpy_s(&OpenStoreForItems_Params.LocalUserNum, sizeof(OpenStoreForItems_Params.LocalUserNum), &LocalUserNum, sizeof(LocalUserNum));
-	memcpy_s(&OpenStoreForItems_Params.Targets, sizeof(OpenStoreForItems_Params.Targets), &Targets, sizeof(Targets));
-
-	this->ProcessEvent(uFnOpenStoreForItems, &OpenStoreForItems_Params, nullptr);
 };
 
 // Function Engine.OnlineSystemInterface.OpenStoreForDLC
@@ -104784,6 +104826,53 @@ void UUserCloudFileCloudSaveSystemDataBlobStore::GetDataBlobCallbackDelegate(boo
 	this->ProcessEvent(uFnGetDataBlobCallbackDelegate, &GetDataBlobCallbackDelegate_Params, nullptr);
 
 	memcpy_s(&DataBlob, sizeof(DataBlob), &GetDataBlobCallbackDelegate_Params.DataBlob, sizeof(GetDataBlobCallbackDelegate_Params.DataBlob));
+};
+
+// Function Engine.ContentAuthorizationTokenInterface.GetContentAuthorizationToken
+// [0x00422000] (FUNC_Static | FUNC_Public | FUNC_HasOutParms | FUNC_AllFlags)
+// Parameter Info:
+// bool                           ReturnValue                    (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+// struct FScriptDelegate         Callback                       (CPF_Parm | CPF_NeedCtorLink)
+// class FString                  Nonce                          (CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
+
+bool UContentAuthorizationTokenInterface::GetContentAuthorizationToken(struct FScriptDelegate Callback, class FString& Nonce)
+{
+	static UFunction* uFnGetContentAuthorizationToken = nullptr;
+
+	if (!uFnGetContentAuthorizationToken)
+	{
+		uFnGetContentAuthorizationToken = UFunction::FindFunction("Function Engine.ContentAuthorizationTokenInterface.GetContentAuthorizationToken");
+	}
+
+	UContentAuthorizationTokenInterface_execGetContentAuthorizationToken_Params GetContentAuthorizationToken_Params;
+	memcpy_s(&GetContentAuthorizationToken_Params.Callback, sizeof(GetContentAuthorizationToken_Params.Callback), &Callback, sizeof(Callback));
+	memcpy_s(&GetContentAuthorizationToken_Params.Nonce, sizeof(GetContentAuthorizationToken_Params.Nonce), &Nonce, sizeof(Nonce));
+
+	UContentAuthorizationTokenInterface::StaticClass()->ProcessEvent(uFnGetContentAuthorizationToken, &GetContentAuthorizationToken_Params, nullptr);
+
+	memcpy_s(&Nonce, sizeof(Nonce), &GetContentAuthorizationToken_Params.Nonce, sizeof(GetContentAuthorizationToken_Params.Nonce));
+
+	return GetContentAuthorizationToken_Params.ReturnValue;
+};
+
+// Function Engine.ContentAuthorizationTokenInterface.EventGetCATComplete
+// [0x00120000] (FUNC_Public | FUNC_Delegate | FUNC_AllFlags)
+// Parameter Info:
+// class FString                  Token                          (CPF_Parm | CPF_NeedCtorLink)
+
+void UContentAuthorizationTokenInterface::EventGetCATComplete(class FString Token)
+{
+	static UFunction* uFnEventGetCATComplete = nullptr;
+
+	if (!uFnEventGetCATComplete)
+	{
+		uFnEventGetCATComplete = UFunction::FindFunction("Function Engine.ContentAuthorizationTokenInterface.EventGetCATComplete");
+	}
+
+	UContentAuthorizationTokenInterface_execEventGetCATComplete_Params EventGetCATComplete_Params;
+	memcpy_s(&EventGetCATComplete_Params.Token, sizeof(EventGetCATComplete_Params.Token), &Token, sizeof(Token));
+
+	this->ProcessEvent(uFnEventGetCATComplete, &EventGetCATComplete_Params, nullptr);
 };
 
 /*

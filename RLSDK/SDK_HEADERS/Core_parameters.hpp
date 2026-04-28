@@ -3250,6 +3250,132 @@ struct UObject_execFromHex_Params
 	int32_t                                            ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
+// Function Core.Object.SQWordMin
+// [0x00022401] 
+struct UObject_execSQWordMin_Params
+{
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.SQWordMin.A
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.SQWordMin.B
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.SQWordMin.ReturnValue
+};
+
+// Function Core.Object.SQWordMax
+// [0x00022401] 
+struct UObject_execSQWordMax_Params
+{
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.SQWordMax.A
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.SQWordMax.B
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.SQWordMax.ReturnValue
+};
+
+// Function Core.Object.SubtractEqual_SQWordSQWord
+// [0x00423401] 
+struct UObject_execSubtractEqual_SQWordSQWord_Params
+{
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.SubtractEqual_SQWordSQWord.A
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.SubtractEqual_SQWordSQWord.B
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.SubtractEqual_SQWordSQWord.ReturnValue
+};
+
+// Function Core.Object.AddEqual_SQWordSQWord
+// [0x00423401] 
+struct UObject_execAddEqual_SQWordSQWord_Params
+{
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.AddEqual_SQWordSQWord.A
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.AddEqual_SQWordSQWord.B
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.AddEqual_SQWordSQWord.ReturnValue
+};
+
+// Function Core.Object.NotEqual_SQWordSQWord
+// [0x00023401] 
+struct UObject_execNotEqual_SQWordSQWord_Params
+{
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.NotEqual_SQWordSQWord.A
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.NotEqual_SQWordSQWord.B
+	bool                                               ReturnValue : 1;                                  		// 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+};
+
+// Function Core.Object.EqualEqual_SQWordSQWord
+// [0x00023401] 
+struct UObject_execEqualEqual_SQWordSQWord_Params
+{
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.EqualEqual_SQWordSQWord.A
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.EqualEqual_SQWordSQWord.B
+	bool                                               ReturnValue : 1;                                  		// 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+};
+
+// Function Core.Object.GreaterEqual_SQWordSQWord
+// [0x00023401] 
+struct UObject_execGreaterEqual_SQWordSQWord_Params
+{
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.GreaterEqual_SQWordSQWord.A
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.GreaterEqual_SQWordSQWord.B
+	bool                                               ReturnValue : 1;                                  		// 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+};
+
+// Function Core.Object.LessEqual_SQWordSQWord
+// [0x00023401] 
+struct UObject_execLessEqual_SQWordSQWord_Params
+{
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.LessEqual_SQWordSQWord.A
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.LessEqual_SQWordSQWord.B
+	bool                                               ReturnValue : 1;                                  		// 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+};
+
+// Function Core.Object.Greater_SQWordSQWord
+// [0x00023401] 
+struct UObject_execGreater_SQWordSQWord_Params
+{
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.Greater_SQWordSQWord.A
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.Greater_SQWordSQWord.B
+	bool                                               ReturnValue : 1;                                  		// 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+};
+
+// Function Core.Object.Less_SQWordSQWord
+// [0x00023401] 
+struct UObject_execLess_SQWordSQWord_Params
+{
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.Less_SQWordSQWord.A
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.Less_SQWordSQWord.B
+	bool                                               ReturnValue : 1;                                  		// 0x0010 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+};
+
+// Function Core.Object.Subtract_SQWordSQWord
+// [0x00023401] 
+struct UObject_execSubtract_SQWordSQWord_Params
+{
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.Subtract_SQWordSQWord.A
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.Subtract_SQWordSQWord.B
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.Subtract_SQWordSQWord.ReturnValue
+};
+
+// Function Core.Object.Add_SQWordSQWord
+// [0x00023401] 
+struct UObject_execAdd_SQWordSQWord_Params
+{
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.Add_SQWordSQWord.A
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.Add_SQWordSQWord.B
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.Add_SQWordSQWord.ReturnValue
+};
+
+// Function Core.Object.Divide_SQWordSQWord
+// [0x00023401] 
+struct UObject_execDivide_SQWordSQWord_Params
+{
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.Divide_SQWordSQWord.A
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.Divide_SQWordSQWord.B
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.Divide_SQWordSQWord.ReturnValue
+};
+
+// Function Core.Object.Multiply_SQWordSQWord
+// [0x00023401] 
+struct UObject_execMultiply_SQWordSQWord_Params
+{
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.Multiply_SQWordSQWord.A
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.Multiply_SQWordSQWord.B
+	// UNKNOWN PROPERTY: SQWordProperty Core.Object.Multiply_SQWordSQWord.ReturnValue
+};
+
 // Function Core.Object.QMin
 // [0x00022401] 
 struct UObject_execQMin_Params
