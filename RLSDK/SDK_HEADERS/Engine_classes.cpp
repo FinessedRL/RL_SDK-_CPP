@@ -7517,6 +7517,27 @@ bool AWorldInfo::IsWithGFx()
 	return IsWithGFx_Params.ReturnValue;
 };
 
+// Function Engine.WorldInfo.IsSteamDeck
+// [0x00022501] (FUNC_Final | FUNC_NetRequest | FUNC_Native | FUNC_Static | FUNC_Public | FUNC_AllFlags)
+// Parameter Info:
+// bool                           ReturnValue                    (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+
+bool AWorldInfo::IsSteamDeck()
+{
+	static UFunction* uFnIsSteamDeck = nullptr;
+
+	if (!uFnIsSteamDeck)
+	{
+		uFnIsSteamDeck = UFunction::FindFunction("Function Engine.WorldInfo.IsSteamDeck");
+	}
+
+	AWorldInfo_execIsSteamDeck_Params IsSteamDeck_Params;
+
+	AWorldInfo::StaticClass()->ProcessEvent(uFnIsSteamDeck, &IsSteamDeck_Params, nullptr);
+
+	return IsSteamDeck_Params.ReturnValue;
+};
+
 // Function Engine.WorldInfo.IsEpicGamesStoreBuild
 // [0x00022501] (FUNC_Final | FUNC_NetRequest | FUNC_Native | FUNC_Static | FUNC_Public | FUNC_AllFlags)
 // Parameter Info:
@@ -43405,6 +43426,27 @@ EOnlinePlatform UOnlineSubsystem::GetOnlinePlatformFromName(class FString Platfo
 	UOnlineSubsystem::StaticClass()->ProcessEvent(uFnGetOnlinePlatformFromName, &GetOnlinePlatformFromName_Params, nullptr);
 
 	return GetOnlinePlatformFromName_Params.ReturnValue;
+};
+
+// Function Engine.OnlineSubsystem.GetOSVersionString
+// [0x00022401] (FUNC_Final | FUNC_Native | FUNC_Static | FUNC_Public | FUNC_AllFlags)
+// Parameter Info:
+// class FString                  ReturnValue                    (CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink)
+
+class FString UOnlineSubsystem::GetOSVersionString()
+{
+	static UFunction* uFnGetOSVersionString = nullptr;
+
+	if (!uFnGetOSVersionString)
+	{
+		uFnGetOSVersionString = UFunction::FindFunction("Function Engine.OnlineSubsystem.GetOSVersionString");
+	}
+
+	UOnlineSubsystem_execGetOSVersionString_Params GetOSVersionString_Params;
+
+	UOnlineSubsystem::StaticClass()->ProcessEvent(uFnGetOSVersionString, &GetOSVersionString_Params, nullptr);
+
+	return GetOSVersionString_Params.ReturnValue;
 };
 
 // Function Engine.OnlineSubsystem.GetNativePlatformName

@@ -1973,7 +1973,8 @@ enum class EConsoleType : uint8_t
 	CONSOLE_Prospero                                   = 16,
 	CONSOLE_Scorpio                                    = 17,
 	CONSOLE_Ounce                                      = 18,
-	CONSOLE_END                                        = 19
+	CONSOLE_Edmonton                                   = 19,
+	CONSOLE_END                                        = 20
 };
 
 // Enum Engine.WorldInfo.EPreferredLightmapType
@@ -4330,6 +4331,7 @@ public:
 	static bool IsPlayInPreview();
 	static bool IsPlayInEditor();
 	static bool IsWithGFx();
+	static bool IsSteamDeck();
 	static bool IsEpicGamesStoreBuild();
 	static class FString GetConsoleTypeName(EConsoleType ConsoleType);
 	static EConsoleType GetConsoleType();
@@ -12921,6 +12923,7 @@ public:
 	void SetSessionGameplayMode(int32_t GameplayMode);
 	void PrintDebugInfo(class UDebugDrawer* Drawer);
 	static EOnlinePlatform GetOnlinePlatformFromName(class FString PlatformName);
+	static class FString GetOSVersionString();
 	static class FString GetNativePlatformName();
 	static class FString GetPlatformName(EOnlinePlatform PlatformType);
 	static class FString ReplacePlatformServiceName(class FString ReplString);

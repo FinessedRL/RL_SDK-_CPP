@@ -4137,6 +4137,50 @@ void APlayerController_X::ServerDestroy()
 	this->ProcessEvent(uFnServerDestroy, &ServerDestroy_Params, nullptr);
 };
 
+// Function ProjectX.PlayerController_X.ClientSetPendingProgressMessage
+// [0x010241C3] (FUNC_Final | FUNC_RequiredAPI | FUNC_Net | FUNC_NetReliable | FUNC_NetRequest | FUNC_NetMulticast | FUNC_Public | FUNC_NetClient | FUNC_AllFlags)
+// Parameter Info:
+// class FString                  Reason                         (CPF_Parm | CPF_NeedCtorLink)
+// class FString                  Title                          (CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink)
+
+void APlayerController_X::ClientSetPendingProgressMessage(class FString Reason, class FString Title)
+{
+	static UFunction* uFnClientSetPendingProgressMessage = nullptr;
+
+	if (!uFnClientSetPendingProgressMessage)
+	{
+		uFnClientSetPendingProgressMessage = UFunction::FindFunction("Function ProjectX.PlayerController_X.ClientSetPendingProgressMessage");
+	}
+
+	APlayerController_X_execClientSetPendingProgressMessage_Params ClientSetPendingProgressMessage_Params;
+	memcpy_s(&ClientSetPendingProgressMessage_Params.Reason, sizeof(ClientSetPendingProgressMessage_Params.Reason), &Reason, sizeof(Reason));
+	memcpy_s(&ClientSetPendingProgressMessage_Params.Title, sizeof(ClientSetPendingProgressMessage_Params.Title), &Title, sizeof(Title));
+
+	this->ProcessEvent(uFnClientSetPendingProgressMessage, &ClientSetPendingProgressMessage_Params, nullptr);
+};
+
+// Function ProjectX.PlayerController_X.CloseConnectionWithReason
+// [0x00024003] (FUNC_Final | FUNC_RequiredAPI | FUNC_NetMulticast | FUNC_Public | FUNC_AllFlags)
+// Parameter Info:
+// class FString                  Reason                         (CPF_Parm | CPF_NeedCtorLink)
+// class FString                  Title                          (CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink)
+
+void APlayerController_X::CloseConnectionWithReason(class FString Reason, class FString Title)
+{
+	static UFunction* uFnCloseConnectionWithReason = nullptr;
+
+	if (!uFnCloseConnectionWithReason)
+	{
+		uFnCloseConnectionWithReason = UFunction::FindFunction("Function ProjectX.PlayerController_X.CloseConnectionWithReason");
+	}
+
+	APlayerController_X_execCloseConnectionWithReason_Params CloseConnectionWithReason_Params;
+	memcpy_s(&CloseConnectionWithReason_Params.Reason, sizeof(CloseConnectionWithReason_Params.Reason), &Reason, sizeof(Reason));
+	memcpy_s(&CloseConnectionWithReason_Params.Title, sizeof(CloseConnectionWithReason_Params.Title), &Title, sizeof(Title));
+
+	this->ProcessEvent(uFnCloseConnectionWithReason, &CloseConnectionWithReason_Params, nullptr);
+};
+
 // Function ProjectX.PlayerController_X.KickPlayerForReason
 // [0x010241C3] (FUNC_Final | FUNC_RequiredAPI | FUNC_Net | FUNC_NetReliable | FUNC_NetRequest | FUNC_NetMulticast | FUNC_Public | FUNC_NetClient | FUNC_AllFlags)
 // Parameter Info:
@@ -20734,6 +20778,29 @@ void UPlayerInput_X::ReleaseKey(struct FName Key, bool bTriggerEvents)
 	this->ProcessEvent(uFnReleaseKey, &ReleaseKey_Params, nullptr);
 };
 
+// Function ProjectX.PlayerInput_X.GetUIAxisKey
+// [0x00022003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Static | FUNC_Public | FUNC_AllFlags)
+// Parameter Info:
+// class FString                  ReturnValue                    (CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink)
+// struct FPlayerBinding          Binding                        (CPF_Parm)
+
+class FString UPlayerInput_X::GetUIAxisKey(struct FPlayerBinding Binding)
+{
+	static UFunction* uFnGetUIAxisKey = nullptr;
+
+	if (!uFnGetUIAxisKey)
+	{
+		uFnGetUIAxisKey = UFunction::FindFunction("Function ProjectX.PlayerInput_X.GetUIAxisKey");
+	}
+
+	UPlayerInput_X_execGetUIAxisKey_Params GetUIAxisKey_Params;
+	memcpy_s(&GetUIAxisKey_Params.Binding, sizeof(GetUIAxisKey_Params.Binding), &Binding, sizeof(Binding));
+
+	UPlayerInput_X::StaticClass()->ProcessEvent(uFnGetUIAxisKey, &GetUIAxisKey_Params, nullptr);
+
+	return GetUIAxisKey_Params.ReturnValue;
+};
+
 // Function ProjectX.PlayerInput_X.GetUIKey
 // [0x00022003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Static | FUNC_Public | FUNC_AllFlags)
 // Parameter Info:
@@ -26624,6 +26691,30 @@ void UOnlineGame_X::HandleLoginCompleted(class UOnlinePlayerAuthentication_X* Au
 	memcpy_s(&HandleLoginCompleted_Params.Task, sizeof(HandleLoginCompleted_Params.Task), &Task, sizeof(Task));
 
 	this->ProcessEvent(uFnHandleLoginCompleted, &HandleLoginCompleted_Params, nullptr);
+};
+
+// Function ProjectX.OnlineGame_X.HandleOnlinePlayerLoginCompleted
+// [0x00440003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Private | FUNC_HasOutParms | FUNC_AllFlags)
+// Parameter Info:
+// class UAsyncTask*              Task                           (CPF_Parm)
+// TArray<class UOnlinePlayer_X*> ActiveLoginAttemptPlayers      (CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
+
+void UOnlineGame_X::HandleOnlinePlayerLoginCompleted(class UAsyncTask* Task, TArray<class UOnlinePlayer_X*>& ActiveLoginAttemptPlayers)
+{
+	static UFunction* uFnHandleOnlinePlayerLoginCompleted = nullptr;
+
+	if (!uFnHandleOnlinePlayerLoginCompleted)
+	{
+		uFnHandleOnlinePlayerLoginCompleted = UFunction::FindFunction("Function ProjectX.OnlineGame_X.HandleOnlinePlayerLoginCompleted");
+	}
+
+	UOnlineGame_X_execHandleOnlinePlayerLoginCompleted_Params HandleOnlinePlayerLoginCompleted_Params;
+	memcpy_s(&HandleOnlinePlayerLoginCompleted_Params.Task, sizeof(HandleOnlinePlayerLoginCompleted_Params.Task), &Task, sizeof(Task));
+	memcpy_s(&HandleOnlinePlayerLoginCompleted_Params.ActiveLoginAttemptPlayers, sizeof(HandleOnlinePlayerLoginCompleted_Params.ActiveLoginAttemptPlayers), &ActiveLoginAttemptPlayers, sizeof(ActiveLoginAttemptPlayers));
+
+	this->ProcessEvent(uFnHandleOnlinePlayerLoginCompleted, &HandleOnlinePlayerLoginCompleted_Params, nullptr);
+
+	memcpy_s(&ActiveLoginAttemptPlayers, sizeof(ActiveLoginAttemptPlayers), &HandleOnlinePlayerLoginCompleted_Params.ActiveLoginAttemptPlayers, sizeof(HandleOnlinePlayerLoginCompleted_Params.ActiveLoginAttemptPlayers));
 };
 
 // Function ProjectX.OnlineGame_X.CheckPsyNetConnection
@@ -33094,6 +33185,133 @@ void UTickableStateObject_X::SetTimer(float InRate, bool inbLoop, struct FName i
 	this->ProcessEvent(uFnSetTimer, &SetTimer_Params, nullptr);
 };
 
+// Function ProjectX.StringUtil_X.FindWordBoundary
+// [0x00026401] (FUNC_Final | FUNC_Native | FUNC_Static | FUNC_NetMulticast | FUNC_Public | FUNC_AllFlags)
+// Parameter Info:
+// int32_t                        ReturnValue                    (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+// class FString                  Haystack                       (CPF_Parm | CPF_NeedCtorLink)
+// class FString                  Needle                         (CPF_Parm | CPF_NeedCtorLink)
+// bool                           bReverseSearch                 (CPF_OptionalParm | CPF_Parm)
+// bool                           bIgnoreCase                    (CPF_OptionalParm | CPF_Parm)
+
+int32_t UStringUtil_X::FindWordBoundary(class FString Haystack, class FString Needle, bool bReverseSearch, bool bIgnoreCase)
+{
+	static UFunction* uFnFindWordBoundary = nullptr;
+
+	if (!uFnFindWordBoundary)
+	{
+		uFnFindWordBoundary = UFunction::FindFunction("Function ProjectX.StringUtil_X.FindWordBoundary");
+	}
+
+	UStringUtil_X_execFindWordBoundary_Params FindWordBoundary_Params;
+	memcpy_s(&FindWordBoundary_Params.Haystack, sizeof(FindWordBoundary_Params.Haystack), &Haystack, sizeof(Haystack));
+	memcpy_s(&FindWordBoundary_Params.Needle, sizeof(FindWordBoundary_Params.Needle), &Needle, sizeof(Needle));
+	FindWordBoundary_Params.bReverseSearch = bReverseSearch;
+	FindWordBoundary_Params.bIgnoreCase = bIgnoreCase;
+
+	UStringUtil_X::StaticClass()->ProcessEvent(uFnFindWordBoundary, &FindWordBoundary_Params, nullptr);
+
+	return FindWordBoundary_Params.ReturnValue;
+};
+
+// Function ProjectX.StringUtil_X.SplitStringIntoMaxSizePieces
+// [0x00022003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Static | FUNC_Public | FUNC_AllFlags)
+// Parameter Info:
+// TArray<class FString>          ReturnValue                    (CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink)
+// class FString                  OriginalString                 (CPF_Parm | CPF_NeedCtorLink)
+// int32_t                        MaxStringSize                  (CPF_Parm)
+
+TArray<class FString> UStringUtil_X::SplitStringIntoMaxSizePieces(class FString OriginalString, int32_t MaxStringSize)
+{
+	static UFunction* uFnSplitStringIntoMaxSizePieces = nullptr;
+
+	if (!uFnSplitStringIntoMaxSizePieces)
+	{
+		uFnSplitStringIntoMaxSizePieces = UFunction::FindFunction("Function ProjectX.StringUtil_X.SplitStringIntoMaxSizePieces");
+	}
+
+	UStringUtil_X_execSplitStringIntoMaxSizePieces_Params SplitStringIntoMaxSizePieces_Params;
+	memcpy_s(&SplitStringIntoMaxSizePieces_Params.OriginalString, sizeof(SplitStringIntoMaxSizePieces_Params.OriginalString), &OriginalString, sizeof(OriginalString));
+	memcpy_s(&SplitStringIntoMaxSizePieces_Params.MaxStringSize, sizeof(SplitStringIntoMaxSizePieces_Params.MaxStringSize), &MaxStringSize, sizeof(MaxStringSize));
+
+	UStringUtil_X::StaticClass()->ProcessEvent(uFnSplitStringIntoMaxSizePieces, &SplitStringIntoMaxSizePieces_Params, nullptr);
+
+	return SplitStringIntoMaxSizePieces_Params.ReturnValue;
+};
+
+// Function ProjectX.StringUtil_X.MessageCanBeCorruptedOnConversion
+// [0x00022003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Static | FUNC_Public | FUNC_AllFlags)
+// Parameter Info:
+// bool                           ReturnValue                    (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+// class FString                  Message                        (CPF_Parm | CPF_NeedCtorLink)
+
+bool UStringUtil_X::MessageCanBeCorruptedOnConversion(class FString Message)
+{
+	static UFunction* uFnMessageCanBeCorruptedOnConversion = nullptr;
+
+	if (!uFnMessageCanBeCorruptedOnConversion)
+	{
+		uFnMessageCanBeCorruptedOnConversion = UFunction::FindFunction("Function ProjectX.StringUtil_X.MessageCanBeCorruptedOnConversion");
+	}
+
+	UStringUtil_X_execMessageCanBeCorruptedOnConversion_Params MessageCanBeCorruptedOnConversion_Params;
+	memcpy_s(&MessageCanBeCorruptedOnConversion_Params.Message, sizeof(MessageCanBeCorruptedOnConversion_Params.Message), &Message, sizeof(Message));
+
+	UStringUtil_X::StaticClass()->ProcessEvent(uFnMessageCanBeCorruptedOnConversion, &MessageCanBeCorruptedOnConversion_Params, nullptr);
+
+	return MessageCanBeCorruptedOnConversion_Params.ReturnValue;
+};
+
+// Function ProjectX.StringUtil_X.IsStringEmptyOrWhiteSpace
+// [0x00022003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Static | FUNC_Public | FUNC_AllFlags)
+// Parameter Info:
+// bool                           ReturnValue                    (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+// class FString                  BaseString                     (CPF_Parm | CPF_NeedCtorLink)
+
+bool UStringUtil_X::IsStringEmptyOrWhiteSpace(class FString BaseString)
+{
+	static UFunction* uFnIsStringEmptyOrWhiteSpace = nullptr;
+
+	if (!uFnIsStringEmptyOrWhiteSpace)
+	{
+		uFnIsStringEmptyOrWhiteSpace = UFunction::FindFunction("Function ProjectX.StringUtil_X.IsStringEmptyOrWhiteSpace");
+	}
+
+	UStringUtil_X_execIsStringEmptyOrWhiteSpace_Params IsStringEmptyOrWhiteSpace_Params;
+	memcpy_s(&IsStringEmptyOrWhiteSpace_Params.BaseString, sizeof(IsStringEmptyOrWhiteSpace_Params.BaseString), &BaseString, sizeof(BaseString));
+
+	UStringUtil_X::StaticClass()->ProcessEvent(uFnIsStringEmptyOrWhiteSpace, &IsStringEmptyOrWhiteSpace_Params, nullptr);
+
+	return IsStringEmptyOrWhiteSpace_Params.ReturnValue;
+};
+
+// Function ProjectX.StringUtil_X.SplitStringInHalf
+// [0x00422003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Static | FUNC_Public | FUNC_HasOutParms | FUNC_AllFlags)
+// Parameter Info:
+// class FString                  OriginalString                 (CPF_Parm | CPF_NeedCtorLink)
+// class FString                  FirstHalf                      (CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
+// class FString                  SecondHalf                     (CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
+
+void UStringUtil_X::SplitStringInHalf(class FString OriginalString, class FString& FirstHalf, class FString& SecondHalf)
+{
+	static UFunction* uFnSplitStringInHalf = nullptr;
+
+	if (!uFnSplitStringInHalf)
+	{
+		uFnSplitStringInHalf = UFunction::FindFunction("Function ProjectX.StringUtil_X.SplitStringInHalf");
+	}
+
+	UStringUtil_X_execSplitStringInHalf_Params SplitStringInHalf_Params;
+	memcpy_s(&SplitStringInHalf_Params.OriginalString, sizeof(SplitStringInHalf_Params.OriginalString), &OriginalString, sizeof(OriginalString));
+	memcpy_s(&SplitStringInHalf_Params.FirstHalf, sizeof(SplitStringInHalf_Params.FirstHalf), &FirstHalf, sizeof(FirstHalf));
+	memcpy_s(&SplitStringInHalf_Params.SecondHalf, sizeof(SplitStringInHalf_Params.SecondHalf), &SecondHalf, sizeof(SecondHalf));
+
+	UStringUtil_X::StaticClass()->ProcessEvent(uFnSplitStringInHalf, &SplitStringInHalf_Params, nullptr);
+
+	memcpy_s(&FirstHalf, sizeof(FirstHalf), &SplitStringInHalf_Params.FirstHalf, sizeof(SplitStringInHalf_Params.FirstHalf));
+	memcpy_s(&SecondHalf, sizeof(SecondHalf), &SplitStringInHalf_Params.SecondHalf, sizeof(SplitStringInHalf_Params.SecondHalf));
+};
+
 // Function ProjectX.SystemInfo_X.GetComputerName
 // [0x00022401] (FUNC_Final | FUNC_Native | FUNC_Static | FUNC_Public | FUNC_AllFlags)
 // Parameter Info:
@@ -38509,6 +38727,31 @@ bool U__ClubUtil_X__IsClubTeam_0x1::__ClubUtil_X__IsClubTeam_0x1(uint64_t Id)
 	return __ClubUtil_X__IsClubTeam_0x1_Params.ReturnValue;
 };
 
+// Function ProjectX.ClubUtil_X.IsOneTeamGrayScale
+// [0x00042003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Static | FUNC_Private | FUNC_AllFlags)
+// Parameter Info:
+// bool                           ReturnValue                    (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+// int32_t                        Pos0Column                     (CPF_Parm)
+// int32_t                        Pos1Column                     (CPF_Parm)
+
+bool UClubUtil_X::IsOneTeamGrayScale(int32_t Pos0Column, int32_t Pos1Column)
+{
+	static UFunction* uFnIsOneTeamGrayScale = nullptr;
+
+	if (!uFnIsOneTeamGrayScale)
+	{
+		uFnIsOneTeamGrayScale = UFunction::FindFunction("Function ProjectX.ClubUtil_X.IsOneTeamGrayScale");
+	}
+
+	UClubUtil_X_execIsOneTeamGrayScale_Params IsOneTeamGrayScale_Params;
+	memcpy_s(&IsOneTeamGrayScale_Params.Pos0Column, sizeof(IsOneTeamGrayScale_Params.Pos0Column), &Pos0Column, sizeof(Pos0Column));
+	memcpy_s(&IsOneTeamGrayScale_Params.Pos1Column, sizeof(IsOneTeamGrayScale_Params.Pos1Column), &Pos1Column, sizeof(Pos1Column));
+
+	UClubUtil_X::StaticClass()->ProcessEvent(uFnIsOneTeamGrayScale, &IsOneTeamGrayScale_Params, nullptr);
+
+	return IsOneTeamGrayScale_Params.ReturnValue;
+};
+
 // Function ProjectX.ClubUtil_X.Wrap
 // [0x00042003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Static | FUNC_Private | FUNC_AllFlags)
 // Parameter Info:
@@ -38559,6 +38802,33 @@ struct FClubColorSet UClubUtil_X::SwapPrimaryAccentColors(struct FClubColorSet C
 	UClubUtil_X::StaticClass()->ProcessEvent(uFnSwapPrimaryAccentColors, &SwapPrimaryAccentColors_Params, nullptr);
 
 	return SwapPrimaryAccentColors_Params.ReturnValue;
+};
+
+// Function ProjectX.ClubUtil_X.AreColorsDifferent2D
+// [0x00822003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Static | FUNC_Public | FUNC_HasDefaults | FUNC_AllFlags)
+// Parameter Info:
+// bool                           ReturnValue                    (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+// class UColorPalette_X*         Palette                        (CPF_Parm)
+// int32_t                        Color0                         (CPF_Parm)
+// int32_t                        Color1                         (CPF_Parm)
+
+bool UClubUtil_X::AreColorsDifferent2D(class UColorPalette_X* Palette, int32_t Color0, int32_t Color1)
+{
+	static UFunction* uFnAreColorsDifferent2D = nullptr;
+
+	if (!uFnAreColorsDifferent2D)
+	{
+		uFnAreColorsDifferent2D = UFunction::FindFunction("Function ProjectX.ClubUtil_X.AreColorsDifferent2D");
+	}
+
+	UClubUtil_X_execAreColorsDifferent2D_Params AreColorsDifferent2D_Params;
+	memcpy_s(&AreColorsDifferent2D_Params.Palette, sizeof(AreColorsDifferent2D_Params.Palette), &Palette, sizeof(Palette));
+	memcpy_s(&AreColorsDifferent2D_Params.Color0, sizeof(AreColorsDifferent2D_Params.Color0), &Color0, sizeof(Color0));
+	memcpy_s(&AreColorsDifferent2D_Params.Color1, sizeof(AreColorsDifferent2D_Params.Color1), &Color1, sizeof(Color1));
+
+	UClubUtil_X::StaticClass()->ProcessEvent(uFnAreColorsDifferent2D, &AreColorsDifferent2D_Params, nullptr);
+
+	return AreColorsDifferent2D_Params.ReturnValue;
 };
 
 // Function ProjectX.ClubUtil_X.AreColorsDifferent
@@ -41608,6 +41878,26 @@ class URPC_GetPlayerClubDetails_X* URPC_GetPlayerClubDetails_X::SetPlayerID(stru
 	return SetPlayerID_Params.ReturnValue;
 };
 
+// Function ProjectX.__OnlineGame_X__CheckPsyNetConnection_0x1.__OnlineGame_X__CheckPsyNetConnection_0x2
+// [0x00020003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Public | FUNC_AllFlags)
+// Parameter Info:
+// class UOnlinePlayerAuthentication_X* Auth                           (CPF_Parm)
+
+void U__OnlineGame_X__CheckPsyNetConnection_0x1::__OnlineGame_X__CheckPsyNetConnection_0x2(class UOnlinePlayerAuthentication_X* Auth)
+{
+	static UFunction* uFn__OnlineGame_X__CheckPsyNetConnection_0x2 = nullptr;
+
+	if (!uFn__OnlineGame_X__CheckPsyNetConnection_0x2)
+	{
+		uFn__OnlineGame_X__CheckPsyNetConnection_0x2 = UFunction::FindFunction("Function ProjectX.__OnlineGame_X__CheckPsyNetConnection_0x1.__OnlineGame_X__CheckPsyNetConnection_0x2");
+	}
+
+	U__OnlineGame_X__CheckPsyNetConnection_0x1_exec__OnlineGame_X__CheckPsyNetConnection_0x2_Params __OnlineGame_X__CheckPsyNetConnection_0x2_Params;
+	memcpy_s(&__OnlineGame_X__CheckPsyNetConnection_0x2_Params.Auth, sizeof(__OnlineGame_X__CheckPsyNetConnection_0x2_Params.Auth), &Auth, sizeof(Auth));
+
+	this->ProcessEvent(uFn__OnlineGame_X__CheckPsyNetConnection_0x2, &__OnlineGame_X__CheckPsyNetConnection_0x2_Params, nullptr);
+};
+
 // Function ProjectX.__OnlineGame_X__CheckPsyNetConnection_0x1.__OnlineGame_X__CheckPsyNetConnection_0x1
 // [0x00020003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Public | FUNC_AllFlags)
 // Parameter Info:
@@ -43059,6 +43349,24 @@ void UOnlineGameMatchmakingBase_X::HandleRegionsPinged(class UOnlineGameRegions_
 	this->ProcessEvent(uFnHandleRegionsPinged, &HandleRegionsPinged_Params, nullptr);
 };
 
+// Function ProjectX.OnlineGameMatchmakingBase_X.StartSearchingAfterDelay
+// [0x00020003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Public | FUNC_AllFlags)
+// Parameter Info:
+
+void UOnlineGameMatchmakingBase_X::StartSearchingAfterDelay()
+{
+	static UFunction* uFnStartSearchingAfterDelay = nullptr;
+
+	if (!uFnStartSearchingAfterDelay)
+	{
+		uFnStartSearchingAfterDelay = UFunction::FindFunction("Function ProjectX.OnlineGameMatchmakingBase_X.StartSearchingAfterDelay");
+	}
+
+	UOnlineGameMatchmakingBase_X_execStartSearchingAfterDelay_Params StartSearchingAfterDelay_Params;
+
+	this->ProcessEvent(uFnStartSearchingAfterDelay, &StartSearchingAfterDelay_Params, nullptr);
+};
+
 // Function ProjectX.OnlineGameMatchmakingBase_X.HandleGameStarted
 // [0x00080003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Protected | FUNC_AllFlags)
 // Parameter Info:
@@ -43410,6 +43718,27 @@ class UOnlineGameMatchmakingBase_X* UOnlineGameMatchmakingBase_X::AddFindGameSta
 	this->ProcessEvent(uFnAddFindGameStatusChangedDelegate, &AddFindGameStatusChangedDelegate_Params, nullptr);
 
 	return AddFindGameStatusChangedDelegate_Params.ReturnValue;
+};
+
+// Function ProjectX.OnlineGameMatchmakingBase_X.EventGetMatchmakingDelaySecs
+// [0x00120001] (FUNC_Final | FUNC_Public | FUNC_Delegate | FUNC_AllFlags)
+// Parameter Info:
+// float                          ReturnValue                    (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+
+float UOnlineGameMatchmakingBase_X::EventGetMatchmakingDelaySecs()
+{
+	static UFunction* uFnEventGetMatchmakingDelaySecs = nullptr;
+
+	if (!uFnEventGetMatchmakingDelaySecs)
+	{
+		uFnEventGetMatchmakingDelaySecs = UFunction::FindFunction("Function ProjectX.OnlineGameMatchmakingBase_X.EventGetMatchmakingDelaySecs");
+	}
+
+	UOnlineGameMatchmakingBase_X_execEventGetMatchmakingDelaySecs_Params EventGetMatchmakingDelaySecs_Params;
+
+	this->ProcessEvent(uFnEventGetMatchmakingDelaySecs, &EventGetMatchmakingDelaySecs_Params, nullptr);
+
+	return EventGetMatchmakingDelaySecs_Params.ReturnValue;
 };
 
 // Function ProjectX.OnlineGameMatchmakingBase_X.EventFindGameStateChanged
@@ -68135,10 +68464,11 @@ void UCameraState_X::EndCameraState()
 };
 
 // Function ProjectX.CameraState_X.BeginCameraState
-// [0x00020000] (FUNC_Public | FUNC_AllFlags)
+// [0x00024000] (FUNC_NetMulticast | FUNC_Public | FUNC_AllFlags)
 // Parameter Info:
+// class UCameraState_X*          PreviousState                  (CPF_OptionalParm | CPF_Parm)
 
-void UCameraState_X::BeginCameraState()
+void UCameraState_X::BeginCameraState(class UCameraState_X* PreviousState)
 {
 	static UFunction* uFnBeginCameraState = nullptr;
 
@@ -68148,6 +68478,7 @@ void UCameraState_X::BeginCameraState()
 	}
 
 	UCameraState_X_execBeginCameraState_Params BeginCameraState_Params;
+	memcpy_s(&BeginCameraState_Params.PreviousState, sizeof(BeginCameraState_Params.PreviousState), &PreviousState, sizeof(PreviousState));
 
 	this->ProcessEvent(uFnBeginCameraState, &BeginCameraState_Params, nullptr);
 };
@@ -68581,10 +68912,11 @@ void UCameraState_CamActor_X::EndCameraState()
 };
 
 // Function ProjectX.CameraState_CamActor_X.BeginCameraState
-// [0x400020002] (FUNC_RequiredAPI | FUNC_Public | FUNC_NetValidate | FUNC_AllFlags)
+// [0x400024002] (FUNC_RequiredAPI | FUNC_NetMulticast | FUNC_Public | FUNC_NetValidate | FUNC_AllFlags)
 // Parameter Info:
+// class UCameraState_X*          PreviousState                  (CPF_OptionalParm | CPF_Parm)
 
-void UCameraState_CamActor_X::BeginCameraState()
+void UCameraState_CamActor_X::BeginCameraState(class UCameraState_X* PreviousState)
 {
 	static UFunction* uFnBeginCameraState = nullptr;
 
@@ -68594,6 +68926,7 @@ void UCameraState_CamActor_X::BeginCameraState()
 	}
 
 	UCameraState_CamActor_X_execBeginCameraState_Params BeginCameraState_Params;
+	memcpy_s(&BeginCameraState_Params.PreviousState, sizeof(BeginCameraState_Params.PreviousState), &PreviousState, sizeof(PreviousState));
 
 	this->ProcessEvent(uFnBeginCameraState, &BeginCameraState_Params, nullptr);
 };
@@ -82576,6 +82909,24 @@ void UPlayerActivityMetrics_X::MatchActivity(float TimeActive, float TimeInactiv
 	this->ProcessEvent(uFnMatchActivity, &MatchActivity_Params, nullptr);
 };
 
+// Function ProjectX.__PlayerController_X__CloseConnectionWithReason_0x1.__PlayerController_X__CloseConnectionWithReason_0x1
+// [0x00020003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Public | FUNC_AllFlags)
+// Parameter Info:
+
+void U__PlayerController_X__CloseConnectionWithReason_0x1::__PlayerController_X__CloseConnectionWithReason_0x1()
+{
+	static UFunction* uFn__PlayerController_X__CloseConnectionWithReason_0x1 = nullptr;
+
+	if (!uFn__PlayerController_X__CloseConnectionWithReason_0x1)
+	{
+		uFn__PlayerController_X__CloseConnectionWithReason_0x1 = UFunction::FindFunction("Function ProjectX.__PlayerController_X__CloseConnectionWithReason_0x1.__PlayerController_X__CloseConnectionWithReason_0x1");
+	}
+
+	U__PlayerController_X__CloseConnectionWithReason_0x1_exec__PlayerController_X__CloseConnectionWithReason_0x1_Params __PlayerController_X__CloseConnectionWithReason_0x1_Params;
+
+	this->ProcessEvent(uFn__PlayerController_X__CloseConnectionWithReason_0x1, &__PlayerController_X__CloseConnectionWithReason_0x1_Params, nullptr);
+};
+
 // Function ProjectX.PostProcessManager_X.GetNextPostProcessOverride
 // [0x00080003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Protected | FUNC_AllFlags)
 // Parameter Info:
@@ -84534,104 +84885,6 @@ void USmoothDynamicValue_X::eventConstruct()
 	this->ProcessEvent(uFnConstruct, &Construct_Params, nullptr);
 };
 
-// Function ProjectX.StringUtil_X.SplitStringIntoMaxSizePieces
-// [0x00022003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Static | FUNC_Public | FUNC_AllFlags)
-// Parameter Info:
-// TArray<class FString>          ReturnValue                    (CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink)
-// class FString                  OriginalString                 (CPF_Parm | CPF_NeedCtorLink)
-// int32_t                        MaxStringSize                  (CPF_Parm)
-
-TArray<class FString> UStringUtil_X::SplitStringIntoMaxSizePieces(class FString OriginalString, int32_t MaxStringSize)
-{
-	static UFunction* uFnSplitStringIntoMaxSizePieces = nullptr;
-
-	if (!uFnSplitStringIntoMaxSizePieces)
-	{
-		uFnSplitStringIntoMaxSizePieces = UFunction::FindFunction("Function ProjectX.StringUtil_X.SplitStringIntoMaxSizePieces");
-	}
-
-	UStringUtil_X_execSplitStringIntoMaxSizePieces_Params SplitStringIntoMaxSizePieces_Params;
-	memcpy_s(&SplitStringIntoMaxSizePieces_Params.OriginalString, sizeof(SplitStringIntoMaxSizePieces_Params.OriginalString), &OriginalString, sizeof(OriginalString));
-	memcpy_s(&SplitStringIntoMaxSizePieces_Params.MaxStringSize, sizeof(SplitStringIntoMaxSizePieces_Params.MaxStringSize), &MaxStringSize, sizeof(MaxStringSize));
-
-	UStringUtil_X::StaticClass()->ProcessEvent(uFnSplitStringIntoMaxSizePieces, &SplitStringIntoMaxSizePieces_Params, nullptr);
-
-	return SplitStringIntoMaxSizePieces_Params.ReturnValue;
-};
-
-// Function ProjectX.StringUtil_X.MessageCanBeCorruptedOnConversion
-// [0x00022003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Static | FUNC_Public | FUNC_AllFlags)
-// Parameter Info:
-// bool                           ReturnValue                    (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
-// class FString                  Message                        (CPF_Parm | CPF_NeedCtorLink)
-
-bool UStringUtil_X::MessageCanBeCorruptedOnConversion(class FString Message)
-{
-	static UFunction* uFnMessageCanBeCorruptedOnConversion = nullptr;
-
-	if (!uFnMessageCanBeCorruptedOnConversion)
-	{
-		uFnMessageCanBeCorruptedOnConversion = UFunction::FindFunction("Function ProjectX.StringUtil_X.MessageCanBeCorruptedOnConversion");
-	}
-
-	UStringUtil_X_execMessageCanBeCorruptedOnConversion_Params MessageCanBeCorruptedOnConversion_Params;
-	memcpy_s(&MessageCanBeCorruptedOnConversion_Params.Message, sizeof(MessageCanBeCorruptedOnConversion_Params.Message), &Message, sizeof(Message));
-
-	UStringUtil_X::StaticClass()->ProcessEvent(uFnMessageCanBeCorruptedOnConversion, &MessageCanBeCorruptedOnConversion_Params, nullptr);
-
-	return MessageCanBeCorruptedOnConversion_Params.ReturnValue;
-};
-
-// Function ProjectX.StringUtil_X.IsStringEmptyOrWhiteSpace
-// [0x00022003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Static | FUNC_Public | FUNC_AllFlags)
-// Parameter Info:
-// bool                           ReturnValue                    (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
-// class FString                  BaseString                     (CPF_Parm | CPF_NeedCtorLink)
-
-bool UStringUtil_X::IsStringEmptyOrWhiteSpace(class FString BaseString)
-{
-	static UFunction* uFnIsStringEmptyOrWhiteSpace = nullptr;
-
-	if (!uFnIsStringEmptyOrWhiteSpace)
-	{
-		uFnIsStringEmptyOrWhiteSpace = UFunction::FindFunction("Function ProjectX.StringUtil_X.IsStringEmptyOrWhiteSpace");
-	}
-
-	UStringUtil_X_execIsStringEmptyOrWhiteSpace_Params IsStringEmptyOrWhiteSpace_Params;
-	memcpy_s(&IsStringEmptyOrWhiteSpace_Params.BaseString, sizeof(IsStringEmptyOrWhiteSpace_Params.BaseString), &BaseString, sizeof(BaseString));
-
-	UStringUtil_X::StaticClass()->ProcessEvent(uFnIsStringEmptyOrWhiteSpace, &IsStringEmptyOrWhiteSpace_Params, nullptr);
-
-	return IsStringEmptyOrWhiteSpace_Params.ReturnValue;
-};
-
-// Function ProjectX.StringUtil_X.SplitStringInHalf
-// [0x00422003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Static | FUNC_Public | FUNC_HasOutParms | FUNC_AllFlags)
-// Parameter Info:
-// class FString                  OriginalString                 (CPF_Parm | CPF_NeedCtorLink)
-// class FString                  FirstHalf                      (CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
-// class FString                  SecondHalf                     (CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
-
-void UStringUtil_X::SplitStringInHalf(class FString OriginalString, class FString& FirstHalf, class FString& SecondHalf)
-{
-	static UFunction* uFnSplitStringInHalf = nullptr;
-
-	if (!uFnSplitStringInHalf)
-	{
-		uFnSplitStringInHalf = UFunction::FindFunction("Function ProjectX.StringUtil_X.SplitStringInHalf");
-	}
-
-	UStringUtil_X_execSplitStringInHalf_Params SplitStringInHalf_Params;
-	memcpy_s(&SplitStringInHalf_Params.OriginalString, sizeof(SplitStringInHalf_Params.OriginalString), &OriginalString, sizeof(OriginalString));
-	memcpy_s(&SplitStringInHalf_Params.FirstHalf, sizeof(SplitStringInHalf_Params.FirstHalf), &FirstHalf, sizeof(FirstHalf));
-	memcpy_s(&SplitStringInHalf_Params.SecondHalf, sizeof(SplitStringInHalf_Params.SecondHalf), &SecondHalf, sizeof(SecondHalf));
-
-	UStringUtil_X::StaticClass()->ProcessEvent(uFnSplitStringInHalf, &SplitStringInHalf_Params, nullptr);
-
-	memcpy_s(&FirstHalf, sizeof(FirstHalf), &SplitStringInHalf_Params.FirstHalf, sizeof(SplitStringInHalf_Params.FirstHalf));
-	memcpy_s(&SecondHalf, sizeof(SecondHalf), &SplitStringInHalf_Params.SecondHalf, sizeof(SplitStringInHalf_Params.SecondHalf));
-};
-
 // Function ProjectX.TimeWindowOptional_X.HandleWindowEnded
 // [0x00020003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Public | FUNC_AllFlags)
 // Parameter Info:
@@ -85032,6 +85285,62 @@ bool U__ServerPlayerIdCache_X__RegisterPlayer_0x1::__ServerPlayerIdCache_X__Regi
 	this->ProcessEvent(uFn__ServerPlayerIdCache_X__RegisterPlayer_0x1, &__ServerPlayerIdCache_X__RegisterPlayer_0x1_Params, nullptr);
 
 	return __ServerPlayerIdCache_X__RegisterPlayer_0x1_Params.ReturnValue;
+};
+
+// Function ProjectX.SetVisibilityComponent_X.ApplyVisibility
+// [0x00020003] (FUNC_Final | FUNC_RequiredAPI | FUNC_Public | FUNC_AllFlags)
+// Parameter Info:
+// bool                           bHidden                        (CPF_Parm)
+
+void USetVisibilityComponent_X::ApplyVisibility(bool bHidden)
+{
+	static UFunction* uFnApplyVisibility = nullptr;
+
+	if (!uFnApplyVisibility)
+	{
+		uFnApplyVisibility = UFunction::FindFunction("Function ProjectX.SetVisibilityComponent_X.ApplyVisibility");
+	}
+
+	USetVisibilityComponent_X_execApplyVisibility_Params ApplyVisibility_Params;
+	ApplyVisibility_Params.bHidden = bHidden;
+
+	this->ProcessEvent(uFnApplyVisibility, &ApplyVisibility_Params, nullptr);
+};
+
+// Function ProjectX.SetVisibilityComponent_X.Detached
+// [0x400080802] (FUNC_RequiredAPI | FUNC_Event | FUNC_Protected | FUNC_NetValidate | FUNC_AllFlags)
+// Parameter Info:
+
+void USetVisibilityComponent_X::eventDetached()
+{
+	static UFunction* uFnDetached = nullptr;
+
+	if (!uFnDetached)
+	{
+		uFnDetached = UFunction::FindFunction("Function ProjectX.SetVisibilityComponent_X.Detached");
+	}
+
+	USetVisibilityComponent_X_eventDetached_Params Detached_Params;
+
+	this->ProcessEvent(uFnDetached, &Detached_Params, nullptr);
+};
+
+// Function ProjectX.SetVisibilityComponent_X.Attached
+// [0x400080802] (FUNC_RequiredAPI | FUNC_Event | FUNC_Protected | FUNC_NetValidate | FUNC_AllFlags)
+// Parameter Info:
+
+void USetVisibilityComponent_X::eventAttached()
+{
+	static UFunction* uFnAttached = nullptr;
+
+	if (!uFnAttached)
+	{
+		uFnAttached = UFunction::FindFunction("Function ProjectX.SetVisibilityComponent_X.Attached");
+	}
+
+	USetVisibilityComponent_X_eventAttached_Params Attached_Params;
+
+	this->ProcessEvent(uFnAttached, &Attached_Params, nullptr);
 };
 
 /*

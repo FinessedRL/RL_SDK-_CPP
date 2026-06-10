@@ -2198,11 +2198,12 @@ struct FShakeReceiver
 };
 
 // ScriptStruct ProjectX.SystemMetrics_X.OSMetrics
-// 0x0020
+// 0x0030
 struct FOSMetrics
 {
 	class FString                                      Type;                                          // 0x0000 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
 	class FString                                      Bits;                                          // 0x0010 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
+	class FString                                      Native;                                        // 0x0020 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
 };
 
 // ScriptStruct ProjectX.SystemMetrics_X.CpuMetrics

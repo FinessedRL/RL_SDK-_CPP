@@ -1570,6 +1570,39 @@ enum class EContentKeyIndex_ContinuousIntegration : uint8_t
 	ContinuousIntegration_END                          = 4
 };
 
+// Enum Core._Types_Generated.EContentKeyIndex_PrimeUpdate59
+enum class EContentKeyIndex_PrimeUpdate59 : uint8_t
+{
+	PrimeUpdate59_FDB1CD2A7CB6517E388713EF59C60C5D     = 0,
+	PrimeUpdate59_0F637C13433857F5AF75127D6377C45D     = 1,
+	PrimeUpdate59_E8BE978E0AB20F00CD67B714A7E47284     = 2,
+	PrimeUpdate59_B6C9B69C030BC04466A021C2684C715A     = 3,
+	PrimeUpdate59_4D0D414E063EE6F771F0F3F0B6224DEC     = 4,
+	PrimeUpdate59_55E85A676D853784068DA62178AFB60F     = 5,
+	PrimeUpdate59_73F4E89E4933BB52368E263D78DD026A     = 6,
+	PrimeUpdate59_25ECC11967AC82D0B71F18FE07EE9A2D     = 7,
+	PrimeUpdate59_3204120809628B6FDBEB1192FF49B677     = 8,
+	PrimeUpdate59_A3D9F5898BB7555E8E571012EAAED078     = 9,
+	PrimeUpdate59_C939A6CDDDC026AA81D4965BE5D81762     = 10,
+	PrimeUpdate59_3CD948362E9DA8347151F7CABE00ED04     = 11,
+	PrimeUpdate59_431C64B6B75D5C8CEC48862AF2ABFF2E     = 12,
+	PrimeUpdate59_E076EBADF11D37D338A4640906EE7209     = 13,
+	PrimeUpdate59_2BBF2C77EF1935BB18A69B1430D57F0F     = 14,
+	PrimeUpdate59_635ECB2A12743E169C1B35A6493D63C9     = 15,
+	PrimeUpdate59_D257DF4A5897C55A75AD9592F308AAC5     = 16,
+	PrimeUpdate59_F477BF091EFE196F3CC62F427D9EE195     = 17,
+	PrimeUpdate59_B0BE4329B002806870532C4A3B73BB7C     = 18,
+	PrimeUpdate59_66B2D161AAB37A0C78E6513AB429D129     = 19,
+	PrimeUpdate59_649CB7E7B14E1E597C0CA0D91747AE9E     = 20,
+	PrimeUpdate59_EB60A0FAEDB4B6E6F5E4038CCD670054     = 21,
+	PrimeUpdate59_FB8650A999D5E7C19222C3F24311ED8E     = 22,
+	PrimeUpdate59_B601ECE5C9151E37590973A58DC0EBA6     = 23,
+	PrimeUpdate59_39E72FD34B7EA9DC466C8CA5A769B5F6     = 24,
+	PrimeUpdate59_5B6C3F332D26CDA141D63410EBB1269E     = 25,
+	PrimeUpdate59_B9697D65225100541480F944500C845D     = 26,
+	PrimeUpdate59_END                                  = 27
+};
+
 // Enum Core._Types_Generated.EContentKeyIndex_PrimeUpdate58
 enum class EContentKeyIndex_PrimeUpdate58_0 : uint8_t
 {
@@ -3415,16 +3448,24 @@ public:
 	uint32_t                                           Thistle : 1;                                   // 0x0078 (0x0004) [0x0000000040000000] [0x04000000] (CPF_EditInlineNotify)
 	uint32_t                                           DemoFXMutator : 1;                             // 0x0078 (0x0004) [0x0000000040000000] [0x08000000] (CPF_EditInlineNotify)
 	uint32_t                                           OffProdHandling : 1;                           // 0x0078 (0x0004) [0x0000000040000000] [0x10000000] (CPF_EditInlineNotify)
-	uint32_t                                           CustomTrainingSettings : 1;                    // 0x0078 (0x0004) [0x0000000040000000] [0x20000000] (CPF_EditInlineNotify)
-	uint32_t                                           FlipResetIndicator : 1;                        // 0x0078 (0x0004) [0x0000000040000000] [0x80000000] (CPF_EditInlineNotify)
-	uint32_t                                           NewsOverhaul : 1;                              // 0x007C (0x0004) [0x0000000040000000] [0x00000001] (CPF_EditInlineNotify)
-	uint32_t                                           QueueMenuChanges : 1;                          // 0x007C (0x0004) [0x0000000040000000] [0x00000002] (CPF_EditInlineNotify)
-	uint32_t                                           VisibleMMR : 1;                                // 0x007C (0x0004) [0x0000000040000000] [0x00000004] (CPF_EditInlineNotify)
-	uint32_t                                           EasyAntiCheat : 1;                             // 0x007C (0x0004) [0x0000000040000000] [0x00000008] (CPF_EditInlineNotify)
-	uint32_t                                           OverrideBoostSound : 1;                        // 0x007C (0x0004) [0x0000000040000000] [0x00000010] (CPF_EditInlineNotify)
-	uint32_t                                           SettingsExport : 1;                            // 0x007C (0x0004) [0x0000000040000000] [0x00000020] (CPF_EditInlineNotify)
-	uint32_t                                           FreeplayTeamColors : 1;                        // 0x007C (0x0004) [0x0000000040000000] [0x00000400] (CPF_EditInlineNotify)
-	uint32_t                                           StatsAPI : 1;                                  // 0x007C (0x0004) [0x0000000040000000] [0x00001000] (CPF_EditInlineNotify)
+	uint32_t                                           FlipResetIndicator : 1;                        // 0x0078 (0x0004) [0x0000000040000000] [0x40000000] (CPF_EditInlineNotify)
+	uint32_t                                           NewsOverhaul : 1;                              // 0x0078 (0x0004) [0x0000000040000000] [0x80000000] (CPF_EditInlineNotify)
+	uint32_t                                           QueueMenuChanges : 1;                          // 0x007C (0x0004) [0x0000000040000000] [0x00000001] (CPF_EditInlineNotify)
+	uint32_t                                           VisibleMMR : 1;                                // 0x007C (0x0004) [0x0000000040000000] [0x00000002] (CPF_EditInlineNotify)
+	uint32_t                                           EasyAntiCheat : 1;                             // 0x007C (0x0004) [0x0000000040000000] [0x00000004] (CPF_EditInlineNotify)
+	uint32_t                                           OverrideBoostSound : 1;                        // 0x007C (0x0004) [0x0000000040000000] [0x00000008] (CPF_EditInlineNotify)
+	uint32_t                                           SettingsExport : 1;                            // 0x007C (0x0004) [0x0000000040000000] [0x00000010] (CPF_EditInlineNotify)
+	uint32_t                                           RBActorStatGraphs : 1;                         // 0x007C (0x0004) [0x0000000040000000] [0x00000080] (CPF_EditInlineNotify)
+	uint32_t                                           DemoSpawnSelection : 1;                        // 0x007C (0x0004) [0x0000000040000000] [0x00000100] (CPF_EditInlineNotify)
+	uint32_t                                           FreeplayTeamColors : 1;                        // 0x007C (0x0004) [0x0000000040000000] [0x00000200] (CPF_EditInlineNotify)
+	uint32_t                                           HitboxVisualizer : 1;                          // 0x007C (0x0004) [0x0000000040000000] [0x00000400] (CPF_EditInlineNotify)
+	uint32_t                                           StatsAPI : 1;                                  // 0x007C (0x0004) [0x0000000040000000] [0x00000800] (CPF_EditInlineNotify)
+	uint32_t                                           TrainingAdditions : 1;                         // 0x007C (0x0004) [0x0000000040000000] [0x00001000] (CPF_EditInlineNotify)
+	uint32_t                                           ScorerGoalViewToggle : 1;                      // 0x007C (0x0004) [0x0000000040000000] [0x00002000] (CPF_EditInlineNotify)
+	uint32_t                                           StreamerSafe : 1;                              // 0x007C (0x0004) [0x0000000040000000] [0x00004000] (CPF_EditInlineNotify)
+	uint32_t                                           WorldCup : 1;                                  // 0x007C (0x0004) [0x0000000040000000] [0x00008000] (CPF_EditInlineNotify)
+	uint32_t                                           ImprovedPresence : 1;                          // 0x007C (0x0004) [0x0000000040000000] [0x00040000] (CPF_EditInlineNotify)
+	uint32_t                                           AutoSkipGoalReplay : 1;                        // 0x007C (0x0004) [0x0000000040000000] [0x00080000] (CPF_EditInlineNotify)
 
 public:
 	static UClass* StaticClass()

@@ -2717,6 +2717,13 @@ struct AWorldInfo_execIsWithGFx_Params
 	bool                                               ReturnValue : 1;                                  		// 0x0000 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
+// Function Engine.WorldInfo.IsSteamDeck
+// [0x00022501] 
+struct AWorldInfo_execIsSteamDeck_Params
+{
+	bool                                               ReturnValue : 1;                                  		// 0x0000 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+};
+
 // Function Engine.WorldInfo.IsEpicGamesStoreBuild
 // [0x00022501] 
 struct AWorldInfo_execIsEpicGamesStoreBuild_Params
@@ -15941,6 +15948,13 @@ struct UOnlineSubsystem_execGetOnlinePlatformFromName_Params
 	EOnlinePlatform                                    ReturnValue;                                      		// 0x0010 (0x0001) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 	// uint8_t                                            PlatformType;                                     		// 0x0011 (0x0001) [0x0000000000000000]               
 	// int32_t                                            Index;                                            		// 0x0014 (0x0004) [0x0000000000000000]               
+};
+
+// Function Engine.OnlineSubsystem.GetOSVersionString
+// [0x00022401] 
+struct UOnlineSubsystem_execGetOSVersionString_Params
+{
+	class FString                                      ReturnValue;                                      		// 0x0000 (0x0010) [0x0000000000400580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink)
 };
 
 // Function Engine.OnlineSubsystem.GetNativePlatformName
