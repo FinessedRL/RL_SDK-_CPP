@@ -87006,6 +87006,9 @@ public:
 	void Tick(float DeltaTime);
 	void EndCameraState();
 	void BeginCameraState(class UCameraState_X* InPrevState);
+	void OverrideBlendParams(struct FViewTargetTransitionParams& Params);
+	struct FViewTargetTransitionParams GetEndBlendParams(class UCameraState_X* NewState);
+	struct FViewTargetTransitionParams GetStartBlendParams(class UCameraState_X* NewState);
 	bool ShouldExecute();
 };
 

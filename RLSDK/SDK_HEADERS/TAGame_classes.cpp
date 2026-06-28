@@ -350388,6 +350388,74 @@ void UCameraState_ScorerLiveReplay_TA::BeginCameraState(class UCameraState_X* In
 	this->ProcessEvent(uFnBeginCameraState, &BeginCameraState_Params, nullptr);
 };
 
+// Function TAGame.CameraState_ScorerLiveReplay_TA.OverrideBlendParams
+// [0x400C20002] (FUNC_RequiredAPI | FUNC_Public | FUNC_HasOutParms | FUNC_HasDefaults | FUNC_NetValidate | FUNC_AllFlags)
+// Parameter Info:
+// struct FViewTargetTransitionParams Params                         (CPF_Parm | CPF_OutParm)
+
+void UCameraState_ScorerLiveReplay_TA::OverrideBlendParams(struct FViewTargetTransitionParams& Params)
+{
+	static UFunction* uFnOverrideBlendParams = nullptr;
+
+	if (!uFnOverrideBlendParams)
+	{
+		uFnOverrideBlendParams = UFunction::FindFunction("Function TAGame.CameraState_ScorerLiveReplay_TA.OverrideBlendParams");
+	}
+
+	UCameraState_ScorerLiveReplay_TA_execOverrideBlendParams_Params OverrideBlendParams_Params;
+	memcpy_s(&OverrideBlendParams_Params.Params, sizeof(OverrideBlendParams_Params.Params), &Params, sizeof(Params));
+
+	this->ProcessEvent(uFnOverrideBlendParams, &OverrideBlendParams_Params, nullptr);
+
+	memcpy_s(&Params, sizeof(Params), &OverrideBlendParams_Params.Params, sizeof(OverrideBlendParams_Params.Params));
+};
+
+// Function TAGame.CameraState_ScorerLiveReplay_TA.GetEndBlendParams
+// [0x400820002] (FUNC_RequiredAPI | FUNC_Public | FUNC_HasDefaults | FUNC_NetValidate | FUNC_AllFlags)
+// Parameter Info:
+// struct FViewTargetTransitionParams ReturnValue                    (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+// class UCameraState_X*          NewState                       (CPF_Parm)
+
+struct FViewTargetTransitionParams UCameraState_ScorerLiveReplay_TA::GetEndBlendParams(class UCameraState_X* NewState)
+{
+	static UFunction* uFnGetEndBlendParams = nullptr;
+
+	if (!uFnGetEndBlendParams)
+	{
+		uFnGetEndBlendParams = UFunction::FindFunction("Function TAGame.CameraState_ScorerLiveReplay_TA.GetEndBlendParams");
+	}
+
+	UCameraState_ScorerLiveReplay_TA_execGetEndBlendParams_Params GetEndBlendParams_Params;
+	memcpy_s(&GetEndBlendParams_Params.NewState, sizeof(GetEndBlendParams_Params.NewState), &NewState, sizeof(NewState));
+
+	this->ProcessEvent(uFnGetEndBlendParams, &GetEndBlendParams_Params, nullptr);
+
+	return GetEndBlendParams_Params.ReturnValue;
+};
+
+// Function TAGame.CameraState_ScorerLiveReplay_TA.GetStartBlendParams
+// [0x400820002] (FUNC_RequiredAPI | FUNC_Public | FUNC_HasDefaults | FUNC_NetValidate | FUNC_AllFlags)
+// Parameter Info:
+// struct FViewTargetTransitionParams ReturnValue                    (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+// class UCameraState_X*          NewState                       (CPF_Parm)
+
+struct FViewTargetTransitionParams UCameraState_ScorerLiveReplay_TA::GetStartBlendParams(class UCameraState_X* NewState)
+{
+	static UFunction* uFnGetStartBlendParams = nullptr;
+
+	if (!uFnGetStartBlendParams)
+	{
+		uFnGetStartBlendParams = UFunction::FindFunction("Function TAGame.CameraState_ScorerLiveReplay_TA.GetStartBlendParams");
+	}
+
+	UCameraState_ScorerLiveReplay_TA_execGetStartBlendParams_Params GetStartBlendParams_Params;
+	memcpy_s(&GetStartBlendParams_Params.NewState, sizeof(GetStartBlendParams_Params.NewState), &NewState, sizeof(NewState));
+
+	this->ProcessEvent(uFnGetStartBlendParams, &GetStartBlendParams_Params, nullptr);
+
+	return GetStartBlendParams_Params.ReturnValue;
+};
+
 // Function TAGame.CameraState_ScorerLiveReplay_TA.ShouldExecute
 // [0x400020002] (FUNC_RequiredAPI | FUNC_Public | FUNC_NetValidate | FUNC_AllFlags)
 // Parameter Info:

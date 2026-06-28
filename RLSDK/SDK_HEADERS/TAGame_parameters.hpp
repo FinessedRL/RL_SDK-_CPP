@@ -133161,6 +133161,32 @@ struct UCameraState_ScorerLiveReplay_TA_execBeginCameraState_Params
 	class UCameraState_X*                              InPrevState;                                      		// 0x0000 (0x0008) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
 };
 
+// Function TAGame.CameraState_ScorerLiveReplay_TA.OverrideBlendParams
+// [0x400C20002] 
+struct UCameraState_ScorerLiveReplay_TA_execOverrideBlendParams_Params
+{
+	struct FViewTargetTransitionParams                 Params;                                           		// 0x0000 (0x0010) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
+	// struct FViewTargetTransitionParams                 NewParams;                                        		// 0x0010 (0x0010) [0x0000000000000000]               
+};
+
+// Function TAGame.CameraState_ScorerLiveReplay_TA.GetEndBlendParams
+// [0x400820002] 
+struct UCameraState_ScorerLiveReplay_TA_execGetEndBlendParams_Params
+{
+	class UCameraState_X*                              NewState;                                         		// 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
+	struct FViewTargetTransitionParams                 ReturnValue;                                      		// 0x0008 (0x0010) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+	// struct FViewTargetTransitionParams                 NewParams;                                        		// 0x0018 (0x0010) [0x0000000000000000]               
+};
+
+// Function TAGame.CameraState_ScorerLiveReplay_TA.GetStartBlendParams
+// [0x400820002] 
+struct UCameraState_ScorerLiveReplay_TA_execGetStartBlendParams_Params
+{
+	class UCameraState_X*                              NewState;                                         		// 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
+	struct FViewTargetTransitionParams                 ReturnValue;                                      		// 0x0008 (0x0010) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+	// struct FViewTargetTransitionParams                 NewParams;                                        		// 0x0018 (0x0010) [0x0000000000000000]               
+};
+
 // Function TAGame.CameraState_ScorerLiveReplay_TA.ShouldExecute
 // [0x400020002] 
 struct UCameraState_ScorerLiveReplay_TA_execShouldExecute_Params
